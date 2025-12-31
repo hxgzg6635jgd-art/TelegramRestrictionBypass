@@ -19,6 +19,10 @@
 
 ### 🎯 Built with Pyrogram • ⚡ High Performance • 🛡️ FloodWait Protection
 
+**Developed by [@Paidguy](https://github.com/Paidguy)**
+
+*Enhanced version based on [RestrictedContentDL](https://github.com/bisnuray/RestrictedContentDL) by [@bisnuray](https://github.com/bisnuray)*
+
 </div>
 
 ---
@@ -27,6 +31,7 @@
 
 - [✨ Features](#-features)
 - [🎬 Demo](#-demo)
+- [🙏 Acknowledgments](#-acknowledgments)
 - [🔧 Installation](#-installation)
 - [⚙️ Configuration](#️-configuration)
 - [🚀 Deployment](#-deployment)
@@ -85,6 +90,46 @@ graph LR
 1. 📤 **Send** - Forward any Telegram message link
 2. ⚙️ **Process** - Bot handles download and processing
 3. 📥 **Receive** - Get your content instantly
+
+---
+
+## 🙏 Acknowledgments
+
+This project is an enhanced and optimized version built upon the excellent work of:
+
+<div align="center">
+
+### Original Project: [RestrictedContentDL](https://github.com/bisnuray/RestrictedContentDL)
+**Created by [@bisnuray](https://github.com/bisnuray) (Bisnu Ray)**
+
+[![Original Repo](https://img.shields.io/badge/Original-RestrictedContentDL-blue?style=for-the-badge&logo=github)](https://github.com/bisnuray/RestrictedContentDL)
+[![Telegram](https://img.shields.io/badge/Contact-@itsSmartDev-0088cc?style=for-the-badge&logo=telegram)](https://t.me/itsSmartDev)
+
+</div>
+
+### What's New in This Version
+
+This fork adds several production-ready enhancements:
+
+| Enhancement | Description |
+|-------------|-------------|
+| 🚀 **Performance Optimization** | Improved async processing and queue management |
+| 🔄 **Multi-Account Rotation** | Advanced account switching to prevent rate limits |
+| 🛡️ **Enhanced FloodWait** | Smarter retry logic with exponential backoff |
+| ☁️ **Cloud Deployment** | Optimized for AWS, VPS, and Docker environments |
+| 🧹 **Auto-Cleanup** | Intelligent storage management and temp file removal |
+| ⚡ **TgCrypto Acceleration** | Maximum speed for encryption/decryption |
+| 📊 **Advanced Logging** | Detailed operation tracking and debugging |
+| 🔐 **Security Improvements** | Enhanced session management and error handling |
+
+### Credits & Attribution
+
+We extend our gratitude to:
+- **[@bisnuray](https://github.com/bisnuray)** - For creating the original RestrictedContentDL bot that served as the foundation
+- **Pyrogram Team** - For the excellent MTProto framework
+- **Open Source Community** - For continuous support and contributions
+
+> 💡 If you appreciate the original work, please visit [RestrictedContentDL](https://github.com/bisnuray/RestrictedContentDL) and give it a ⭐ star!
 
 ---
 
@@ -493,6 +538,25 @@ See [LICENSE](LICENSE) file for full details.
 
 ---
 
+## 👨‍💻 Developer
+
+<div align="center">
+
+**Created & Maintained by [@Paidguy](https://github.com/Paidguy)**
+
+*Enhanced version based on [RestrictedContentDL](https://github.com/bisnuray/RestrictedContentDL) by [@bisnuray](https://github.com/bisnuray)*
+
+[![GitHub](https://img.shields.io/badge/GitHub-@Paidguy-181717?style=for-the-badge&logo=github)](https://github.com/Paidguy)
+[![Telegram](https://img.shields.io/badge/Telegram-@Paidguy-0088cc?style=for-the-badge&logo=telegram)](https://t.me/paidguy)
+
+*Special thanks to [@bisnuray](https://github.com/bisnuray) for the original codebase*
+
+*If you found this project helpful, consider giving both repos a ⭐ star!*
+
+</div>
+
+---
+
 ## 📞 Support & Resources
 
 <div align="center">
@@ -679,7 +743,11 @@ Do not use this software if you have any doubts about its legality in your situa
 
 ### 💙 Built with Pyrogram | ⚡ Powered by Python | 🛡️ Use Responsibly
 
-**Star ⭐ this repo if you found it helpful for learning purposes!**
+**Developed by [@Paidguy](https://github.com/Paidguy)**
+
+**Based on [RestrictedContentDL](https://github.com/bisnuray/RestrictedContentDL) by [@bisnuray](https://github.com/bisnuray)**
+
+**Star ⭐ both repos if you found them helpful!**
 
 ---
 
