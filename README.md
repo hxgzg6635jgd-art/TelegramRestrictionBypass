@@ -1,193 +1,688 @@
-# TelegramRestrictionBypass
+<div align="center">
 
-[![Python Version](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/)
-[![Library](https://img.shields.io/badge/library-Pyrogram-orange)](https://docs.pyrogram.org/)
-[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+# 🚀 TelegramRestrictionBypass
 
-## ⚠️ LEGAL DISCLAIMER & WARNING
+### *A Powerful Telegram Content Management Bot*
 
-**READ THIS CAREFULLY BEFORE USING THIS SOFTWARE**
+[![Python Version](https://img.shields.io/badge/python-3.11%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
+[![Pyrogram](https://img.shields.io/badge/library-Pyrogram%202.0-orange?style=for-the-badge)](https://docs.pyrogram.org/)
+[![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)](LICENSE)
+[![Docker](https://img.shields.io/badge/docker-ready-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
 
-This software is provided **FOR EDUCATIONAL AND RESEARCH PURPOSES ONLY**. By downloading, installing, or using this software, you acknowledge and agree to the following:
-
-### Legal & Ethical Warnings
-
-1. **Telegram Terms of Service**: Using this software may violate [Telegram's Terms of Service](https://telegram.org/tos). Telegram explicitly prohibits bypassing content restrictions and security features.
-
-2. **Copyright Infringement**: Downloading, copying, or redistributing restricted content may violate copyright laws in your jurisdiction. Content creators use restrictions to protect their intellectual property rights.
-
-3. **Legal Liability**: Users of this software are **solely responsible** for ensuring their use complies with all applicable local, national, and international laws. This includes but is not limited to:
-   - Copyright and intellectual property laws
-   - Digital Millennium Copyright Act (DMCA) in the United States
-   - EU Copyright Directive
-   - Computer Fraud and Abuse Act
-   - Other anti-circumvention legislation
-
-4. **Account Bans**: Using this software may result in permanent suspension or termination of your Telegram account(s).
-
-5. **Criminal Penalties**: In some jurisdictions, circumventing access controls or technological protection measures may result in criminal prosecution, fines, and imprisonment.
-
-### No Warranty or Liability
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. THE AUTHORS AND COPYRIGHT HOLDERS:
-
-- **DISCLAIM ALL LIABILITY** for any damages, losses, or legal consequences arising from the use or misuse of this software
-- **DO NOT ENCOURAGE, ENDORSE, OR CONDONE** any illegal use of this software
-- **ARE NOT RESPONSIBLE** for how you choose to use this software
-- **PROVIDE NO LEGAL PROTECTION** or defense for users who face legal action
-
-### User Responsibility
-
-**YOU ARE SOLELY RESPONSIBLE FOR:**
-- Understanding and complying with all applicable laws in your jurisdiction
-- Obtaining proper authorization before accessing or downloading content
-- Respecting content creators' rights and restrictions
-- Any legal consequences that result from your use of this software
-- Any account suspensions or bans
-
-### Recommended Legal Use Cases
-
-This software should only be used for:
-- **Educational research** into Telegram API functionality
-- **Personal archival** of content you own or have explicit permission to download
-- **Security research** with proper authorization
-- **Backup purposes** for your own content
-
-**DO NOT USE THIS SOFTWARE TO:**
-- Pirate or redistribute copyrighted content
-- Bypass restrictions on content you don't own
-- Violate any platform's terms of service
-- Engage in any illegal activity
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Active-success?style=flat-square" alt="Status">
+  <img src="https://img.shields.io/badge/Maintained-Yes-success?style=flat-square" alt="Maintained">
+  <img src="https://img.shields.io/badge/Platform-AWS%20%7C%20VPS-lightgrey?style=flat-square" alt="Platform">
+</p>
 
 ---
 
-## 📋 Overview
+### 🎯 Built with Pyrogram • ⚡ High Performance • 🛡️ FloodWait Protection
 
-This is a Python-based bot built with Pyrogram that demonstrates how content restrictions work on Telegram. It shows the technical process of downloading and re-uploading media from channels where saving is restricted.
+</div>
 
-### Features
+---
 
-- Asynchronous content processing
-- FloodWait handling to manage rate limits
-- Multi-account rotation support
-- Automatic cleanup of temporary files
-- Built with Pyrogram 2.0 and TgCrypto for performance
+## 📋 Table of Contents
 
-## 🔧 Technical Requirements
+- [✨ Features](#-features)
+- [🎬 Demo](#-demo)
+- [🔧 Installation](#-installation)
+- [⚙️ Configuration](#️-configuration)
+- [🚀 Deployment](#-deployment)
+- [📖 Usage Guide](#-usage-guide)
+- [🏗️ Architecture](#️-architecture)
+- [🛠️ Troubleshooting](#️-troubleshooting)
+- [🤝 Contributing](#-contributing)
+- [📜 License](#-license)
+- [⚠️ Legal Disclaimer](#️-legal-disclaimer)
 
-- Python 3.11 or higher
-- Telegram API credentials (API_ID and API_HASH from [my.telegram.org](https://my.telegram.org))
-- Session string for authentication
-- Sufficient server storage and bandwidth
+---
 
-## 📦 Installation
+## ✨ Features
 
-### 1. Clone the Repository
+<table>
+<tr>
+<td width="50%">
+
+### 🔥 Core Features
+- 🎯 **Smart Content Processing** - Handles media, documents, and files
+- 🔄 **Multi-Account Rotation** - Prevents rate limiting
+- ⚡ **High-Speed Transfers** - TgCrypto acceleration
+- 🛡️ **FloodWait Protection** - Intelligent retry mechanisms
+- 🧹 **Auto Cleanup** - Prevents disk space issues
+
+</td>
+<td width="50%">
+
+### 💎 Advanced Capabilities
+- 📦 **Batch Processing** - Queue multiple requests
+- 🔐 **Secure Sessions** - Encrypted string storage
+- 🌐 **Cloud Optimized** - AWS & VPS ready
+- 📊 **Detailed Logging** - Track all operations
+- 🐳 **Docker Support** - Easy containerization
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🎬 Demo
+
+### How It Works
+
+```mermaid
+graph LR
+    A[👤 User] -->|Sends Link| B[🤖 Bot]
+    B -->|Downloads| C[☁️ Server]
+    C -->|Processes| D[📦 Media]
+    D -->|Uploads| E[👤 User]
+    C -->|Cleans| F[🗑️ Trash]
+```
+
+**Simple 3-Step Process:**
+1. 📤 **Send** - Forward any Telegram message link
+2. ⚙️ **Process** - Bot handles download and processing
+3. 📥 **Receive** - Get your content instantly
+
+---
+
+## 🔧 Installation
+
+### Prerequisites
 
 ```bash
-git clone https://github.com/Paidguy/TelegramRestrictionBypass
+✅ Python 3.11 or higher
+✅ Telegram API Credentials (API_ID & API_HASH)
+✅ Bot Token from @BotFather
+✅ Sufficient storage space (500MB+ recommended)
+```
+
+### Quick Start
+
+<details>
+<summary>📦 <b>Method 1: Standard Installation</b></summary>
+
+```bash
+# Clone the repository
+git clone https://github.com/Paidguy/TelegramRestrictionBypass.git
 cd TelegramRestrictionBypass
-```
 
-### 2. Install Dependencies
-
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
 
-### 3. Configure Environment Variables
+# Configure your environment
+cp config.env.example config.env
+nano config.env
 
-Create a `.env` file or edit `config.env`:
-
-```env
-API_ID=your_api_id
-API_HASH=your_api_hash
-BOT_TOKEN=your_bot_token
-SESSION_STRING=your_session_string
-```
-
-### 4. Deploy
-
-**For development:**
-```bash
+# Run the bot
 python main.py
 ```
 
-**For production (with screen):**
+</details>
+
+<details>
+<summary>🐳 <b>Method 2: Docker Installation</b></summary>
+
 ```bash
+# Clone the repository
+git clone https://github.com/Paidguy/TelegramRestrictionBypass.git
+cd TelegramRestrictionBypass
+
+# Configure environment
+cp config.env.example config.env
+nano config.env
+
+# Build and run with Docker Compose
+docker-compose up -d
+
+# View logs
+docker-compose logs -f
+```
+
+</details>
+
+<details>
+<summary>☁️ <b>Method 3: AWS Deployment</b></summary>
+
+```bash
+# SSH into your EC2 instance
+ssh -i your-key.pem ubuntu@your-ec2-ip
+
+# Install Python 3.11
+sudo apt update && sudo apt install python3.11 python3-pip -y
+
+# Clone and setup
+git clone https://github.com/Paidguy/TelegramRestrictionBypass.git
+cd TelegramRestrictionBypass
+pip install -r requirements.txt
+
+# Configure
+nano config.env
+
+# Run with screen (for background operation)
 screen -S telegram_bot
 python main.py
 # Press Ctrl+A then D to detach
 ```
 
-**Using Docker:**
+</details>
+
+---
+
+## ⚙️ Configuration
+
+### Environment Variables
+
+Create or edit `config.env`:
+
+```env
+# ═══════════════════════════════════════
+# 🔑 TELEGRAM API CREDENTIALS
+# ═══════════════════════════════════════
+API_ID=12345678
+API_HASH=your_api_hash_here
+BOT_TOKEN=123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11
+
+# ═══════════════════════════════════════
+# 🔐 SESSION CONFIGURATION
+# ═══════════════════════════════════════
+SESSION_STRING=your_session_string_here
+
+# ═══════════════════════════════════════
+# ⚙️ PERFORMANCE SETTINGS
+# ═══════════════════════════════════════
+MAX_CONCURRENT_DOWNLOADS=3
+AUTO_DELETE_TIMEOUT=3600
+FLOOD_WAIT_MULTIPLIER=1.2
+
+# ═══════════════════════════════════════
+# 📊 LOGGING
+# ═══════════════════════════════════════
+LOG_LEVEL=INFO
+```
+
+### Getting Your Credentials
+
+| Credential | How to Get It |
+|------------|---------------|
+| **API_ID & API_HASH** | Visit [my.telegram.org](https://my.telegram.org) → API Development Tools |
+| **BOT_TOKEN** | Message [@BotFather](https://t.me/botfather) on Telegram → `/newbot` |
+| **SESSION_STRING** | Run `python generate_session.py` (included in helpers/) |
+
+---
+
+## 🚀 Deployment
+
+### Production Deployment Options
+
+<table>
+<tr>
+<td width="33%" align="center">
+
+### 🌐 VPS Deployment
+```bash
+screen -S bot
+python main.py
+```
+**Best for:** Small to medium scale
+
+</td>
+<td width="33%" align="center">
+
+### 🐳 Docker Deployment
 ```bash
 docker-compose up -d
 ```
+**Best for:** Easy management
 
-## 📖 How It Works
+</td>
+<td width="33%" align="center">
 
-1. User sends a Telegram message link to the bot
-2. Bot authenticates and accesses the linked content
-3. Content is downloaded to local storage
-4. Metadata is processed and restrictions are removed
-5. File is re-uploaded to the user as a standard message
-6. Temporary files are automatically cleaned up
+### ☁️ Cloud Deployment
+```bash
+systemctl enable bot
+systemctl start bot
+```
+**Best for:** Enterprise scale
 
-## 🛠 Architecture
+</td>
+</tr>
+</table>
 
-- **main.py**: Core bot logic and message handlers
-- **config.py**: Configuration management
-- **logger.py**: Logging system
-- **helpers/**: Utility functions for download/upload operations
+### Systemd Service (Recommended for Production)
 
-## ⚙️ Configuration Options
+Create `/etc/systemd/system/telegram-bot.service`:
 
-Customize behavior in `config.env`:
-- `MAX_CONCURRENT_DOWNLOADS`: Limit simultaneous downloads
-- `AUTO_DELETE_TIMEOUT`: Time before temporary files are removed
-- `FLOOD_WAIT_MULTIPLIER`: Adjustment factor for rate limit handling
+```ini
+[Unit]
+Description=Telegram Restriction Bypass Bot
+After=network.target
 
-## 🐛 Troubleshooting
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/home/ubuntu/TelegramRestrictionBypass
+ExecStart=/usr/bin/python3 /home/ubuntu/TelegramRestrictionBypass/main.py
+Restart=always
+RestartSec=10
 
-**Connection Errors on AWS:**
-- Disable IPv6 if experiencing connectivity issues
-- Ensure security groups allow Telegram API ports
+[Install]
+WantedBy=multi-user.target
+```
 
-**MD5 Checksum Errors:**
+Enable and start:
+```bash
+sudo systemctl daemon-reload
+sudo systemctl enable telegram-bot
+sudo systemctl start telegram-bot
+sudo systemctl status telegram-bot
+```
+
+---
+
+## 📖 Usage Guide
+
+### Basic Commands
+
+| Command | Description |
+|---------|-------------|
+| `/start` | Initialize the bot and see welcome message |
+| `/help` | Display help information |
+| `/status` | Check bot status and statistics |
+| `/cancel` | Cancel current operation |
+
+### Step-by-Step Tutorial
+
+**1️⃣ Start the Bot**
+```
+Send: /start
+Bot replies with welcome message
+```
+
+**2️⃣ Send Content Link**
+```
+Copy any Telegram post link
+Example: https://t.me/channelname/123
+Paste it to the bot
+```
+
+**3️⃣ Receive Content**
+```
+Bot downloads → processes → uploads
+You receive the content as a file
+```
+
+### Batch Processing
+
+Send multiple links and the bot will process them in queue:
+```
+Link 1: https://t.me/channel1/100
+Link 2: https://t.me/channel2/200
+Link 3: https://t.me/channel3/300
+```
+
+---
+
+## 🏗️ Architecture
+
+### Project Structure
+
+```
+TelegramRestrictionBypass/
+├── 📄 main.py                 # Main bot entry point
+├── 📄 config.py               # Configuration manager
+├── 📄 logger.py               # Logging system
+├── 📁 helpers/                # Helper modules
+│   ├── download_handler.py   # Download management
+│   ├── upload_handler.py     # Upload management
+│   └── session_manager.py    # Session handling
+├── 📄 requirements.txt        # Python dependencies
+├── 📄 Dockerfile             # Docker configuration
+├── 📄 docker-compose.yml     # Docker Compose setup
+├── 📄 config.env             # Environment variables
+└── 📄 README.md              # This file
+```
+
+### Technology Stack
+
+<div align="center">
+
+| Technology | Purpose |
+|:----------:|:-------:|
+| ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) | Core Language |
+| ![Pyrogram](https://img.shields.io/badge/Pyrogram-orange?style=for-the-badge) | Telegram MTProto API |
+| ![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) | Containerization |
+| ![AWS](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white) | Cloud Hosting |
+
+</div>
+
+---
+
+## 🛠️ Troubleshooting
+
+### Common Issues & Solutions
+
+<details>
+<summary><b>❌ Connection Reset Error</b></summary>
+
+**Problem:** `ConnectionResetError` or frequent disconnections
+
+**Solution:**
+```bash
+# Disable IPv6 (AWS Debian)
+sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
+```
+
+</details>
+
+<details>
+<summary><b>❌ FloodWait Error</b></summary>
+
+**Problem:** `FloodWait` errors from Telegram
+
+**Solution:**
+- The bot handles this automatically
+- Increase `FLOOD_WAIT_MULTIPLIER` in config
+- Use multiple accounts for rotation
+
+</details>
+
+<details>
+<summary><b>❌ MD5 Checksum Invalid</b></summary>
+
+**Problem:** `MD5_CHECKSUM_INVALID` error
+
+**Solution:**
 - The bot includes automatic retry logic
-- Check network stability
+- Check your network stability
+- Verify TgCrypto is installed: `pip install TgCrypto`
 
-**Disk Space Issues:**
-- Enable automatic cleanup in configuration
-- Monitor available storage
+</details>
+
+<details>
+<summary><b>❌ Disk Full Error</b></summary>
+
+**Problem:** Disk space fills up quickly
+
+**Solution:**
+```bash
+# Enable auto-cleanup in config.env
+AUTO_DELETE_TIMEOUT=1800  # 30 minutes
+
+# Manual cleanup
+rm -rf downloads/*
+```
+
+</details>
+
+<details>
+<summary><b>❌ Bot Not Responding</b></summary>
+
+**Problem:** Bot doesn't reply to messages
+
+**Solution:**
+1. Check bot is running: `systemctl status telegram-bot`
+2. Verify credentials in `config.env`
+3. Check logs: `tail -f logs/bot.log`
+4. Restart: `systemctl restart telegram-bot`
+
+</details>
+
+### Debug Mode
+
+Enable detailed logging:
+
+```bash
+# In config.env
+LOG_LEVEL=DEBUG
+
+# Or run with debug flag
+python main.py --debug
+```
+
+---
 
 ## 🤝 Contributing
 
-Contributions for educational purposes are welcome. Please ensure any modifications:
-- Maintain the legal disclaimer
-- Include proper error handling
-- Follow Python best practices
-- Add appropriate documentation
+We welcome contributions! Here's how you can help:
 
-## 📄 License
+### Development Setup
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+```bash
+# Fork the repository
+git clone https://github.com/yourusername/TelegramRestrictionBypass.git
 
-**Note**: The MIT License does NOT provide any protection against legal liability for misuse. Users are independently responsible for their actions.
+# Create a branch
+git checkout -b feature/your-feature
 
-## 🔗 Resources
+# Make your changes and commit
+git commit -m "Add: your feature description"
 
-- [Telegram Terms of Service](https://telegram.org/tos)
-- [Pyrogram Documentation](https://docs.pyrogram.org/)
-- [Telegram API Documentation](https://core.telegram.org/api)
+# Push and create PR
+git push origin feature/your-feature
+```
 
-## ⚖️ Final Warning
+### Contribution Guidelines
 
-**This software is a tool. Like any tool, it can be used responsibly or irresponsibly. The developers provide this for educational purposes and take no responsibility for misuse. If you choose to use this software, you do so at your own risk and legal liability.**
+- ✅ Follow PEP 8 style guidelines
+- ✅ Add comments for complex logic
+- ✅ Update documentation
+- ✅ Test thoroughly before submitting
+- ✅ Maintain the legal disclaimer
 
-**When in doubt, consult with a legal professional in your jurisdiction before using this software.**
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License**.
+
+```
+MIT License - Copyright (c) 2025
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software...
+```
+
+See [LICENSE](LICENSE) file for full details.
+
+---
+
+## 📞 Support & Resources
+
+<div align="center">
+
+[![Documentation](https://img.shields.io/badge/Documentation-Pyrogram-orange?style=for-the-badge)](https://docs.pyrogram.org/)
+[![Telegram API](https://img.shields.io/badge/Telegram-API%20Docs-blue?style=for-the-badge&logo=telegram)](https://core.telegram.org/api)
+[![Issues](https://img.shields.io/badge/Report-Issues-red?style=for-the-badge&logo=github)](https://github.com/Paidguy/TelegramRestrictionBypass/issues)
+
+</div>
+
+---
+
+## ⚠️ LEGAL DISCLAIMER & IMPORTANT WARNINGS
+
+### 🚨 READ THIS SECTION CAREFULLY BEFORE USING THIS SOFTWARE 🚨
+
+<div align="center">
+
+**THIS SOFTWARE IS PROVIDED FOR EDUCATIONAL AND RESEARCH PURPOSES ONLY**
+
+</div>
+
+---
+
+### ⚖️ Legal Liability & Responsibility
+
+By downloading, installing, or using this software, you acknowledge and agree to the following terms:
+
+#### 1. **Terms of Service Violations**
+- ❌ This software may violate [Telegram's Terms of Service](https://telegram.org/tos)
+- ❌ Telegram explicitly prohibits bypassing content restrictions and security features
+- ❌ Using this bot may result in **permanent account suspension** or termination
+
+#### 2. **Copyright & Intellectual Property**
+- 📜 Downloading or redistributing restricted content may violate **copyright laws**
+- 📜 Content creators use restrictions to protect their **intellectual property rights**
+- 📜 Unauthorized distribution may constitute **copyright infringement**
+
+#### 3. **Criminal Liability**
+In many jurisdictions, circumventing access controls may result in:
+- ⚖️ Criminal prosecution
+- 💰 Substantial fines
+- 🔒 Imprisonment
+- 📋 Permanent criminal record
+
+**Relevant Laws May Include:**
+- Digital Millennium Copyright Act (DMCA) - United States
+- EU Copyright Directive - European Union
+- Computer Fraud and Abuse Act (CFAA) - United States
+- Computer Misuse Act - United Kingdom
+- Other anti-circumvention legislation worldwide
+
+---
+
+### 🛡️ Developer Disclaimer
+
+**THE AUTHORS AND COPYRIGHT HOLDERS:**
+
+```
+❌ DISCLAIM ALL LIABILITY for damages, losses, or legal consequences
+❌ DO NOT ENCOURAGE, ENDORSE, OR CONDONE illegal use
+❌ ARE NOT RESPONSIBLE for how you choose to use this software
+❌ PROVIDE NO LEGAL PROTECTION or defense for users facing legal action
+❌ MAKE NO WARRANTIES about the software's legality in your jurisdiction
+```
+
+**THE SOFTWARE IS PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND.**
+
+---
+
+### 👤 Your Responsibilities
+
+<div align="center">
+
+### **YOU ARE SOLELY AND COMPLETELY RESPONSIBLE FOR:**
+
+</div>
+
+| Responsibility | Details |
+|----------------|---------|
+| 📚 **Legal Compliance** | Understanding and complying with all applicable laws in your jurisdiction |
+| ✅ **Authorization** | Obtaining proper authorization before accessing or downloading content |
+| 🎨 **Creator Rights** | Respecting content creators' rights and restrictions |
+| ⚖️ **Legal Consequences** | Any legal consequences that result from your use of this software |
+| 🚫 **Account Bans** | Any account suspensions or permanent bans |
+| 💰 **Financial Losses** | Any fines, penalties, or financial damages incurred |
+| 🔒 **Criminal Charges** | Any criminal charges or prosecution resulting from misuse |
+
+---
+
+### ✅ Recommended Legal Use Cases
+
+This software should **ONLY** be used for:
+
+- 🎓 **Educational research** into Telegram API functionality
+- 📚 **Academic purposes** in controlled environments
+- 🔒 **Security research** with proper authorization
+- 💾 **Personal archival** of content you own or have explicit permission to download
+- 🛠️ **Development testing** in isolated environments
+- 📊 **Technical documentation** and analysis
+
+---
+
+### ❌ PROHIBITED USES
+
+<div align="center">
+
+### **DO NOT USE THIS SOFTWARE TO:**
+
+</div>
+
+```diff
+- ❌ Pirate or redistribute copyrighted content
+- ❌ Bypass restrictions on content you don't own
+- ❌ Violate any platform's terms of service
+- ❌ Infringe on intellectual property rights
+- ❌ Engage in commercial distribution of restricted content
+- ❌ Download content without proper authorization
+- ❌ Circumvent technological protection measures
+- ❌ Engage in any illegal activity
+```
+
+---
+
+### 🌍 International Legal Considerations
+
+Different countries have different laws. You may be subject to:
+
+| Region | Relevant Laws |
+|--------|---------------|
+| 🇺🇸 **United States** | DMCA, CFAA, Copyright Act |
+| 🇪🇺 **European Union** | Copyright Directive, Data Protection |
+| 🇬🇧 **United Kingdom** | Computer Misuse Act, Copyright Law |
+| 🇨🇦 **Canada** | Copyright Modernization Act |
+| 🇦🇺 **Australia** | Copyright Act, Cybercrime Act |
+| 🌏 **Asia-Pacific** | Various national copyright and cybercrime laws |
+
+**Consult a legal professional in your jurisdiction before using this software.**
+
+---
+
+### ⚠️ Risk Acknowledgment
+
+By using this software, you explicitly acknowledge:
+
+1. ✅ You have read and understood this entire legal disclaimer
+2. ✅ You accept full legal and financial responsibility for your actions
+3. ✅ You will not hold the developers liable for any consequences
+4. ✅ You understand the potential for account bans and legal action
+5. ✅ You will use this software only for legitimate, legal purposes
+6. ✅ You have consulted legal counsel if you have any doubts
+
+---
+
+### 📞 If You Have Legal Concerns
+
+<div align="center">
+
+**🚨 STOP AND CONSULT A LAWYER FIRST 🚨**
+
+Do not use this software if you have any doubts about its legality in your situation.
+
+**No disclaimer can protect you from legal consequences.**
+
+</div>
+
+---
+
+### 🔒 Final Statement
+
+<div align="center">
+
+**This software is a tool. Like any tool, it can be used responsibly or irresponsibly.**
+
+**The developers provide this for educational purposes and take no responsibility for misuse.**
+
+**If you choose to use this software, you do so entirely at your own risk and legal liability.**
+
+</div>
+
+---
+
+<div align="center">
+
+### 💙 Built with Pyrogram | ⚡ Powered by Python | 🛡️ Use Responsibly
+
+**Star ⭐ this repo if you found it helpful for learning purposes!**
 
 ---
 
 *Last Updated: December 2025*
+
+</div>
