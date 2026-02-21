@@ -46,6 +46,25 @@ Enhanced from [RestrictedContentDL](https://github.com/bisnuray/RestrictedConten
 
 ---
 
+## 🚀 Quick Start
+
+**New to this project? Start here!**
+
+👉 **[Complete Setup Guide (SETUP.md)](SETUP.md)** 👈
+
+A step-by-step walkthrough covering:
+- ✅ Installing Python and dependencies
+- ✅ Getting Telegram API credentials
+- ✅ Creating your bot with BotFather
+- ✅ Configuring and running the bot
+- ✅ Troubleshooting common issues
+
+**Want a super quick checklist?** See [QUICKSTART.md](QUICKSTART.md) for a condensed version.
+
+**Experienced users:** Jump to [Installation Methods](#-installation-methods) below.
+
+---
+
 ## 📑 Table of Contents
 
 <table>
@@ -53,6 +72,7 @@ Enhanced from [RestrictedContentDL](https://github.com/bisnuray/RestrictedConten
 <td valign="top" width="50%">
 
 **Setup**
+- [🚀 Quick Start & Setup Guide](SETUP.md)
 - [✨ Features at a Glance](#-features-at-a-glance)
 - [🏗️ Architecture & How It Works](#️-architecture--how-it-works)
 - [🔑 Prerequisites Checklist](#-prerequisites-checklist)
@@ -1010,6 +1030,45 @@ Six bugs were identified during code audit and fixed:
 ---
 
 ## 🛠️ Troubleshooting
+
+<details>
+<summary><b>❌ "API_ID must be a numeric value" or "API_HASH is not configured properly"</b></summary>
+
+**What it means:** You haven't filled in your Telegram credentials in `config.env`, or they contain placeholder text.
+
+**Fix:**
+1. Open `config.env` in a text editor:
+   ```bash
+   nano config.env
+   ```
+2. Replace the placeholder values:
+   - `API_ID=YOUR_API_ID_HERE` → `API_ID=12345678` (your actual numeric ID)
+   - `API_HASH=YOUR_API_HASH_HERE` → `API_HASH=abc123...` (your actual hash)
+   - `BOT_TOKENS=YOUR_BOT_TOKEN_HERE` → `BOT_TOKENS=1234567890:ABC...` (your bot token)
+3. Save and restart the bot
+
+See [Getting Your Credentials](#-getting-your-credentials) for detailed instructions on obtaining these values.
+
+</details>
+
+<details>
+<summary><b>❌ "ModuleNotFoundError: No module named 'psutil'" or similar import errors</b></summary>
+
+**What it means:** Python dependencies are not installed.
+
+**Fix:**
+```bash
+pip install -r requirements.txt
+```
+
+If using a virtual environment (recommended), make sure it's activated first:
+```bash
+source venv/bin/activate  # Linux/macOS
+# or
+venv\Scripts\activate     # Windows
+```
+
+</details>
 
 <details>
 <summary><b>❌ "User Session failed to start" in logs</b></summary>
