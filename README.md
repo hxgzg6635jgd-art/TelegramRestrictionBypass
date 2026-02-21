@@ -46,6 +46,23 @@ Enhanced from [RestrictedContentDL](https://github.com/bisnuray/RestrictedConten
 
 ---
 
+## 🚀 Quick Start
+
+**New to this project? Start here!**
+
+👉 **[Complete Setup Guide (SETUP.md)](SETUP.md)** 👈
+
+A step-by-step walkthrough covering:
+- ✅ Installing Python and dependencies
+- ✅ Getting Telegram API credentials
+- ✅ Creating your bot with BotFather
+- ✅ Configuring and running the bot
+- ✅ Troubleshooting common issues
+
+**Experienced users:** Jump to [Installation Methods](#-installation-methods) below.
+
+---
+
 ## 📑 Table of Contents
 
 <table>
@@ -53,6 +70,7 @@ Enhanced from [RestrictedContentDL](https://github.com/bisnuray/RestrictedConten
 <td valign="top" width="50%">
 
 **Setup**
+- [🚀 Quick Start & Setup Guide](SETUP.md)
 - [✨ Features at a Glance](#-features-at-a-glance)
 - [🏗️ Architecture & How It Works](#️-architecture--how-it-works)
 - [🔑 Prerequisites Checklist](#-prerequisites-checklist)
