@@ -248,10 +248,13 @@ async def callback_handler(client, query: CallbackQuery):
     data = query.data
     
     if data == "refresh_dash":
-        try: await query.message.edit_text(get_dashboard_text(), reply_markup=get_dashboard_markup())
-        except: pass
+        try:
+            await query.message.edit_text(get_dashboard_text(), reply_markup=get_dashboard_markup())
+            await query.answer("✅ Refreshed")
+        except: await query.answer()
 
     elif data == "manage_bots":
+        await query.answer()
         txt = f"🤖 **Bot Manager**\n\nActive Workers: `{len(WORKER_POOL)}`\n\nTo add a bot, send:\n`/connect <token>`"
         rows = []
         for w in WORKER_POOL:
@@ -261,6 +264,26 @@ async def callback_handler(client, query: CallbackQuery):
                 rows[-1].append(InlineKeyboardButton("🗑", callback_data=f"rm_bot_{w.me.id}"))
         rows.append([InlineKeyboardButton("🔙 Back", callback_data="refresh_dash")])
         await query.message.edit_text(txt, reply_markup=InlineKeyboardMarkup(rows))
+
+    elif data.startswith("bot_info_"):
+        bot_id = data.split("_")[2]
+        target = next((w for w in WORKER_POOL if str(w.me.id) == bot_id), None)
+        if target:
+            is_main = target.bot_token == PyroConf.BOT_TOKENS[0]
+            info = (
+                f"🤖 **Bot Info**\n\n"
+                f"**Name:** `{target.me.first_name}`\n"
+                f"**ID:** `{target.me.id}`\n"
+                f"**Username:** @{target.me.username or 'N/A'}\n"
+                f"**Role:** {'🔑 Main Bot' if is_main else '⚙️ Worker Bot'}\n"
+                f"**Connected:** `{'✅ Yes' if target.is_connected else '❌ No'}`"
+            )
+            await query.answer(f"ℹ️ {target.me.first_name}", show_alert=False)
+            await query.message.edit_text(info, reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton("🔙 Back", callback_data="manage_bots")]
+            ]))
+        else:
+            await query.answer("⚠️ Bot not found.", show_alert=True)
 
     elif data.startswith("rm_bot_"):
         bot_id = data.split("_")[2]
@@ -294,10 +317,13 @@ async def callback_handler(client, query: CallbackQuery):
         await query.message.edit_text(get_dashboard_text(), reply_markup=get_dashboard_markup())
 
     elif data == "send_logs":
-        if os.path.exists("logs.txt"): await client.send_document(query.message.chat.id, "logs.txt")
+        if os.path.exists("logs.txt"):
+            await query.answer("📜 Sending logs...")
+            await client.send_document(query.message.chat.id, "logs.txt")
         else: await query.answer("No logs.", show_alert=True)
 
     elif data == "open_settings":
+        await query.answer()
         await query.message.edit_text("⚙️ **Settings Config**", reply_markup=get_settings_markup())
 
     elif data == "set_conc":
@@ -316,6 +342,7 @@ async def callback_handler(client, query: CallbackQuery):
         await query.message.edit_reply_markup(reply_markup=get_settings_markup())
 
     elif data.startswith("resume_"):
+        await query.answer("▶️ Resuming batch...")
         await query.message.delete()
         user_id = query.from_user.id
         batch = UserState.get_batch(user_id)
@@ -323,6 +350,7 @@ async def callback_handler(client, query: CallbackQuery):
         track_task(run_batch_logic(bot, query.message, batch["source"], batch["current"], batch["end"], user_id, is_resuming=True))
 
     elif data.startswith("restart_"):
+        await query.answer("🔄 Restarting batch...")
         await query.message.delete()
         user_id = query.from_user.id
         batch = UserState.get_batch(user_id)
@@ -406,7 +434,8 @@ async def safe_download(bot, message, chat_message, retry_count=0, silent=False)
                 upload_worker, message, media_path, mtype, caption, 
                 progress_message=prog if not silent else None, 
                 start_time=start_time if not silent else None,
-                target_chat_id=Config.get_dump_chat()
+                target_chat_id=Config.get_dump_chat(),
+                is_premium=is_prem if 'is_prem' in dir() else False
             )
             # Only clean up if no exception occurred
             cleanup_download(media_path)
@@ -528,7 +557,7 @@ async def join_handler(client, message):
 
 @bot.on_chat_member_updated()
 async def on_channel_add(client, event: ChatMemberUpdated):
-    if event.new_chat_member and event.new_chat_member.user.id == client.me.id:
+    if event.new_chat_member and event.new_chat_member.user.id == bot.me.id:
         if event.new_chat_member.status == ChatMemberStatus.ADMINISTRATOR:
             Config.set_dump_chat(event.chat.id)
             LOGGER(__name__).info(f"Bot added to Channel: {event.chat.title}")
@@ -575,6 +604,13 @@ async def initialize():
         LOGGER(__name__).warning(f"User Session failed to start: {e}. Continuing in Bot Mode.")
 
     Config.set("download_mode", "BOT")
+    # Apply env-var overrides so config.env values actually take effect
+    if PyroConf.MAX_CONCURRENT_DOWNLOADS:
+        Config.set("max_concurrent", PyroConf.MAX_CONCURRENT_DOWNLOADS)
+    if PyroConf.FLOOD_WAIT_DELAY is not None:
+        Config.set("flood_delay", PyroConf.FLOOD_WAIT_DELAY)
+    if PyroConf.BATCH_SIZE:
+        Config.set("batch_size", PyroConf.BATCH_SIZE)
     if Config.get("max_concurrent") < 1: Config.set("max_concurrent", 3)
     await apply_smart_limits("BOT")
     
