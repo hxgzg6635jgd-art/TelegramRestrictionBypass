@@ -1,32 +1,46 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=200&section=header&text=TelegramRestrictionBypass&fontSize=38&fontColor=ffffff&fontAlignY=38&desc=Download%20%26%20forward%20restricted%20Telegram%20content%20at%20scale&descAlignY=58&descSize=16" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a0a0f,30:0d1117,60:161b22,100:1a1f2e&height=240&section=header&text=⚡%20TelegramRestrictionBypass&fontSize=42&fontColor=58a6ff&fontAlignY=42&animation=fadeIn&desc=Production-grade%20%7C%20Multi-Bot%20Worker%20Pool%20%7C%20Auto-Resume%20%7C%20Live%20Dashboard&descAlignY=62&descSize=14&descColor=8b949e" width="100%"/>
 
-<br/>
+</div>
 
-[![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://python.org)
-[![Pyrogram](https://img.shields.io/badge/Pyrogram-Pyrofork-FF6B35?style=for-the-badge)](https://github.com/pyrogram/pyrogram)
-[![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
+<div align="center">
+
+[![Python](https://img.shields.io/badge/Python_3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Pyrofork](https://img.shields.io/badge/Pyrofork-MTProto-FF6B35?style=for-the-badge&logo=telegram&logoColor=white)](https://github.com/KurimuzonAkuma/pyrogram)
+[![TgCrypto](https://img.shields.io/badge/TgCrypto-Accelerated-00d4aa?style=for-the-badge)](https://github.com/pyrogram/tgcrypto)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://docker.com)
+[![License](https://img.shields.io/badge/License-MIT-22c55e?style=for-the-badge)](LICENSE)
 
 <br/>
 
-<img src="https://img.shields.io/badge/Status-Active-22c55e?style=flat-square&logo=circle"/>
+![Status](https://img.shields.io/badge/Status-Active-22c55e?style=flat-square&logo=statuspage&logoColor=white)
 &nbsp;
-<img src="https://img.shields.io/badge/Multi--Bot-Supported-a855f7?style=flat-square"/>
+![Multi-Bot](https://img.shields.io/badge/Multi--Bot_Pool-Unlimited_Workers-a78bfa?style=flat-square)
 &nbsp;
-<img src="https://img.shields.io/badge/Batch%20DL-Up%20to%20200%2Fchunk-f59e0b?style=flat-square"/>
+![Batch](https://img.shields.io/badge/Batch_DL-200_msgs%2Fchunk-f59e0b?style=flat-square)
 &nbsp;
-<img src="https://img.shields.io/badge/Auto%20Resume-Yes-06b6d4?style=flat-square"/>
+![Auto Resume](https://img.shields.io/badge/Auto_Resume-On_Crash-06b6d4?style=flat-square)
+&nbsp;
+![Modes](https://img.shields.io/badge/Modes-BOT_%2B_USER-ec4899?style=flat-square)
 
-<br/><br/>
-
-> **A production-grade Telegram bot that downloads and re-uploads content from restricted channels and groups — complete with multi-bot worker pooling, auto-resume, batch processing, and a live admin dashboard.**
+</div>
 
 <br/>
 
-**Developed by [@Paidguy](https://github.com/Paidguy)**  
-*Enhanced version of [RestrictedContentDL](https://github.com/bisnuray/RestrictedContentDL) by [@bisnuray](https://github.com/bisnuray)*
+<div align="center">
+
+```
+╔═══════════════════════════════════════════════════════════════════╗
+║  Download & re-upload restricted Telegram content at production   ║
+║  scale — with a live admin dashboard, round-robin worker pools,   ║
+║  crash-safe auto-resume, and dual BOT/USER download modes.        ║
+╚═══════════════════════════════════════════════════════════════════╝
+```
+
+**Developed by [@Paidguy](https://github.com/Paidguy)**
+&nbsp;•&nbsp;
+Enhanced from [RestrictedContentDL](https://github.com/bisnuray/RestrictedContentDL) by [@bisnuray](https://github.com/bisnuray)
 
 </div>
 
@@ -34,53 +48,36 @@
 
 ## 📑 Table of Contents
 
-- [✨ Features](#-features)
-- [🏗️ How It Works](#️-how-it-works)
-- [🔑 Prerequisites](#-prerequisites)
-- [📦 Installation](#-installation)
-  - [Method 1: Local / VPS](#method-1-local--vps)
-  - [Method 2: Docker Compose](#method-2-docker-compose)
-  - [Method 3: AWS / Cloud with Systemd](#method-3-aws--cloud-with-systemd)
-- [🔐 Getting Your Credentials](#-getting-your-credentials)
-  - [API ID & API Hash](#api-id--api-hash)
-  - [Bot Token](#bot-token)
-  - [Session String](#session-string)
-- [⚙️ Configuration](#️-configuration)
-- [🚀 First Run & Initial Setup](#-first-run--initial-setup)
-- [🤖 Bot Commands](#-bot-commands)
-- [📊 Admin Dashboard](#-admin-dashboard)
-- [🔄 Multi-Bot Worker Pool](#-multi-bot-worker-pool)
-- [📁 Project Structure](#-project-structure)
-- [🛠️ Troubleshooting](#️-troubleshooting)
-- [🤝 Contributing](#-contributing)
-- [⚠️ Legal Disclaimer](#️-legal-disclaimer)
-
----
-
-## ✨ Features
-
 <table>
 <tr>
-<td width="50%" valign="top">
+<td valign="top" width="50%">
 
-### ⚡ Core Capabilities
-- **Single & Batch Downloads** — Grab one link or thousands with `/dl` and `/bdl`
-- **Multi-Bot Worker Pool** — Add unlimited helper bots to multiply throughput
-- **BOT + USER Dual Mode** — Switch between bot-token and user-session downloading
-- **Smart FloodWait Handling** — Exponential backoff with auto-retry up to 5 times
-- **Auto-Resume** — Interrupted batches automatically continue on bot restart
-- **Media Group Support** — Albums are downloaded and re-uploaded together
+**Setup**
+- [✨ Features at a Glance](#-features-at-a-glance)
+- [🏗️ Architecture & How It Works](#️-architecture--how-it-works)
+- [🔑 Prerequisites Checklist](#-prerequisites-checklist)
+- [🔐 Getting Your Credentials](#-getting-your-credentials)
+  - [API ID & API Hash](#1-api-id--api-hash)
+  - [Bot Tokens](#2-bot-tokens)
+  - [Session String](#3-session-string)
+- [⚙️ Configuration Reference](#️-configuration-reference)
 
 </td>
-<td width="50%" valign="top">
+<td valign="top" width="50%">
 
-### 🛡️ Production-Grade Extras
-- **TgCrypto Acceleration** — Hardware-accelerated encryption via `TgCrypto`
-- **Live Admin Dashboard** — Real-time RAM, storage, uptime, and active downloads
-- **Dump Channel** — Auto-forward all output to a target Telegram channel
-- **Authorized Users** — Restrict usage to specific Telegram user IDs
-- **Auto Cleanup** — Temp files removed on startup and after each upload
-- **Persistent Settings** — All config survives restarts via local JSON files
+**Deployment**
+- [📦 Installation Methods](#-installation-methods)
+  - [Local / VPS](#method-1--local--vps)
+  - [Docker Compose](#method-2--docker-compose)
+  - [AWS with Systemd](#method-3--aws--cloud-with-systemd)
+- [🚀 First Run Walkthrough](#-first-run--setup-walkthrough)
+- [🤖 Commands Reference](#-commands-reference)
+- [📊 Admin Dashboard Guide](#-admin-dashboard-guide)
+- [🔄 Multi-Bot Worker Pool](#-multi-bot-worker-pool)
+- [📁 Project Structure](#-project-structure--runtime-files)
+- [🐛 Bug Fixes in This Release](#-bug-fixes-in-this-release)
+- [🛠️ Troubleshooting](#️-troubleshooting)
+- [⚠️ Legal Disclaimer](#️-legal-disclaimer)
 
 </td>
 </tr>
@@ -88,115 +85,418 @@
 
 ---
 
-## 🏗️ How It Works
+## ✨ Features at a Glance
 
-```mermaid
-graph TD
-    A[👤 Admin sends /dl or /bdl] --> B{Bot receives link}
-    B --> C[Parse Chat ID + Message ID]
-    C --> D{Download Mode?}
-    D -- BOT Mode --> E[Worker Bot fetches via Bot Token]
-    D -- USER Mode --> F[User Session fetches via String Session]
-    E --> G[File saved to /downloads/]
-    F --> G
-    G --> H{Dump Channel set?}
-    H -- Yes --> I[Upload to Dump Channel]
-    H -- No --> J[Send back to Admin]
-    I --> K[Cleanup temp file]
-    J --> K
-    K --> L[✅ Done]
+<table>
+<tr>
+<td width="50%" valign="top">
 
-    style A fill:#302b63,color:#fff
-    style L fill:#166534,color:#fff
-    style G fill:#1e3a5f,color:#fff
+### ⚡ Core Engine
+| Feature | Details |
+|---|---|
+| **Single Download** | `/dl <link>` — any one Telegram message |
+| **Batch Download** | `/bdl <start> <end>` — thousands at once |
+| **Media Groups** | Albums re-uploaded together, intact |
+| **BOT Mode** | Uses bot token(s) to fetch content |
+| **USER Mode** | Uses your account session to access restricted content |
+| **Auto-Resume** | Interrupted batches restart automatically on reboot |
+| **FloodWait Guard** | Exponential backoff, auto-retry up to 5× |
+
+</td>
+<td width="50%" valign="top">
+
+### 🛡️ Production Features
+| Feature | Details |
+|---|---|
+| **Multi-Bot Pool** | Unlimited worker bots, round-robin distribution |
+| **Live Dashboard** | RAM, storage, uptime, active downloads — live |
+| **Dump Channel** | Forward all output to a target Telegram channel |
+| **User Auth** | Restrict to specific Telegram user IDs |
+| **TgCrypto** | C-level crypto for maximum transfer speed |
+| **Auto Cleanup** | Temp files removed on startup and after each upload |
+| **Persistent Settings** | All config survives restarts via local JSON |
+
+</td>
+</tr>
+</table>
+
+---
+
+## 🏗️ Architecture & How It Works
+
+### System Overview
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                      USER / ADMIN                               │
+│                  (your Telegram account)                        │
+└─────────────────────┬───────────────────────────────────────────┘
+                      │  /dl or /bdl command
+                      ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    MAIN BOT (control plane)                     │
+│   • Receives commands      • Manages dashboard & settings       │
+│   • Authorizes users       • Distributes work to workers        │
+└──────┬──────────────────────────────────┬───────────────────────┘
+       │                                  │
+       ▼                                  ▼
+┌──────────────┐                 ┌────────────────────────────────┐
+│  USER CLIENT │                 │     WORKER BOT POOL            │
+│  (session    │                 │  ┌─────────┐  ┌─────────┐     │
+│   string)    │   round-robin   │  │ Worker1 │  │ Worker2 │ ··· │
+│              │◄── selection ──►│  └─────────┘  └─────────┘     │
+│ USER Mode ✓  │                 │  BOT Mode ✓                    │
+└──────┬───────┘                 └────────────┬───────────────────┘
+       │                                      │
+       └──────────────┬───────────────────────┘
+                      │  fetch message from Telegram
+                      ▼
+             ┌────────────────┐
+             │  downloads/    │   (organized by message ID)
+             │  temp storage  │
+             └───────┬────────┘
+                     │  upload
+                     ▼
+        ┌────────────────────────┐
+        │  DESTINATION           │
+        │  ┌──────────────────┐  │
+        │  │  Dump Channel    │  │  ◄── if configured
+        │  └──────────────────┘  │
+        │  ┌──────────────────┐  │
+        │  │  Back to User    │  │  ◄── default
+        │  └──────────────────┘  │
+        └────────────────────────┘
+                     │
+                     ▼
+           🗑️ Temp file auto-deleted
 ```
 
-**The flow in plain terms:**
+### Download Modes Explained
 
-1. You send a Telegram message link (or a range of links for batch)
-2. The bot parses the channel ID and message ID from the URL
-3. Depending on the mode, either a bot-token worker or your user session fetches the file
-4. The file is downloaded to the server's `/downloads/` folder
-5. The file is re-uploaded — either back to your chat or forwarded to a dump channel
-6. The temp file is deleted automatically
+| Mode | How it fetches | When to use |
+|---|---|---|
+| **BOT Mode** (default) | Worker bot tokens via Telegram Bot API | Public channels & content your bot can access |
+| **USER Mode** | Your personal Telegram account session | Private/restricted channels bots can't see |
+
+> You can **toggle between modes at runtime** from the dashboard — no restart needed.
+
+### Batch Processing Flow
+
+```
+/bdl https://t.me/channel/100  https://t.me/channel/5000
+
+ Range: msg 100 → 5000  (4,900 messages)
+ Chunk size: 200 messages per API call
+ ──────────────────────────────────────────────────────────
+ Chunk 1:  100–299   → fetch 200 IDs → filter → parallel download → upload
+ Chunk 2:  300–499   → fetch 200 IDs → filter → parallel download → upload
+ ...
+ Chunk 25: 4900–5000 → fetch 100 IDs → filter → parallel download → upload
+
+ Progress saved after every message → crash-safe auto-resume ✓
+ Media groups (albums) detected and sent together ✓
+ Empty / deleted messages automatically skipped ✓
+```
 
 ---
 
-## 🔑 Prerequisites
+## 🔑 Prerequisites Checklist
 
-Before you begin, make sure you have the following:
+```
+✅  Python 3.11 or higher installed
+✅  Git installed
+✅  500 MB+ free disk space on your server
+✅  Stable internet connection (low-latency to Telegram DCs preferred)
+✅  Telegram API credentials (API_ID + API_HASH) from my.telegram.org
+✅  At least one Telegram Bot Token from @BotFather
+✅  (Optional) A Telegram user account for User Mode
+✅  (Optional) Docker + Docker Compose for containerized deployment
+```
 
-| Requirement | Details |
-|---|---|
-| **Python 3.11+** | Required for Pyrofork compatibility |
-| **Telegram API credentials** | `API_ID` + `API_HASH` from [my.telegram.org](https://my.telegram.org) |
-| **At least one Bot Token** | Created via [@BotFather](https://t.me/BotFather) |
-| **A User Session String** | Generated from your Telegram account (for User Mode) |
-| **500 MB+ free disk space** | For downloads buffer |
-| **Git** | To clone the repository |
-
-> 💡 **You can run in BOT-only mode** without a session string if you don't need to access restricted channels. User Mode is only needed to access content your bot cannot see directly.
+> 💡 You can run **without a Session String** in BOT-only mode. User Mode is only needed to access content that bots cannot reach — e.g. private channels or subscriber-only content.
 
 ---
 
-## 📦 Installation
+## 🔐 Getting Your Credentials
 
-### Method 1: Local / VPS
+### 1. API ID & API Hash
 
-This is the simplest method and works on any Linux VPS, Raspberry Pi, or local machine.
+These credentials identify your Telegram *application*. Every app using the Telegram API needs them.
 
-**Step 1 — Clone the repository**
+**Steps:**
+
+1. Open [https://my.telegram.org](https://my.telegram.org) in your browser
+2. Enter your phone number (with country code, e.g. `+12025551234`) and click **Send Code**
+3. Enter the OTP Telegram sends to your account
+4. Click **"API development tools"**
+5. Fill out the form (App title, short name, and description can be anything)
+6. Click **Create application**
+7. Copy the values shown for **`App api_id`** (integer) and **`App api_hash`** (hex string)
+
+```env
+API_ID=12345678
+API_HASH=a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
+```
+
+> ⚠️ **These are tied to your personal Telegram account.** Never share them. If compromised, revoke them at my.telegram.org immediately.
+
+---
+
+### 2. Bot Tokens
+
+Each bot token = one upload/download worker. More tokens = more throughput.
+
+**Creating your main bot:**
+
+1. Open Telegram → search **[@BotFather](https://t.me/BotFather)**
+2. Send `/newbot`
+3. Enter a display name (e.g. `My Downloader`)
+4. Enter a unique username ending in `bot` (e.g. `mydownloaderbot`)
+5. BotFather replies with your token:
+   ```
+   1234567890:ABCdefGhIjKlMnOpQrStUvWxYz-abc123
+   ```
+
+**Adding worker bots (optional but recommended for heavy use):**
+
+Repeat the above for each additional bot. Comma-separate all tokens in `config.env`:
+
+```env
+# Single bot:
+BOT_TOKENS=1234567890:ABCdef...
+
+# Multiple bots — first is main (control), rest become workers:
+BOT_TOKENS=1111111:AAA...,2222222:BBB...,3333333:CCC...
+```
+
+> 💡 Each extra worker bot adds one more parallel upload slot. For batch downloads of thousands of files, 3–5 bots dramatically improves throughput.
+
+---
+
+### 3. Session String
+
+A session string encodes your Telegram user account login. Required for USER Mode.
+
+**Self-hosted generator (most secure — recommended):**
+
+Create `gen_session.py` in the project root:
+
+```python
+import asyncio
+from pyrogram import Client
+
+API_ID   = 12345678                       # ← your API_ID
+API_HASH = "your_api_hash_here"           # ← your API_HASH
+
+async def main():
+    async with Client("session_gen", api_id=API_ID, api_hash=API_HASH) as app:
+        session = await app.export_session_string()
+        print("\n" + "=" * 60)
+        print("YOUR SESSION STRING:")
+        print("=" * 60)
+        print(session)
+        print("=" * 60 + "\n")
+
+asyncio.run(main())
+```
+
+Run it:
+
+```bash
+python3 gen_session.py
+```
+
+- Enter your phone number when prompted
+- Enter the OTP Telegram sends you
+- Enter your 2FA password if you have one enabled
+- Copy the long string printed between the `===` lines
+
+```env
+SESSION_STRING=BQA...very_long_string...
+```
+
+**After generating:**
+- Delete `session_gen.session` — the string is what matters
+- Delete `gen_session.py` for security
+- Store the string in `config.env` only — never commit it to Git
+
+> ⚠️ The session string grants **full access to your Telegram account**. Treat it like your password.
+
+---
+
+## ⚙️ Configuration Reference
+
+Edit `config.env` — the single source of truth for all settings:
+
+```env
+# ════════════════════════════════════════════════════════════
+#  🔑  TELEGRAM API CREDENTIALS
+#  Get these from: https://my.telegram.org
+# ════════════════════════════════════════════════════════════
+
+API_ID=12345678
+API_HASH=a1b2c3d4e5f6a1b2c3d4e5f6a1b2c3d4
+
+
+# ════════════════════════════════════════════════════════════
+#  🤖  BOT TOKENS
+#  First token = main (control) bot
+#  Additional tokens = worker bots (comma-separated, no spaces)
+# ════════════════════════════════════════════════════════════
+
+BOT_TOKENS=1111111111:AAAbbbCCC...,2222222222:DDDeee...
+
+
+# ════════════════════════════════════════════════════════════
+#  🔐  USER SESSION STRING
+#  Required only for USER Mode (accessing restricted channels)
+#  Leave empty to run in BOT-only mode
+# ════════════════════════════════════════════════════════════
+
+SESSION_STRING=BQAx...your_session_string_here...
+
+
+# ════════════════════════════════════════════════════════════
+#  ⚡  PERFORMANCE TUNING
+# ════════════════════════════════════════════════════════════
+
+# Max files downloading simultaneously (default: 5)
+# Reduce to 2–3 if you frequently hit FloodWait errors
+# Increase to 6–8 if you have many worker bots and a fast server
+MAX_CONCURRENT_DOWNLOADS=5
+
+# Seconds to pause between batch API chunks (default: 2)
+# Increase to 5–10 on slow servers or if rate-limited
+FLOOD_WAIT_DELAY=2
+
+# Message IDs fetched per Telegram API call (default: 200)
+# Reduce to 50–100 if you get timeout errors on slow connections
+BATCH_SIZE=200
+```
+
+### Full Variable Reference
+
+| Variable | Type | Default | Description |
+|---|---|---|---|
+| `API_ID` | Integer | **required** | Telegram app ID from my.telegram.org |
+| `API_HASH` | String | **required** | Telegram app hash from my.telegram.org |
+| `BOT_TOKENS` | String (CSV) | **required** | One or more bot tokens, comma-separated. First = main bot. |
+| `SESSION_STRING` | String | `""` | User account session. Empty = BOT-only mode. |
+| `MAX_CONCURRENT_DOWNLOADS` | Integer | `5` | Max files downloading simultaneously |
+| `FLOOD_WAIT_DELAY` | Integer | `2` | Seconds of pause between batch chunks |
+| `BATCH_SIZE` | Integer | `200` | Message IDs fetched per Telegram API call |
+
+---
+
+## 📦 Installation Methods
+
+| Method | Best For | Difficulty |
+|---|---|---|
+| [Local / VPS](#method-1--local--vps) | Getting started, development | ⭐ Easy |
+| [Docker Compose](#method-2--docker-compose) | Production, clean environments | ⭐⭐ Medium |
+| [AWS + Systemd](#method-3--aws--cloud-with-systemd) | Always-on cloud servers | ⭐⭐⭐ Involved |
+
+---
+
+### Method 1 — Local / VPS
+
+Works on Ubuntu, Debian, CentOS, macOS, and WSL2.
+
+**Step 1 — Install Python 3.11+**
+
+```bash
+# Ubuntu / Debian
+sudo apt update && sudo apt install python3.11 python3.11-venv python3-pip git -y
+
+# Verify
+python3 --version   # must be 3.11.x or higher
+```
+
+**Step 2 — Clone the repository**
 
 ```bash
 git clone https://github.com/Paidguy/TelegramRestrictionBypass.git
 cd TelegramRestrictionBypass
 ```
 
-**Step 2 — Create a virtual environment (recommended)**
+**Step 3 — Create a virtual environment**
 
 ```bash
-python3 -m venv venv
-source venv/bin/activate
+python3.11 -m venv venv
+source venv/bin/activate        # Linux / macOS
+# venv\Scripts\activate         # Windows
+
+# Confirm you're inside the venv:
+which python    # should show ...venv/bin/python
 ```
 
-**Step 3 — Install dependencies**
+**Step 4 — Install dependencies**
 
 ```bash
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-The `requirements.txt` installs:
-- `Pyrofork` — The maintained Pyrogram fork
-- `TgCrypto` — C-level crypto acceleration
-- `Pyleaves` — Progress bar utilities
-- `python-dotenv` — `.env` file loading
-- `psutil` — System stats (RAM, disk)
-- `pillow` — Image processing
+| Package | Purpose |
+|---|---|
+| `Pyrofork` | Maintained Pyrogram fork — Telegram MTProto client |
+| `TgCrypto` | C-extension accelerating Telegram's AES-256-IGE crypto |
+| `Pyleaves` | Progress bar display for upload/download |
+| `python-dotenv` | Loads `config.env` into the environment |
+| `psutil` | System metrics (RAM %, disk usage) for dashboard |
+| `Pillow` | Image processing for video thumbnails |
 
-**Step 4 — Configure your environment**
+**Step 5 — Configure credentials**
 
 ```bash
-cp config.env config.env.bak    # optional backup
-nano config.env                 # or use any editor
+nano config.env    # fill in API_ID, API_HASH, BOT_TOKENS, SESSION_STRING
 ```
 
-Fill in your credentials (see [Configuration](#️-configuration) below), then save.
-
-**Step 5 — Run the bot**
+**Step 6 — Run the bot**
 
 ```bash
 python3 main.py
 ```
 
-On first run, send `/start` to your bot. The **first user** to send `/start` becomes the permanent owner.
+You should see startup logs:
+```
+[DD-Mon-YY HH:MM:SS AM] - INFO - Starting User Session...
+[DD-Mon-YY HH:MM:SS AM] - INFO - Initializing Bots...
+[DD-Mon-YY HH:MM:SS AM] - INFO - System Starting...
+```
+
+Open Telegram, message your bot, and send `/start`.
+
+**Keep it alive after SSH logout:**
+
+```bash
+screen -S tgbot        # start a named screen session
+python3 main.py        # run inside it
+# Ctrl+A then D to detach (bot keeps running)
+# screen -r tgbot to reattach later
+```
 
 ---
 
-### Method 2: Docker Compose
+### Method 2 — Docker Compose
 
-Docker is the easiest way to run the bot in production with zero dependency issues.
+Docker ensures a clean, reproducible environment with zero dependency conflicts.
 
-**Step 1 — Clone and configure**
+**Install Docker:**
+
+```bash
+curl -fsSL https://get.docker.com | sh
+sudo usermod -aG docker $USER
+newgrp docker
+
+sudo apt install docker-compose-plugin -y
+
+# Verify
+docker --version
+docker compose version
+```
+
+**Clone and configure:**
 
 ```bash
 git clone https://github.com/Paidguy/TelegramRestrictionBypass.git
@@ -204,41 +504,60 @@ cd TelegramRestrictionBypass
 nano config.env    # fill in your credentials
 ```
 
-**Step 2 — Build and start**
+**Review `docker-compose.yml`:**
 
-```bash
-docker compose up -d
+```yaml
+services:
+  media_bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - TZ=Asia/Dhaka       # ← change to your timezone
+    restart: always          # auto-restart on crash or system reboot
+    network_mode: "host"     # critical for Telegram connectivity
+    volumes:
+      - .:/app               # live-mounts project dir (no rebuild needed for config changes)
 ```
 
-This will:
-- Pull the `python:3.11-slim` base image
-- Install all system packages (`ffmpeg`, `build-essential`, etc.)
-- Install Python dependencies
-- Start the bot in background mode with `restart: always`
+> 📝 Find your timezone string at [Wikipedia — tz database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones)
 
-**Step 3 — Monitor logs**
+**Build and start:**
 
 ```bash
-docker compose logs -f
+docker compose up -d --build   # first-time build (~3 minutes)
+docker compose logs -f          # follow live logs
 ```
 
-**Step 4 — Stop or restart**
+**Common Docker commands:**
 
 ```bash
-docker compose down          # stop
-docker compose restart       # restart
-docker compose up -d --build # rebuild and restart after code changes
+docker compose ps                    # is it running?
+docker compose restart               # restart the bot
+docker compose down                  # stop and remove container
+docker compose up -d --build         # rebuild after code changes
+docker compose exec media_bot bash   # shell inside the container
 ```
 
-> 📝 **Note:** The `docker-compose.yml` uses `network_mode: "host"` and mounts the project directory as a volume at `/app`, so your `config.env` changes are picked up without rebuilding.
+**Update the bot:**
+
+```bash
+git pull && docker compose up -d --build
+```
 
 ---
 
-### Method 3: AWS / Cloud with Systemd
+### Method 3 — AWS / Cloud with Systemd
 
-For a robust, always-on production deployment on Ubuntu/Debian servers.
+Sets up the bot as a proper OS service: starts on boot, restarts on failure.
 
-**Step 1 — Connect to your server and install Python**
+**Recommended instance specs:**
+- **CPU:** 1 vCPU minimum, 2+ for heavy batch
+- **RAM:** 1 GB minimum, 2+ recommended
+- **Storage:** 20 GB minimum
+- **OS:** Ubuntu 22.04 LTS
+
+**Step 1 — Connect and prepare**
 
 ```bash
 ssh -i your-key.pem ubuntu@YOUR_SERVER_IP
@@ -246,499 +565,600 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install python3.11 python3.11-venv python3-pip git -y
 ```
 
-**Step 2 — Clone and set up the project**
+**Step 2 — Clone and set up**
 
 ```bash
 cd /home/ubuntu
 git clone https://github.com/Paidguy/TelegramRestrictionBypass.git
 cd TelegramRestrictionBypass
+
 python3.11 -m venv venv
 source venv/bin/activate
-pip install -r requirements.txt
+pip install --upgrade pip && pip install -r requirements.txt
 nano config.env    # fill in credentials
 ```
 
-**Step 3 — Create a systemd service**
+**Step 3 — Create the systemd service**
 
 ```bash
 sudo nano /etc/systemd/system/tgbypass.service
 ```
 
-Paste the following, adjusting paths if needed:
+Paste the following:
 
 ```ini
 [Unit]
 Description=Telegram Restriction Bypass Bot
+Documentation=https://github.com/Paidguy/TelegramRestrictionBypass
 After=network-online.target
 Wants=network-online.target
 
 [Service]
 Type=simple
 User=ubuntu
+Group=ubuntu
 WorkingDirectory=/home/ubuntu/TelegramRestrictionBypass
 ExecStart=/home/ubuntu/TelegramRestrictionBypass/venv/bin/python3 main.py
 Restart=always
-RestartSec=10
+RestartSec=15
+StartLimitInterval=200
+StartLimitBurst=5
 StandardOutput=journal
 StandardError=journal
+SyslogIdentifier=tgbypass
 
 [Install]
 WantedBy=multi-user.target
 ```
 
-**Step 4 — Enable and start the service**
+**Step 4 — Enable and start**
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable tgbypass
-sudo systemctl start tgbypass
+sudo systemctl enable tgbypass   # start on boot
+sudo systemctl start tgbypass    # start now
+sudo systemctl status tgbypass   # verify running
 ```
 
-**Step 5 — Check status and logs**
+**Step 5 — Monitor**
 
 ```bash
-sudo systemctl status tgbypass
-sudo journalctl -u tgbypass -f    # live logs
+sudo journalctl -u tgbypass -f          # live log stream
+sudo journalctl -u tgbypass -n 100      # last 100 lines
+sudo systemctl restart tgbypass         # restart after config change
 ```
 
-> 💡 **AWS tip:** If you see frequent `ConnectionResetError` on AWS EC2 with Debian/Ubuntu, disable IPv6 to resolve it:
+**Updating:**
+
+```bash
+cd /home/ubuntu/TelegramRestrictionBypass
+git pull
+source venv/bin/activate && pip install -r requirements.txt
+sudo systemctl restart tgbypass
+```
+
+> 💡 **AWS-specific fix — ConnectionResetError / disconnections:**
+>
 > ```bash
+> # Disable IPv6 immediately
 > sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
 > sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
-> # Make persistent:
+>
+> # Make it permanent
 > echo "net.ipv6.conf.all.disable_ipv6 = 1" | sudo tee -a /etc/sysctl.conf
+> echo "net.ipv6.conf.default.disable_ipv6 = 1" | sudo tee -a /etc/sysctl.conf
+> sudo sysctl -p && sudo systemctl restart tgbypass
 > ```
 
 ---
 
-## 🔐 Getting Your Credentials
+## 🚀 First Run & Setup Walkthrough
 
-### API ID & API Hash
+Follow these steps **in order** after your first startup.
 
-1. Go to [https://my.telegram.org](https://my.telegram.org)
-2. Log in with your phone number
-3. Click **"API development tools"**
-4. Fill in the app form (App title and short name can be anything)
-5. Copy your `App api_id` and `App api_hash`
+### Step 1 — Claim Ownership
 
-> ⚠️ **Never share these with anyone.** They are tied to your Telegram account.
+Send `/start` to your bot in **private chat**. The first user to do this becomes the permanent **owner** — their Telegram user ID is written to `downloads/owner_id.txt`.
+
+> 🔒 To reassign ownership: stop the bot, delete `downloads/owner_id.txt`, restart, then `/start` again.
 
 ---
 
-### Bot Token
+### Step 2 — Read the Dashboard
 
-1. Open Telegram and search for [@BotFather](https://t.me/BotFather)
-2. Send `/newbot`
-3. Choose a display name and a unique username (must end in `bot`)
-4. BotFather will reply with a token like `123456789:ABCdef...`
-5. Copy that — it's your `BOT_TOKENS` value
-
-**To add multiple bot tokens** (for the worker pool), comma-separate them:
-
-```env
-BOT_TOKENS=111111:AAA...,222222:BBB...,333333:CCC...
+```
+🤖 Restricted Content Downloader
+━━━━━━━━━━━━━━━━━━━━━
+⚡ Active DLs: 0 | Tasks: 0
+🤖 Worker Bots: 1 active
+⏱ Uptime: 0h 0m 12s
+💾 Storage: 18.4 GB free
+🧠 RAM Load: 23%
+━━━━━━━━━━━━━━━━━━━━━
+📂 Destination: Private Chat
+🛠 Current Mode: BOT
 ```
 
-The first token is the **main bot**. The rest are automatically added as workers.
+`Worker Bots: 1` — just your main bot running  
+`Destination: Private Chat` — files come back directly to you  
+`Current Mode: BOT` — using bot tokens to fetch (not user session)
 
 ---
 
-### Session String
+### Step 3 — (Optional) Set a Dump Channel
 
-The session string allows the bot to act as your Telegram user account to access restricted channels that your bots cannot join.
+Forward all downloads to a Telegram channel instead of your private chat:
 
-**Option A — Use Pyrofork's built-in session generator (recommended)**
+1. Create or open a Telegram channel
+2. **Channel Settings → Administrators → Add Administrator**
+3. Add your bot with **"Post Messages"** permission
+4. Done — the bot detects being promoted and saves the channel automatically
 
-```python
-# Save this as gen_session.py and run it once
-from pyrogram import Client
+The dashboard updates to: `📂 Destination: Channel -1001234567890`
 
-async def main():
-    async with Client("my_session", api_id=YOUR_API_ID, api_hash="YOUR_API_HASH") as app:
-        print(await app.export_session_string())
-
-import asyncio
-asyncio.run(main())
-```
-
-```bash
-python3 gen_session.py
-```
-
-Enter your phone number and the OTP code when prompted. The output is your `SESSION_STRING`.
-
-**Option B — Use a web-based generator**  
-Trusted community tools like [SessionStringGenerator](https://t.me/SessionStringBot) can generate it via bot. Always verify you trust the source before entering credentials.
-
-> 🔒 After generating, you can delete `my_session.session` — the string is what matters. Store it securely and never commit it to Git.
+To clear it: delete `downloads/dump_target.txt` and restart.
 
 ---
 
-## ⚙️ Configuration
+### Step 4 — (Optional) Add Worker Bots
 
-Edit `config.env` with your values. Every variable is explained below.
-
-```env
-# ─────────────────────────────────────────────
-# 🔑  TELEGRAM API CREDENTIALS
-# ─────────────────────────────────────────────
-
-# From https://my.telegram.org → API Development Tools
-API_ID=12345678
-API_HASH=abcdef1234567890abcdef1234567890
-
-# ─────────────────────────────────────────────
-# 🤖  BOT TOKENS
-# ─────────────────────────────────────────────
-
-# Single bot:
-# BOT_TOKENS=123456:ABC-DEF1234...
-#
-# Multiple bots (comma-separated) — first is main, rest become workers:
-BOT_TOKENS=111111:AAA...,222222:BBB...,333333:CCC...
-
-# ─────────────────────────────────────────────
-# 🔐  USER SESSION (for User Mode)
-# ─────────────────────────────────────────────
-
-# Leave empty to run in BOT-only mode
-SESSION_STRING=YOUR_SESSION_STRING_HERE
-
-# ─────────────────────────────────────────────
-# ⚙️  PERFORMANCE SETTINGS
-# ─────────────────────────────────────────────
-
-# Maximum simultaneous downloads (default: 5)
-# Reduce to 2-3 if you hit rate limits
-MAX_CONCURRENT_DOWNLOADS=5
-
-# Seconds to wait between batch chunks (default: 2)
-# Increase to 5-10 if you hit FloodWait errors frequently
-FLOOD_WAIT_DELAY=2
-
-# Number of message IDs fetched per batch API call (default: 200)
-# Lower this if you get timeout errors on slow servers
-BATCH_SIZE=200
+```
+/connect 2222222222:BBBbbbCCC...
 ```
 
-### Variable Reference Table
-
-| Variable | Default | Description |
-|---|---|---|
-| `API_ID` | — | Telegram API app ID from my.telegram.org |
-| `API_HASH` | — | Telegram API app hash from my.telegram.org |
-| `BOT_TOKENS` | — | One or more bot tokens, comma-separated |
-| `SESSION_STRING` | `""` | User session string (optional, for User Mode) |
-| `MAX_CONCURRENT_DOWNLOADS` | `5` | Max parallel downloads at once |
-| `FLOOD_WAIT_DELAY` | `2` | Seconds between batch API calls |
-| `BATCH_SIZE` | `200` | Message IDs per batch API call |
+Each `/connect` adds one more worker. The dashboard shows the updated count: `🤖 Worker Bots: 2 active`
 
 ---
 
-## 🚀 First Run & Initial Setup
-
-**1. Start the bot and claim ownership**
-
-Send `/start` to your bot in Telegram. The **very first user** to do this becomes the permanent owner and is saved to `downloads/owner_id.txt`. This is reset only if you delete that file.
-
-**2. Check the dashboard**
-
-After `/start`, you'll see a live dashboard showing uptime, active downloads, RAM, disk space, and current mode.
-
-**3. (Optional) Set a dump channel**
-
-If you want all downloads forwarded to a Telegram channel instead of directly to your chat:
-
-1. Create a Telegram channel
-2. Add your bot as an **Administrator** with "Post Messages" permission
-3. The bot detects this automatically and saves the channel as the dump target
-
-You can verify it's set in the dashboard under **"📂 Destination"**.
-
-**4. (Optional) Authorize additional users**
-
-Only the owner can use the bot by default. To authorize other users:
+### Step 5 — (Optional) Authorize Other Users
 
 ```
 /auth 987654321
 ```
 
-Replace `987654321` with the target user's Telegram numeric ID.
-
-**5. (Optional) Switch to User Mode**
-
-By default the bot runs in **BOT Mode** (uses bot tokens to fetch content). If you need to access channels restricted to users only, switch to User Mode via the dashboard toggle button, or the `/start` settings panel. User Mode uses your `SESSION_STRING`.
+Replace with the target user's Telegram numeric ID. They can find their own ID via [@userinfobot](https://t.me/userinfobot).
 
 ---
 
-## 🤖 Bot Commands
+### Step 6 — (Optional) Switch to User Mode
 
-All commands work in **private chat** with the bot. Only the owner and authorized users can use them.
+In the dashboard, tap **"👤 User Mode"**. The bot confirms: `🛠 Current Mode: USER`
 
-| Command | Arguments | Description |
+Switch back anytime by tapping **"🤖 Bot Mode"**.
+
+> Requires a valid `SESSION_STRING` in `config.env`. If missing or expired, the bot logs a warning and stays in BOT mode.
+
+---
+
+## 🤖 Commands Reference
+
+All commands are **private chat only**. Only the owner and authorized users can use them.
+
+### Download Commands
+
+| Command | Syntax | Description |
 |---|---|---|
-| `/start` | — | Open the admin dashboard |
-| `/dl` | `<link>` | Download a single message by Telegram link |
-| `/bdl` | `<start_link> <end_link>` | Batch download a range of messages |
-| `/connect` | `<bot_token>` | Add a new bot to the worker pool at runtime |
-| `/join` | `<chat_username_or_link>` | Join a chat with the user session (User Mode only) |
-| `/auth` | `<user_id>` | Authorize a new user (owner only) |
-| `/logs` | — | Download the current `logs.txt` file |
-| `/clean` | — | Wipe all files in the `downloads/` directory |
+| `/dl` | `/dl https://t.me/channel/123` | Download a single Telegram message |
+| `/bdl` | `/bdl https://t.me/channel/100 https://t.me/channel/500` | Batch download messages 100 → 500 |
 
-### Usage Examples
+**Supported link formats:**
 
-**Download a single post:**
 ```
-/dl https://t.me/channelname/123
-```
+# Public channel
+https://t.me/channelname/123
 
-**Batch download messages 100 through 500:**
-```
-/bdl https://t.me/channelname/100 https://t.me/channelname/500
+# Private channel (numeric ID)
+https://t.me/c/1234567890/123
+
+# Forum/topic thread (topic 45, message 123)
+https://t.me/c/1234567890/45/123
 ```
 
-**Add a second bot as a worker:**
-```
-/connect 987654321:ABC-NewBotToken...
+### Admin Commands
+
+| Command | Syntax | Description |
+|---|---|---|
+| `/start` | `/start` | Open the live admin dashboard |
+| `/connect` | `/connect <bot_token>` | Add a bot to the worker pool at runtime |
+| `/join` | `/join <link_or_username>` | Join a chat as the user account (USER Mode only) |
+| `/auth` | `/auth <user_id>` | Authorize a user (owner only) |
+| `/logs` | `/logs` | Send `logs.txt` to your chat |
+| `/clean` | `/clean` | Wipe all temp files from `downloads/` |
+
+### Example Usage
+
+```bash
+# Download one video
+/dl https://t.me/techcommunity/4521
+
+# Batch download 200 files from a private channel
+/bdl https://t.me/c/1234567890/1 https://t.me/c/1234567890/200
+
+# Add a second worker bot
+/connect 9876543210:XYZ-abc123def456...
+
+# Authorize a user
+/auth 123456789
+
+# Join a private group as your user account
+/join https://t.me/+AbCdEfGhIjKl
 ```
 
-**Join a private channel as the user:**
+### Batch Resume / Restart
+
+When a batch is interrupted and you send `/bdl` again (without arguments), the bot offers:
+
 ```
-/join https://t.me/+privateInviteHash
+⚠️ Found Batch!
+Range: 100 - 5000
+
+[ ▶️ Resume (847) ]   ← continue from message 847
+[ 🔄 Start Over   ]   ← restart from message 100
+[ ✖️ Cancel       ]   ← discard the saved batch state
 ```
 
 ---
 
-## 📊 Admin Dashboard
+## 📊 Admin Dashboard Guide
 
-Sending `/start` shows the live dashboard:
+### Dashboard Layout
 
 ```
-🤖 Restricted Content Downloader
-━━━━━━━━━━━━━━━━━━━━━
-⚡ Active DLs: 3 | Tasks: 5
-🤖 Worker Bots: 2 active
-⏱ Uptime: 2h 14m 33s
-💾 Storage: 12.4 GB free
-🧠 RAM Load: 42%
-━━━━━━━━━━━━━━━━━━━━━
-📂 Destination: Channel `-1001234567890`
-🛠 Current Mode: BOT
+┌────────────────────────────────────────────┐
+│  🤖 Restricted Content Downloader         │
+│  ━━━━━━━━━━━━━━━━━━━━━                    │
+│  ⚡ Active DLs: 2 | Tasks: 3              │
+│  🤖 Worker Bots: 3 active                 │
+│  ⏱ Uptime: 4h 23m 15s                   │
+│  💾 Storage: 8.1 GB free                 │
+│  🧠 RAM Load: 61%                         │
+│  ━━━━━━━━━━━━━━━━━━━━━                    │
+│  📂 Destination: Channel -10012345        │
+│  🛠 Current Mode: BOT                     │
+│                                            │
+│  [ 🔄 Refresh ]  [ ⚙️ Settings ]          │
+│  [ 🤖 Manage Bots ] [ 👤 User Mode ]      │
+│  [ 📜 Logs ]  [ 🛑 STOP ALL ]             │
+└────────────────────────────────────────────┘
 ```
 
-**Dashboard Buttons:**
-
-| Button | Action |
+| Button | What it does |
 |---|---|
-| 🔄 Refresh | Refresh the dashboard stats |
-| ⚙️ Settings | Toggle concurrent speed and flood delay |
-| 🤖 Manage Bots | View, add, or remove worker bots |
-| 👤 User Mode / 🤖 Bot Mode | Toggle between download modes |
-| 📜 Logs | Send `logs.txt` to chat |
-| 🛑 STOP ALL | Cancel all running download tasks immediately |
+| **🔄 Refresh** | Pulls fresh stats and redraws the dashboard |
+| **⚙️ Settings** | Opens speed / delay settings panel |
+| **🤖 Manage Bots** | View, inspect, and remove worker bots |
+| **👤 User Mode / 🤖 Bot Mode** | Toggle download mode (instant, no restart) |
+| **📜 Logs** | Sends `logs.txt` to your chat for debugging |
+| **🛑 STOP ALL** | Immediately cancels all in-progress tasks |
 
-**Settings panel** (accessible via ⚙️ Settings):
+### Settings Panel
 
-- **⚡ Speed** — Toggle between `3x` and `5x` concurrent downloads
-- **⏳ Delay** — Toggle between `0s` and `2s` inter-request delay
+```
+[ ⚡ Speed: 5x ]  [ ⏳ Delay: 2s ]
+[ 🔙 Back ]
+```
+
+| Button | Toggles Between | Effect |
+|---|---|---|
+| **⚡ Speed** | `3x` ↔ `5x` | Changes `max_concurrent` simultaneous downloads |
+| **⏳ Delay** | `0s` ↔ `2s` | Changes pause between batch API chunks |
+
+### Bot Manager Panel
+
+```
+🤖 Bot Manager — Active Workers: 3
+
+[ 🤖 MainBot (Main)  ]
+[ 🤖 Worker2         ] [ 🗑 ]
+[ 🤖 Worker3         ] [ 🗑 ]
+[ 🔙 Back ]
+```
+
+- **Tap any bot name** to view its ID, username, role, and connection status
+- **Tap 🗑** to remove a worker bot (main bot is protected and cannot be removed)
+- Removed bots are also purged from `downloads/extra_bots.txt`
 
 ---
 
 ## 🔄 Multi-Bot Worker Pool
 
-One of the most powerful features: add multiple Telegram bots as download workers. Each worker handles its own upload slot, multiplying the total throughput.
-
-### How Workers Are Managed
-
-- On startup, all tokens listed in `BOT_TOKENS` are automatically started as workers
-- Additional bots added via `/connect` are saved persistently in `downloads/extra_bots.txt` and reloaded on every restart
-- Workers are distributed in **round-robin** fashion — each download task is assigned to the next available connected worker
-- If a worker's token becomes invalid, it is automatically removed from the pool and the download is retried with another worker
-
-### Adding a Worker at Runtime
+### How Worker Selection Works
 
 ```
-/connect 987654321:ABCdef-NewWorkerBotToken
+New download task arrives
+          │
+          ▼
+   round_robin(WORKER_POOL)
+          │
+          ├── worker.is_connected? ──No──► try next worker
+          │
+          └── Yes ──► task assigned to this worker
+                              │
+                              ▼
+                   Download + upload complete
+                              │
+                              ▼
+                   Semaphore slot released
 ```
 
-On success the bot replies: `✅ Connected: WorkerBotName`
+Workers rotate in a strict round-robin cycle. Each task gets the next available, connected worker.
 
-### Removing a Worker
+### Persistence Across Restarts
 
-Open the dashboard → 🤖 **Manage Bots** → tap the 🗑 icon next to any non-main bot.
+Worker bots added via `/connect` are written to `downloads/extra_bots.txt`. On every startup, the bot reads this file and reconnects all saved workers. **You never need to re-add workers after a restart.**
 
-> ⚠️ The **main bot** (first token in `BOT_TOKENS`) cannot be removed — it's the control plane.
+### Automatic Failure Handling
+
+If a worker's token becomes invalid (bot deleted, token revoked):
+1. An `AuthKeyUnregistered` or `AccessTokenInvalid` exception is caught
+2. The worker is automatically removed from the pool
+3. The download is retried using another worker
+4. An error is logged for your review
+
+### Worker Count Guidelines
+
+| Use case | Recommended workers |
+|---|---|
+| Personal / occasional use | 1 (just the main bot) |
+| Regular batches (< 1,000 files) | 2–3 workers |
+| Heavy batches (1,000–10,000 files) | 3–5 workers |
+| Production scale (10,000+ files) | 5+ workers |
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure & Runtime Files
+
+### Source Files
 
 ```
 TelegramRestrictionBypass/
 │
-├── main.py                  # Entry point — bot initialization, all handlers, core logic
-├── config.py                # Loads config.env into the PyroConf class
-├── logger.py                # Logging setup (outputs to logs.txt)
+├── main.py                ← Entry point: initialization, handlers, core download logic
+├── config.py              ← Reads config.env into the PyroConf class
+├── logger.py              ← Rotating file logger + console output setup
 │
 ├── helpers/
-│   ├── files.py             # Download path management, file size checks, cleanup
-│   ├── msg.py               # Message parsing, caption handling, file naming
-│   ├── settings.py          # Persistent config manager (ConfigManager class)
-│   ├── state.py             # Batch progress state (StateManager class)
-│   └── utils.py             # Media group processing, upload helpers, progress bars
+│   ├── files.py           ← Download path creation, size validation, cleanup
+│   ├── msg.py             ← Telegram link parsing, caption formatting, filename detection
+│   ├── settings.py        ← Persistent ConfigManager (speed, mode, auth users, dump chat)
+│   ├── state.py           ← StateManager — batch progress for crash-safe auto-resume
+│   └── utils.py           ← Media group handling, send_media, ffprobe thumbnails
 │
-├── downloads/               # Runtime directory (created automatically)
-│   ├── settings.json        # Saved bot settings
-│   ├── owner_id.txt         # Persisted owner Telegram ID
-│   ├── dump_target.txt      # Saved dump channel ID
-│   ├── extra_bots.txt       # Saved extra bot tokens
-│   ├── user_state.json      # Batch progress for auto-resume
-│   └── history.txt          # Download history log
-│
-├── requirements.txt         # Python dependencies
-├── config.env               # Your credentials and settings (never commit this!)
-├── Dockerfile               # Docker image build instructions
-├── docker-compose.yml       # Docker Compose service definition
-└── README.md                # This file
+├── requirements.txt       ← Python package dependencies
+├── config.env             ← YOUR CREDENTIALS — never commit this!
+├── Dockerfile             ← Docker image definition (python:3.11-slim base)
+├── docker-compose.yml     ← Docker Compose service (host network, always restart)
+└── README.md              ← This file
 ```
 
-### Key Runtime Files
+### Runtime Files in `downloads/`
 
-| File | Purpose | Reset by deleting? |
-|---|---|---|
-| `downloads/owner_id.txt` | Stores the owner's Telegram user ID | Yes — next `/start` sets a new owner |
-| `downloads/settings.json` | Speed, delay, authorized users, mode | Yes — reverts to defaults |
-| `downloads/dump_target.txt` | Dump channel ID | Yes — clears dump channel |
-| `downloads/extra_bots.txt` | Persisted extra bot tokens | Yes — removes extra workers on restart |
-| `downloads/user_state.json` | Active batch progress | Yes — disables auto-resume |
+| File | Created By | Contains | Effect of Deleting |
+|---|---|---|---|
+| `owner_id.txt` | First `/start` | Owner's Telegram user ID | Next `/start` claims a new owner |
+| `settings.json` | Dashboard config changes | Speed, delay, mode, authorized users | Reverts all to defaults |
+| `dump_target.txt` | Bot promoted in a channel | Target channel ID for forwarding | Clears dump channel |
+| `extra_bots.txt` | Each `/connect` | Extra bot tokens, one per line | Workers not reloaded on restart |
+| `user_state.json` | Every batch start | Per-user batch progress | Disables auto-resume for all users |
+| `history.txt` | Reserved | Download history log | Safe to delete |
+
+### What Never to Commit
+
+Ensure `.gitignore` covers these:
+
+```gitignore
+config.env
+downloads/
+*.session
+logs.txt
+__pycache__/
+venv/
+.env
+```
+
+---
+
+## 🐛 Bug Fixes in This Release
+
+Six bugs were identified during code audit and fixed:
+
+<table>
+<tr>
+<th>#</th>
+<th>File</th>
+<th>Bug</th>
+<th>Fix</th>
+</tr>
+<tr>
+<td><b>1</b></td>
+<td><code>main.py</code></td>
+<td><b>AttributeError crash</b> — <code>client.me</code> in <code>on_chat_member_updated</code> can be <code>None</code> before <code>get_me()</code> is called, causing a crash the first time any bot is added to a channel</td>
+<td>Changed to <code>bot.me.id</code> — the module-level <code>bot</code> object is fully initialized before any handlers fire</td>
+</tr>
+<tr>
+<td><b>2</b></td>
+<td><code>main.py</code></td>
+<td><b>Unhandled callback</b> — the Bot Manager panel renders buttons with <code>callback_data="bot_info_*"</code> but the callback handler had no <code>bot_info_*</code> case. Clicking any bot's name caused an infinite spinning loader with no response</td>
+<td>Added a full <code>bot_info_*</code> handler displaying the bot's name, Telegram ID, username, role (Main/Worker), and live connection status</td>
+</tr>
+<tr>
+<td><b>3</b></td>
+<td><code>main.py</code></td>
+<td><b>Missing <code>query.answer()</code></b> on 6 callbacks — <code>refresh_dash</code>, <code>manage_bots</code>, <code>open_settings</code>, <code>send_logs</code> (success path), <code>resume_batch</code>, <code>restart_batch</code> — all left a spinning loader forever on Telegram mobile clients</td>
+<td>Added <code>await query.answer(...)</code> with descriptive status text to every affected callback</td>
+</tr>
+<tr>
+<td><b>4</b></td>
+<td><code>main.py</code></td>
+<td><b>Env vars silently ignored</b> — <code>MAX_CONCURRENT_DOWNLOADS</code>, <code>FLOOD_WAIT_DELAY</code>, and <code>BATCH_SIZE</code> were parsed into <code>PyroConf</code> but never applied to <code>Config</code>. Any values set in <code>config.env</code> had zero effect at runtime</td>
+<td>Added explicit <code>Config.set(...)</code> calls in <code>initialize()</code> to apply all three env vars to the runtime config before the asyncio semaphore is created</td>
+</tr>
+<tr>
+<td><b>5</b></td>
+<td><code>helpers/utils.py</code></td>
+<td><b>Premium users blocked at upload</b> — <code>send_media()</code> called <code>fileSizeLimit(..., is_premium=False)</code> unconditionally. Premium users' large files that passed the download size check would then fail the upload size check</td>
+<td>Added <code>is_premium</code> parameter to <code>send_media()</code> signature and propagated it from <code>safe_download()</code> where premium status is already correctly determined</td>
+</tr>
+<tr>
+<td><b>6</b></td>
+<td><code>helpers/utils.py</code></td>
+<td><b>Album files downloaded to wrong directory</b> — <code>processMediaGroup()</code> called <code>await msg.download()</code> with no <code>file_name</code> argument, causing Pyrogram to save album items to the current working directory (project root) with random generated names instead of the organized <code>downloads/album_*/</code> structure</td>
+<td>Now calls <code>get_download_path(f"album_{media_group_id}", fname)</code> exactly as <code>safe_download()</code> does, placing album items in the correct organized subdirectory and enabling proper cleanup</td>
+</tr>
+</table>
 
 ---
 
 ## 🛠️ Troubleshooting
 
 <details>
-<summary><b>❌ "Session string is invalid" or user client fails to start</b></summary>
+<summary><b>❌ "User Session failed to start" in logs</b></summary>
 
-**Cause:** The `SESSION_STRING` in `config.env` is expired, incorrect, or from a different account.
+**What it means:** The `SESSION_STRING` is invalid, expired, or the account was deauthorized.
 
 **Fix:**
-1. Re-generate a fresh session string (see [Getting Your Credentials → Session String](#session-string))
-2. Replace the value in `config.env`
-3. Restart the bot
+1. Re-generate a fresh session string (see [Getting Your Credentials → Session String](#3-session-string))
+2. Replace in `config.env` and restart
 
-The bot will continue in BOT-only mode even if the user session fails — you'll see a warning in the logs.
+The bot continues running in BOT-only mode even if the user session fails — everything except USER Mode still works.
+
 </details>
 
 <details>
-<summary><b>❌ Frequent FloodWait errors</b></summary>
+<summary><b>❌ Frequent FloodWait errors slowing everything down</b></summary>
 
-**Cause:** You're making too many API requests too quickly. Telegram imposes rate limits.
+**Fix (in order of impact):**
+1. **Add more worker bots** via `/connect` — more bots spread the API load
+2. **Increase delay:** `FLOOD_WAIT_DELAY=5` or `10` in `config.env`
+3. **Reduce concurrency:** `MAX_CONCURRENT_DOWNLOADS=2` in `config.env`
+4. **Wait** — FloodWait is temporary (5–60s). The bot retries automatically up to 5 times.
 
-**Fix:**
-- Increase `FLOOD_WAIT_DELAY` to `5` or `10` in `config.env`
-- Reduce `MAX_CONCURRENT_DOWNLOADS` to `2`
-- Add more worker bots via `/connect` to spread the load
-- The bot automatically waits and retries up to 5 times before giving up on a message
 </details>
 
 <details>
-<summary><b>❌ ConnectionResetError on AWS / Debian</b></summary>
-
-**Cause:** AWS networking conflicts with IPv6 by default on some images.
+<summary><b>❌ ConnectionResetError / frequent disconnections (AWS / Debian)</b></summary>
 
 **Fix:**
 ```bash
-# Disable IPv6 for this session
+# Disable IPv6 immediately
 sudo sysctl -w net.ipv6.conf.all.disable_ipv6=1
 sudo sysctl -w net.ipv6.conf.default.disable_ipv6=1
 
-# Persist across reboots
+# Make permanent
 echo "net.ipv6.conf.all.disable_ipv6 = 1" | sudo tee -a /etc/sysctl.conf
 echo "net.ipv6.conf.default.disable_ipv6 = 1" | sudo tee -a /etc/sysctl.conf
 sudo sysctl -p
+sudo systemctl restart tgbypass
 ```
+
 </details>
 
 <details>
 <summary><b>❌ MD5_CHECKSUM_INVALID during download</b></summary>
 
-**Cause:** Network instability caused a corrupted chunk during download.
+**What it means:** A data chunk was corrupted in transit — usually network instability.
 
 **Fix:**
-- The bot retries automatically on this error (up to 2 retries)
-- Ensure your server has a stable, low-latency connection to Telegram's servers (Telegram DC locations are Frankfurt, Miami, Singapore, Amsterdam, Singapore)
+- Bot retries automatically up to 2 times
 - Verify TgCrypto is installed: `pip show TgCrypto`
-- If on Docker: `docker compose exec media_bot pip show TgCrypto`
+- For persistent errors: consider a server physically closer to Telegram's DCs (Frankfurt, Amsterdam, Singapore, Miami)
+
 </details>
 
 <details>
 <summary><b>❌ Disk fills up quickly</b></summary>
 
-**Cause:** Failed or large downloads accumulate in `downloads/`.
-
-**Fix:**
-- Send `/clean` to the bot to wipe `downloads/*`
-- Manually: `rm -rf downloads/*` (keep `.txt` and `.json` files if you want to preserve settings)
-- Files are cleaned automatically after each successful upload; this only accumulates on errors
-</details>
-
-<details>
-<summary><b>❌ Bot not responding to messages</b></summary>
-
-**Fix checklist:**
-1. Confirm the bot is running: `systemctl status tgbypass` or `docker compose ps`
-2. Check that `BOT_TOKENS` is correctly set in `config.env`
-3. Ensure you are messaging the bot in **private chat** — all commands are private-only
-4. Confirm your Telegram user ID is authorized (first `/start` sets you as owner)
-5. Check the logs: `sudo journalctl -u tgbypass -f` or `docker compose logs -f`
-</details>
-
-<details>
-<summary><b>❌ Batch stops midway and doesn't resume</b></summary>
-
-**Cause:** The batch state is saved in `downloads/user_state.json`. If the bot restarts before a batch finishes, it auto-resumes. If it doesn't, the state file may be corrupted.
-
 **Fix:**
 ```bash
-cat downloads/user_state.json    # inspect state
-rm downloads/user_state.json     # reset if corrupted
+# Via bot (safest — preserves state files)
+/clean
+
+# Via shell (keeps .txt and .json)
+find downloads/ -type f ! -name "*.txt" ! -name "*.json" -delete
+
+# Nuclear (only when bot is stopped)
+rm -rf downloads/
 ```
 
-You can then restart the batch manually using `/bdl`.
+</details>
+
+<details>
+<summary><b>❌ Bot doesn't respond to commands</b></summary>
+
+**Check in order:**
+
+1. Is it running?
+   ```bash
+   sudo systemctl status tgbypass  # systemd
+   docker compose ps               # Docker
+   ```
+2. Are you messaging it in **private chat**? (All commands are private-only)
+3. Is your user ID authorized? (First `/start` claims ownership)
+4. Are credentials correct in `config.env`?
+5. Check the logs:
+   ```bash
+   sudo journalctl -u tgbypass -n 50
+   docker compose logs --tail=50
+   tail -n 50 logs.txt
+   ```
+
+</details>
+
+<details>
+<summary><b>❌ Batch stopped midway; auto-resume didn't trigger</b></summary>
+
+**Diagnose:**
+```bash
+cat downloads/user_state.json
+# Expected: {"123456": {"source": -100123, "start": 100, "end": 5000, "current": 847, "status": "active"}}
+```
+
+**Fix if file is corrupted:**
+```bash
+rm downloads/user_state.json    # clear corrupted state (stop bot first)
+# Then restart and manually resume:
+/bdl https://t.me/channel/847 https://t.me/channel/5000
+```
+
+</details>
+
+<details>
+<summary><b>❌ "Access Denied" when sending commands</b></summary>
+
+1. Find your Telegram user ID: message [@userinfobot](https://t.me/userinfobot)
+2. Have the bot owner run: `/auth YOUR_ID`
+3. Or if you are the owner but lost access: stop bot, delete `downloads/owner_id.txt`, restart, `/start`
+
 </details>
 
 ---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Here's how to get involved:
+Contributions, bug reports, and feature requests are all welcome.
+
+**Development setup:**
 
 ```bash
-# 1. Fork the repository on GitHub, then clone your fork
 git clone https://github.com/YOUR_USERNAME/TelegramRestrictionBypass.git
 cd TelegramRestrictionBypass
-
-# 2. Create a feature branch
-git checkout -b feature/your-feature-name
-
-# 3. Make your changes
-# ...
-
-# 4. Commit with a clear message
-git add .
-git commit -m "feat: add your feature description"
-
-# 5. Push and open a Pull Request
-git push origin feature/your-feature-name
+python3.11 -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+git checkout -b feature/my-feature
 ```
 
 **Guidelines:**
-- Follow PEP 8 style
-- Keep helper logic in the `helpers/` modules, not in `main.py`
-- Add comments for non-obvious logic
-- Test with both BOT mode and USER mode before submitting
-- Update this README if you add new config variables or commands
+- Follow PEP 8 — lint with `flake8` or `ruff`
+- Keep utility logic in `helpers/` — not in `main.py`
+- Test with both BOT Mode and USER Mode
+- Update this README if you add config variables, commands, or runtime files
+- One logical change per commit, atomic commits
+
+**When reporting bugs, include:**
+- Python version (`python3 --version`)
+- Deployment method (local, Docker, systemd)
+- Relevant lines from `logs.txt`
+- Steps to reproduce
 
 ---
 
@@ -752,21 +1172,22 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE) fo
 
 <div align="center">
 
-**Primary Developer**  
-[@Paidguy](https://github.com/Paidguy)
+### Primary Developer
+**[@Paidguy](https://github.com/Paidguy)**
 
-**Original Project**  
-[RestrictedContentDL](https://github.com/bisnuray/RestrictedContentDL) by [@bisnuray](https://github.com/bisnuray)
+### Original Project
+**[RestrictedContentDL](https://github.com/bisnuray/RestrictedContentDL)** by **[@bisnuray](https://github.com/bisnuray)**
 
-**Core Libraries**  
-[Pyrofork](https://github.com/pyrogram/pyrogram) · [TgCrypto](https://github.com/pyrogram/tgcrypto) · [Pyleaves](https://github.com/1Danish-00/pyleaves)
+### Core Libraries
+[Pyrofork](https://github.com/KurimuzonAkuma/pyrogram) &nbsp;·&nbsp; [TgCrypto](https://github.com/pyrogram/tgcrypto) &nbsp;·&nbsp; [Pyleaves](https://github.com/1Danish-00/pyleaves) &nbsp;·&nbsp; [python-dotenv](https://github.com/theskumar/python-dotenv)
 
 <br/>
 
-[![GitHub](https://img.shields.io/badge/GitHub-@Paidguy-181717?style=for-the-badge&logo=github)](https://github.com/Paidguy)
-[![Telegram](https://img.shields.io/badge/Telegram-Contact-0088cc?style=for-the-badge&logo=telegram)](https://t.me/paidguy)
+[![GitHub](https://img.shields.io/badge/GitHub-@Paidguy-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Paidguy)
+[![Telegram](https://img.shields.io/badge/Telegram-@Paidguy-0088cc?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/paidguy)
+[![Original Repo](https://img.shields.io/badge/Original-RestrictedContentDL-FF6B35?style=for-the-badge&logo=github&logoColor=white)](https://github.com/bisnuray/RestrictedContentDL)
 
-*If this project helped you, please ⭐ star both this repo and the [original](https://github.com/bisnuray/RestrictedContentDL)!*
+*If this helped you, please ⭐ both this repo and the [original](https://github.com/bisnuray/RestrictedContentDL)!*
 
 </div>
 
@@ -776,29 +1197,37 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE) fo
 
 <div align="center">
 
-### **THIS SOFTWARE IS PROVIDED FOR EDUCATIONAL AND RESEARCH PURPOSES ONLY**
+```
+╔══════════════════════════════════════════════════════════╗
+║     FOR EDUCATIONAL AND RESEARCH PURPOSES ONLY          ║
+╚══════════════════════════════════════════════════════════╝
+```
 
 </div>
 
-By using this software you acknowledge and agree to the following:
+**Terms of Service:** This software may violate [Telegram's Terms of Service](https://telegram.org/tos), which prohibit circumventing content restrictions. Use may result in permanent suspension of any associated Telegram accounts or bots.
 
-**Terms of Service:** This bot may violate [Telegram's Terms of Service](https://telegram.org/tos). Using it may result in **permanent account suspension** of any Telegram account (bot or user) associated with it.
+**Copyright Law:** Downloading or redistributing restricted content without authorization may infringe intellectual property rights and violate laws including the DMCA (US), EU Copyright Directive, Computer Misuse Act (UK), and equivalent legislation worldwide.
 
-**Copyright Law:** Downloading or redistributing restricted content without authorization may infringe on intellectual property rights and violate laws such as the DMCA (US), EU Copyright Directive, Computer Misuse Act (UK), and equivalent legislation in your country.
+**Your Responsibility:** You are **solely responsible** for verifying legal compliance in your jurisdiction, obtaining proper authorization before downloading content, and any consequences — legal, financial, or otherwise — that result from your use. The developers disclaim all liability.
 
-**Your Responsibility:** You are **solely responsible** for how you use this software, including any legal consequences, account bans, or financial penalties that result. The developers disclaim all liability.
+**Permitted Use Only:** Content you own, have explicit written permission to download, authorized academic/security research, or development testing in isolated environments.
 
-**Permitted use only:** This software should only be used for content you own, have explicit permission to download, or in clearly authorized educational/research contexts.
+```diff
+- Pirating or redistributing copyrighted content
+- Bypassing restrictions on content you don't own
+- Any activity that violates applicable law
+```
 
-> 🚨 **Do not use this software to pirate, redistribute, or profit from content you do not own. If in doubt, consult a legal professional before use.**
+> 🚨 If in doubt about legality, consult a qualified legal professional **before** using this software.
 
 ---
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:24243e,50:302b63,100:0f0c29&height=100&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1f2e,50:161b22,100:0d1117&height=120&section=footer&text=Use%20Responsibly&fontSize=24&fontColor=58a6ff&fontAlignY=65" width="100%"/>
 
-**Built with [Pyrofork](https://github.com/pyrogram/pyrogram) · Powered by Python 3.11 · Use Responsibly**
+**Built with [Pyrofork](https://github.com/KurimuzonAkuma/pyrogram) · Powered by Python 3.11 · Use Responsibly**
 
 *Last updated: February 2026*
 
