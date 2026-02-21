@@ -100,10 +100,6 @@ This project is an enhanced and optimized version built upon the excellent work 
 <div align="center">
 
 ### Original Project: [RestrictedContentDL](https://github.com/bisnuray/RestrictedContentDL)
-**Created by [@bisnuray](https://github.com/bisnuray) (Bisnu Ray)**
-
-[![Original Repo](https://img.shields.io/badge/Original-RestrictedContentDL-blue?style=for-the-badge&logo=github)](https://github.com/bisnuray/RestrictedContentDL)
-[![Telegram](https://img.shields.io/badge/Contact-@itsSmartDev-0088cc?style=for-the-badge&logo=telegram)](https://t.me/itsSmartDev)
 
 </div>
 
