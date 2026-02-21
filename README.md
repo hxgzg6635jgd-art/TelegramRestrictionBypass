@@ -59,6 +59,8 @@ A step-by-step walkthrough covering:
 - ✅ Configuring and running the bot
 - ✅ Troubleshooting common issues
 
+**Want a super quick checklist?** See [QUICKSTART.md](QUICKSTART.md) for a condensed version.
+
 **Experienced users:** Jump to [Installation Methods](#-installation-methods) below.
 
 ---
