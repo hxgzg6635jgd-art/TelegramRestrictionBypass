@@ -3,7 +3,9 @@
 *.vscode*
 # *.env
 *.log
+logs.txt
 *.json
 *.html
 ./*.py
 test.py
+downloads/
