@@ -9,7 +9,7 @@ from pyleaves import Leaves
 from pyrogram.types import (
     InputMediaPhoto, InputMediaVideo, InputMediaDocument, InputMediaAudio
 )
-from helpers.files import fileSizeLimit, cleanup_download
+from helpers.files import fileSizeLimit, cleanup_download, get_download_path
 from helpers.msg import get_parsed_msg
 
 def progressArgs(action, progress_message, start_time):
@@ -57,10 +57,10 @@ async def get_video_thumbnail(video_file, duration):
     except: pass
     return None
 
-async def send_media(bot, message, media_path, media_type, caption, progress_message=None, start_time=None, target_chat_id=None):
+async def send_media(bot, message, media_path, media_type, caption, progress_message=None, start_time=None, target_chat_id=None, is_premium=False):
     # 'bot' here is the selected worker
     file_size = os.path.getsize(media_path)
-    if progress_message and not await fileSizeLimit(file_size, message, "upload"): return
+    if progress_message and not await fileSizeLimit(file_size, message, "upload", is_premium): return
 
     chat_id = target_chat_id if target_chat_id else message.chat.id
     
@@ -105,7 +105,10 @@ async def processMediaGroup(chat_message, bot, message, target_chat_id=None):
         for msg in media_group:
             if msg.media:
                 try:
-                    path = await msg.download()
+                    from helpers.msg import get_file_name
+                    fname = get_file_name(msg.id, msg)
+                    dpath = get_download_path(f"album_{chat_message.media_group_id}", fname)
+                    path = await msg.download(file_name=dpath)
                     if path:
                         files_to_clean.append(path)
                         cap = await get_parsed_msg(msg.caption or "", msg.caption_entities)
