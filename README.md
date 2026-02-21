@@ -1012,6 +1012,45 @@ Six bugs were identified during code audit and fixed:
 ## 🛠️ Troubleshooting
 
 <details>
+<summary><b>❌ "API_ID must be a numeric value" or "API_HASH is not configured properly"</b></summary>
+
+**What it means:** You haven't filled in your Telegram credentials in `config.env`, or they contain placeholder text.
+
+**Fix:**
+1. Open `config.env` in a text editor:
+   ```bash
+   nano config.env
+   ```
+2. Replace the placeholder values:
+   - `API_ID=YOUR_API_ID_HERE` → `API_ID=12345678` (your actual numeric ID)
+   - `API_HASH=YOUR_API_HASH_HERE` → `API_HASH=abc123...` (your actual hash)
+   - `BOT_TOKENS=YOUR_BOT_TOKEN_HERE` → `BOT_TOKENS=1234567890:ABC...` (your bot token)
+3. Save and restart the bot
+
+See [Getting Your Credentials](#-getting-your-credentials) for detailed instructions on obtaining these values.
+
+</details>
+
+<details>
+<summary><b>❌ "ModuleNotFoundError: No module named 'psutil'" or similar import errors</b></summary>
+
+**What it means:** Python dependencies are not installed.
+
+**Fix:**
+```bash
+pip install -r requirements.txt
+```
+
+If using a virtual environment (recommended), make sure it's activated first:
+```bash
+source venv/bin/activate  # Linux/macOS
+# or
+venv\Scripts\activate     # Windows
+```
+
+</details>
+
+<details>
 <summary><b>❌ "User Session failed to start" in logs</b></summary>
 
 **What it means:** The `SESSION_STRING` is invalid, expired, or the account was deauthorized.
