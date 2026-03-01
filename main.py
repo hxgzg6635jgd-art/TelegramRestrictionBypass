@@ -504,13 +504,18 @@ async def process_wrapper(bot, message, msg, silent=False):
 
 @bot.on_message(filters.command("bdl") & filters.private)
 async def batch_dl_command(bot, message):
-    if not Config.is_authorized(message.chat.id): return
+    """Handle batch download command with link validation."""
+    if not Config.is_authorized(message.chat.id):
+        return
+
     args = message.text.split()
     if len(args) == 3:
         try:
             schat, sid = getChatMsgID(args[1])
             echat, eid = getChatMsgID(args[2])
-        except: return await message.reply("Invalid Link")
+        except ValueError as e:
+            LOGGER(__name__).error(f"Invalid batch link: {e}")
+            return await message.reply("❌ Invalid Link. Please provide valid Telegram message URLs.")
         track_task(run_batch_logic(bot, message, schat, sid, eid, message.chat.id))
         return
 
@@ -522,7 +527,8 @@ async def batch_dl_command(bot, message):
             [InlineKeyboardButton("✖️ Cancel", callback_data="cancel_batch")]
         ])
         await message.reply(f"⚠️ **Found Batch!**\nRange: `{batch['start']} - {batch['end']}`", reply_markup=buttons)
-    else: await message.reply("Usage: /bdl <start> <end>")
+    else:
+        await message.reply("Usage: /bdl <start> <end>")
 
 async def run_batch_logic(bot, message, schat, sid, eid, user_id, is_resuming=False):
     fetcher = user if Config.get("download_mode") == "USER" else get_next_worker()
@@ -535,8 +541,11 @@ async def run_batch_logic(bot, message, schat, sid, eid, user_id, is_resuming=Fa
     if message:
         status = await bot.send_message(user_id, f"🚀 **Batch Started ({mode})**\n🆔 {sid} - {eid}")
     else:
-        try: status = await bot.send_message(user_id, f"🔄 **Auto-Resuming Batch ({mode})**\n🆔 {sid} - {eid}")
-        except: return
+        try:
+            status = await bot.send_message(user_id, f"🔄 **Auto-Resuming Batch ({mode})**\n🆔 {sid} - {eid}")
+        except Exception as e:
+            LOGGER(__name__).error(f"Failed to send auto-resume message: {e}")
+            return
 
     processed_groups = set()
     count = 0
