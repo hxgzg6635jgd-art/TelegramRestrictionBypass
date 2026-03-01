@@ -43,6 +43,8 @@
 
 <div align="center">
 
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=4000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&width=900&height=60&lines=📖+Navigate+to:+Features+•+Visual+Showcase+•+Quick+Start+•+Installation;Documentation+•+Configuration+•+Architecture+•+Advanced+Features" alt="Navigation Animation" />
+
 **[✨ Features](#-features) • [🎬 Visual Showcase](#-visual-showcase) • [🚀 Quick Start](#-quick-start) • [📦 Installation](#-installation) • [📚 Documentation](#-documentation) • [💬 Support](#-support)**
 
 </div>
@@ -378,6 +380,14 @@ Configuration survives restarts
 ---
 
 ## 🚀 Quick Start
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=22C55E&center=true&vCenter=true&width=700&lines=🚀+Let's+Get+You+Started!;⚡+5+minutes+to+production;🎯+Step-by-step+made+easy!" alt="Quick Start Animation" />
+
+</div>
+
+<br/>
 
 <div align="center">
 
@@ -942,6 +952,16 @@ See [Release Notes](docs/README.md#bug-fixes) for full list.
 <div align="center">
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=150&section=footer&animation=twinkling" width="100%"/>
+
+</div>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=4&section=divider" width="100%"/>
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=00B4D8&center=true&vCenter=true&width=600&lines=🙏+Credits+%26+Acknowledgments;💝+Built+with+love;🌟+Open+Source+Excellence!" alt="Credits Animation" />
 
 </div>
 
