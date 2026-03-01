@@ -32,10 +32,7 @@
 
 <div align="center">
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=100&lines=🎯+Production-grade+Telegram+content+downloader;⚡+Multi-bot+worker+pools+•+Crash-safe+auto-resume;📊+Live+dashboard+•+Smart+media+handling">
-  <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=00b4d8&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=100&lines=🎯+Production-grade+Telegram+content+downloader;⚡+Multi-bot+worker+pools+•+Crash-safe+auto-resume;📊+Live+dashboard+•+Smart+media+handling" />
-</picture>
+
 
 </div>
 
@@ -43,9 +40,7 @@
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=4000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&width=900&height=60&lines=📖+Navigate+to:+Features+•+Key+Capabilities+•+Quick+Start+•+Installation;Documentation+•+Configuration+•+Architecture+•+Advanced+Features" alt="Navigation Animation" />
-
-**[✨ Features](#-features) • [🎬 Key Capabilities](#-key-capabilities) • [🚀 Quick Start](#-quick-start) • [📦 Installation](#-installation) • [📚 Documentation](#-documentation) • [💬 Support](#-support)**
+**[Features](#-features) &nbsp;|&nbsp; [Key Capabilities](#-key-capabilities) &nbsp;|&nbsp; [Quick Start](#-quick-start) &nbsp;|&nbsp; [Installation](#-installation) &nbsp;|&nbsp; [Documentation](#-documentation) &nbsp;|&nbsp; [Support](#-support)**
 
 </div>
 
@@ -99,7 +94,6 @@
 
 <br/>
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1000&color=00B4D8&center=true&vCenter=true&width=800&lines=✅+Zero+data+loss+guarantee;⚡+10x+faster+with+TgCrypto;🔄+Automatic+crash+recovery;📊+Real-time+monitoring+dashboard" alt="Features Animation" />
 
 </div>
 
@@ -391,7 +385,7 @@ Configuration survives restarts
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=22C55E&center=true&vCenter=true&width=700&lines=🚀+Let's+Get+You+Started!;⚡+5+minutes+to+production;🎯+Step-by-step+made+easy!" alt="Quick Start Animation" />
+> ⚡ **5 minutes to production** — step-by-step setup below.
 
 </div>
 
@@ -539,7 +533,7 @@ python main.py
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=2496ED&center=true&vCenter=true&width=600&lines=🐳+Containerized+Deployment;✅+Zero+dependency+conflicts;⚡+Production-ready+in+minutes!" alt="Docker Animation" />
+> 🐳 **Containerized deployment** — zero dependency conflicts, production-ready in minutes.
 
 </div>
 
@@ -1333,7 +1327,7 @@ furnished to do so, subject to the following conditions...
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=4000&pause=1000&color=00B4D8&center=true&vCenter=true&width=600&lines=⭐+Star+this+repo+if+it+helped+you!;🤝+Contributions+are+always+welcome!;💬+Join+our+community+discussions!;📢+Stay+updated+with+latest+releases!" alt="Footer Animation" />
+
 
 </div>
 
