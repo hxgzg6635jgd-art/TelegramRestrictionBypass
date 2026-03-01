@@ -1,23 +1,55 @@
-import os
+"""
+TelegramRestrictionBypass - Main Bot Module
+
+Production-grade Telegram content downloader and re-uploader with:
+- Multi-bot worker pool for parallel uploads
+- Crash-safe auto-resume for batch downloads
+- Dual BOT/USER download modes
+- Live admin dashboard with real-time statistics
+
+Copyright (C) 2025 Paidguy
+License: MIT
+"""
+
 import asyncio
-import shutil
-import psutil
 import itertools
+import os
+import shutil
 from time import time
 
+import psutil
 from pyleaves import Leaves
-from pyrogram.enums import ParseMode, ChatMemberStatus
 from pyrogram import Client, filters
-from pyrogram.errors import FloodWait, RPCError, AuthKeyUnregistered, UserDeactivated, AccessTokenInvalid
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ChatMemberUpdated, CallbackQuery
+from pyrogram.enums import ChatMemberStatus, ParseMode
+from pyrogram.errors import (
+    AccessTokenInvalid,
+    AuthKeyUnregistered,
+    FloodWait,
+    RPCError,
+    UserDeactivated,
+)
+from pyrogram.types import (
+    CallbackQuery,
+    ChatMemberUpdated,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    Message,
+)
 
-from helpers.utils import processMediaGroup, progressArgs, send_media
-from helpers.files import get_download_path, fileSizeLimit, get_readable_file_size, get_readable_time, cleanup_download
+from config import PyroConf
+from helpers.files import (
+    cleanup_download,
+    fileSizeLimit,
+    get_download_path,
+    get_readable_file_size,
+    get_readable_time,
+)
 from helpers.msg import getChatMsgID, get_file_name, get_parsed_msg
 from helpers.settings import Config
 from helpers.state import UserState
-from config import PyroConf
+from helpers.utils import processMediaGroup, progressArgs, send_media
 from logger import LOGGER
+from __version__ import __version__, __author__
 
 # -------------------------------------------------------------------------------------------
 # INITIALIZATION
@@ -586,9 +618,30 @@ async def auth_user(client, message):
 
 @bot.on_message(filters.command("clean") & filters.private)
 async def clean_dl(bot, message):
-    if not Config.is_authorized(message.chat.id): return
-    os.system("rm -rf downloads/*")
-    await message.reply("✅ Cleaned.")
+    """Clean downloaded files (authorized users only)."""
+    if not Config.is_authorized(message.chat.id):
+        return
+
+    # Safe cleanup using shutil instead of os.system
+    downloads_dir = "downloads"
+    try:
+        if os.path.exists(downloads_dir):
+            for item in os.listdir(downloads_dir):
+                item_path = os.path.join(downloads_dir, item)
+                # Skip state files that should be preserved
+                if item.endswith(('.txt', '.json')):
+                    continue
+                try:
+                    if os.path.isfile(item_path):
+                        os.remove(item_path)
+                    elif os.path.isdir(item_path):
+                        shutil.rmtree(item_path, ignore_errors=True)
+                except Exception as e:
+                    LOGGER(__name__).warning(f"Could not remove {item}: {e}")
+        await message.reply("✅ Cleaned.")
+    except Exception as e:
+        LOGGER(__name__).error(f"Clean command failed: {e}")
+        await message.reply("❌ Clean failed. Check logs.")
 
 @bot.on_message(filters.command("dl") & filters.private)
 async def single_dl(bot, message):

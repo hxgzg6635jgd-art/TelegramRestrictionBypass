@@ -1,13 +1,50 @@
-#
+"""
+Message Parsing Helper Module
+
+Handles Telegram message parsing, link extraction, and filename detection.
+
+Functions:
+    - get_parsed_msg: Parse message text with entities
+    - getChatMsgID: Extract chat ID and message ID from Telegram links
+    - get_file_name: Determine appropriate filename for different media types
+"""
+
 from pyrogram.parser import Parser
 from pyrogram.utils import get_channel_id
 
 
-async def get_parsed_msg(text, entities):
-    return Parser.unparse(text, entities or [], is_html=False)
-    
+async def get_parsed_msg(text: str, entities) -> str:
+    """
+    Parse message text with Telegram entities.
 
-def getChatMsgID(link: str):
+    Args:
+        text: Message text content
+        entities: Telegram message entities
+
+    Returns:
+        Formatted message text
+    """
+    return Parser.unparse(text, entities or [], is_html=False)
+
+
+def getChatMsgID(link: str) -> tuple:
+    """
+    Extract chat ID and message ID from Telegram message link.
+
+    Supports various Telegram link formats:
+    - Public channels: t.me/channel/123
+    - Private channels: t.me/c/123456/789
+    - Forum topics: t.me/channel/123/456
+
+    Args:
+        link: Telegram message link URL
+
+    Returns:
+        Tuple of (chat_id, message_id)
+
+    Raises:
+        ValueError: If link format is invalid or missing required components
+    """
     linkps = link.split("/")
     chat_id, message_thread_id, message_id = None, None, None
     
@@ -39,6 +76,18 @@ def getChatMsgID(link: str):
 
 
 def get_file_name(message_id: int, chat_message) -> str:
+    """
+    Determine appropriate filename for a Telegram message's media.
+
+    Generates fallback filenames when media doesn't have a name.
+
+    Args:
+        message_id: Telegram message ID
+        chat_message: Pyrogram Message object
+
+    Returns:
+        Filename with appropriate extension for the media type
+    """
     if chat_message.document:
         # Fix: fallback if file_name is None
         return chat_message.document.file_name or f"{message_id}.file"
