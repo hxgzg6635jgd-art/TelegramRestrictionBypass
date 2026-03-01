@@ -68,7 +68,26 @@ class PyroConf:
 
     BOT_START_TIME = time()
 
-    MAX_CONCURRENT_DOWNLOADS = int(getenv("MAX_CONCURRENT_DOWNLOADS", "3"))
-    BATCH_SIZE = int(getenv("BATCH_SIZE", "10"))
-    FLOOD_WAIT_DELAY = int(getenv("FLOOD_WAIT_DELAY", "3"))
+    # Performance tuning with validation
+    try:
+        MAX_CONCURRENT_DOWNLOADS = int(getenv("MAX_CONCURRENT_DOWNLOADS", "5"))
+        if MAX_CONCURRENT_DOWNLOADS < 1:
+            MAX_CONCURRENT_DOWNLOADS = 5
+    except ValueError:
+        MAX_CONCURRENT_DOWNLOADS = 5
+
+    try:
+        BATCH_SIZE = int(getenv("BATCH_SIZE", "200"))
+        if BATCH_SIZE < 1:
+            BATCH_SIZE = 200
+    except ValueError:
+        BATCH_SIZE = 200
+
+    try:
+        FLOOD_WAIT_DELAY = int(getenv("FLOOD_WAIT_DELAY", "2"))
+        if FLOOD_WAIT_DELAY < 0:
+            FLOOD_WAIT_DELAY = 2
+    except ValueError:
+        FLOOD_WAIT_DELAY = 2
+
 

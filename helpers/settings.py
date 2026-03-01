@@ -132,7 +132,11 @@ class ConfigManager:
         bots = self.get_extra_bots()
         if token in bots:
             bots.remove(token)
+            self.ensure_dir()
             with open(BOTS_FILE, "w") as f:
-                f.write("\n".join(bots) + "\n")
+                if bots:
+                    f.write("\n".join(bots) + "\n")
+                else:
+                    f.write("")
 
 Config = ConfigManager()
