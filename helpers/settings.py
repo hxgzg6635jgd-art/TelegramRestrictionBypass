@@ -1,20 +1,48 @@
+"""
+Settings Management Module
+
+Manages persistent bot configuration and user authorization.
+Settings are stored in JSON files and survive bot restarts.
+
+Classes:
+    ConfigManager: Persistent configuration manager
+
+Module Variables:
+    Config: Singleton ConfigManager instance for global access
+"""
+
 import json
 import os
 
+# Configuration file paths
 SETTINGS_FILE = "downloads/settings.json"
 OWNER_FILE = "downloads/owner_id.txt"
 DUMP_FILE = "downloads/dump_target.txt"
 BOTS_FILE = "downloads/extra_bots.txt"
 
+# Default configuration values
 DEFAULT_SETTINGS = {
     "max_concurrent": 5,
     "flood_delay": 2,
     "authorized_users": [],
-    "download_mode": "BOT" 
+    "download_mode": "BOT"
 }
 
+
 class ConfigManager:
+    """
+    Manages bot configuration with persistence.
+
+    Handles:
+    - User authorization (owner and additional users)
+    - Download mode (BOT/USER)
+    - Performance settings (concurrency, delays)
+    - Worker bot tokens
+    - Dump channel configuration
+    """
+
     def __init__(self):
+        """Initialize configuration manager and load saved settings."""
         self.data = DEFAULT_SETTINGS.copy()
         self.owner_id = None
         self.load()
