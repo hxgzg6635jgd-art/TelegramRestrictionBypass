@@ -43,7 +43,8 @@ async def get_media_info(path):
                     height = stream.get("height")
                     break
             return duration, width, height
-    except: pass
+    except Exception as e:
+        LOGGER(__name__).warning(f"Could not extract media info: {e}")
     return 0, None, None
 
 async def get_video_thumbnail(video_file, duration):
@@ -53,8 +54,10 @@ async def get_video_thumbnail(video_file, duration):
     cmd = ["ffmpeg", "-hide_banner", "-loglevel", "error", "-ss", str(duration // 2), "-i", video_file, "-vframes", "1", "-q:v", "2", "-y", output]
     try:
         _, _, code = await wait_for(cmd_exec(cmd), timeout=60)
-        if code == 0 and os.path.exists(output): return output
-    except: pass
+        if code == 0 and os.path.exists(output):
+            return output
+    except Exception as e:
+        LOGGER(__name__).warning(f"Could not generate thumbnail: {e}")
     return None
 
 async def send_media(bot, message, media_path, media_type, caption, progress_message=None, start_time=None, target_chat_id=None, is_premium=False):

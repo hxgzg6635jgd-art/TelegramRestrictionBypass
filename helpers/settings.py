@@ -22,7 +22,8 @@ class ConfigManager:
             try:
                 with open(OWNER_FILE, "r") as f:
                     self.owner_id = int(f.read().strip())
-            except: pass
+            except (ValueError, OSError):
+                pass
 
     def set_owner(self, user_id):
         if not self.owner_id:
@@ -38,7 +39,8 @@ class ConfigManager:
                 with open(SETTINGS_FILE, "r") as f:
                     saved = json.load(f)
                     self.data.update(saved)
-            except: pass
+            except (OSError, json.JSONDecodeError):
+                pass
 
     def save(self):
         self.ensure_dir()
@@ -71,8 +73,10 @@ class ConfigManager:
     def get_dump_chat(self):
         if os.path.exists(DUMP_FILE):
             try:
-                with open(DUMP_FILE, "r") as f: return int(f.read().strip())
-            except: return None
+                with open(DUMP_FILE, "r") as f:
+                    return int(f.read().strip())
+            except (ValueError, OSError):
+                return None
         return None
 
     def set_dump_chat(self, chat_id):
@@ -81,11 +85,13 @@ class ConfigManager:
 
     # --- BOT MANAGEMENT ---
     def get_extra_bots(self):
-        if not os.path.exists(BOTS_FILE): return []
+        if not os.path.exists(BOTS_FILE):
+            return []
         try:
             with open(BOTS_FILE, "r") as f:
                 return [line.strip() for line in f if line.strip()]
-        except: return []
+        except OSError:
+            return []
 
     def add_extra_bot(self, token):
         bots = self.get_extra_bots()

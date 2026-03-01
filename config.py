@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 
 try:
     load_dotenv("config.env")
-except:
+except Exception:
     pass
 
 class PyroConf(object):

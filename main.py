@@ -78,7 +78,8 @@ def get_next_worker():
 async def start_new_worker(token, is_temp=False):
     try:
         bot_id = token.split(":")[0]
-    except: return None
+    except (ValueError, IndexError):
+        return None
 
     try:
         # CRITICAL FIX: max_concurrent_transmissions=1
@@ -134,7 +135,8 @@ async def stop_worker(bot_id):
         try:
             Config.remove_extra_bot(target.bot_token)
             await target.stop()
-        except: pass
+        except Exception as e:
+            LOGGER(__name__).warning(f"Error stopping worker: {e}")
         return True
     return False
 
@@ -251,7 +253,8 @@ async def callback_handler(client, query: CallbackQuery):
         try:
             await query.message.edit_text(get_dashboard_text(), reply_markup=get_dashboard_markup())
             await query.answer("✅ Refreshed")
-        except: await query.answer()
+        except Exception:
+            await query.answer()
 
     elif data == "manage_bots":
         await query.answer()
@@ -382,8 +385,10 @@ async def safe_download(bot, message, chat_message, retry_count=0, silent=False)
         prog = None
 
         if not silent:
-            try: prog = await message.reply(f"**📥 Fetching ID {chat_message.id}...**")
-            except: pass
+            try:
+                prog = await message.reply(f"**📥 Fetching ID {chat_message.id}...**")
+            except Exception:
+                pass
 
         fname = get_file_name(chat_message.id, chat_message)
         dpath = get_download_path(message.id if message else 0, fname)
@@ -431,11 +436,11 @@ async def safe_download(bot, message, chat_message, retry_count=0, silent=False)
         # BUG FIX: Ensure we verify upload success
         try:
             await send_media(
-                upload_worker, message, media_path, mtype, caption, 
-                progress_message=prog if not silent else None, 
+                upload_worker, message, media_path, mtype, caption,
+                progress_message=prog if not silent else None,
                 start_time=start_time if not silent else None,
                 target_chat_id=Config.get_dump_chat(),
-                is_premium=is_prem if 'is_prem' in dir() else False
+                is_premium=is_prem
             )
             # Only clean up if no exception occurred
             cleanup_download(media_path)
@@ -526,7 +531,8 @@ async def run_batch_logic(bot, message, schat, sid, eid, user_id, is_resuming=Fa
                     try:
                         await processMediaGroup(m, get_next_worker(), message, Config.get_dump_chat())
                         count += 1
-                    except: pass
+                    except Exception as e:
+                        LOGGER(__name__).error(f"Media group processing error: {e}")
                     continue
 
                 if not m.media: continue
@@ -575,7 +581,8 @@ async def auth_user(client, message):
         uid = int(message.command[1])
         Config.add_user(uid)
         await message.reply(f"✅ Authorized: `{uid}`")
-    except: await message.reply("Usage: /auth <uid>")
+    except (ValueError, IndexError):
+        await message.reply("Usage: /auth <uid>")
 
 @bot.on_message(filters.command("clean") & filters.private)
 async def clean_dl(bot, message):
@@ -625,8 +632,10 @@ async def initialize():
     for root, dirs, files in os.walk("downloads"):
         for f in files:
             if not f.endswith((".txt", ".json")):
-                try: os.remove(os.path.join(root, f))
-                except: pass
+                try:
+                    os.remove(os.path.join(root, f))
+                except Exception as e:
+                    LOGGER(__name__).warning(f"Could not remove temp file {f}: {e}")
 
     # AUTO-RESUME
     LOGGER(__name__).info("Checking for interrupted batches...")
