@@ -1,6 +1,57 @@
 # ⚡ Quick Start Checklist
 
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="100" />
+
 **Want to get started FAST?** Follow this checklist, then see [SETUP.md](SETUP.md) for details.
+
+⏱️ **Total Time: ~25 minutes**
+
+</div>
+
+---
+
+<div align="center">
+
+## 📋 Progress Tracker
+
+<table>
+<tr>
+<td align="center" width="16.66%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" width="40" />
+<br/><b>Prerequisites</b>
+<br/><sub>5 min</sub>
+</td>
+<td align="center" width="16.66%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Key.png" width="40" />
+<br/><b>Credentials</b>
+<br/><sub>10 min</sub>
+</td>
+<td align="center" width="16.66%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Package.png" width="40" />
+<br/><b>Install</b>
+<br/><sub>5 min</sub>
+</td>
+<td align="center" width="16.66%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" width="40" />
+<br/><b>Configure</b>
+<br/><sub>2 min</sub>
+</td>
+<td align="center" width="16.66%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" width="40" />
+<br/><b>Run</b>
+<br/><sub>1 min</sub>
+</td>
+<td align="center" width="16.66%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Party%20Popper.png" width="40" />
+<br/><b>Test</b>
+<br/><sub>2 min</sub>
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
@@ -133,12 +184,48 @@ python3 main.py
 
 ## 🚀 What's Next?
 
-Once your bot is running:
-- Add more bots: `/connect <token>` for faster downloads
-- Set up dump channel: Add bot as admin to a channel
-- Try batch download: `/bdl <start_link> <end_link>`
-- Explore settings: Click ⚙️ Settings in dashboard
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" width="50" />
+<br/><b>Add More Bots</b>
+<br/><code>/connect &lt;token&gt;</code>
+<br/><sub>Faster parallel uploads</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png" width="50" />
+<br/><b>Dump Channel</b>
+<br/>Add bot as admin
+<br/><sub>Auto-forward to channel</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/File%20Folder.png" width="50" />
+<br/><b>Batch Download</b>
+<br/><code>/bdl &lt;start&gt; &lt;end&gt;</code>
+<br/><sub>Download thousands</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" width="50" />
+<br/><b>Settings</b>
+<br/>Click ⚙️ in dashboard
+<br/><sub>Tune performance</sub>
+</td>
+</tr>
+</table>
+
+</div>
 
 ---
 
+<div align="center">
+
 **Happy downloading! 📥**
+
+<br/>
+
+[![Back to Main Docs](https://img.shields.io/badge/📖_Back_to-Main_Documentation-0088cc?style=for-the-badge)](README.md)
+[![Full Setup Guide](https://img.shields.io/badge/📚_Read-Full_Setup_Guide-22c55e?style=for-the-badge)](SETUP.md)
+
+</div>
