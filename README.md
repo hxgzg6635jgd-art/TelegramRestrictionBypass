@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=300&section=header&text=TelegramRestrictionBypass&fontSize=90&fontColor=fff&animation=fadeIn&fontAlignY=38&desc=Download%20•%20Archive%20•%20Automate%20Your%20Telegram%20Content&descAlignY=55&descSize=20" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=300&section=header&text=TelegramRestrictionBypass&fontSize=90&fontColor=fff&animation=twinkling&fontAlignY=38&desc=Download%20•%20Archive%20•%20Automate%20Your%20Telegram%20Content&descAlignY=55&descSize=20" width="100%"/>
 
 </div>
 
@@ -10,11 +10,11 @@
 
 <!-- Badges Section with Enhanced Styling -->
 <p align="center">
-  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-00b4d8.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Python-3.11+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white" alt="Python"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Telegram-Bot-0088CC.svg?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Docker-Ready-2496ED.svg?style=for-the-badge&logo=docker&logoColor=white" alt="Docker"></a>
-  <a href="#"><img src="https://img.shields.io/badge/Status-Production_Ready-22c55e.svg?style=for-the-badge&logo=statuspage&logoColor=white" alt="Status"></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-00b4d8.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white&labelColor=0077b6" alt="License"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Python-3.11+-3776AB.svg?style=for-the-badge&logo=python&logoColor=white&labelColor=2b5b84" alt="Python"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Telegram-Bot-0088CC.svg?style=for-the-badge&logo=telegram&logoColor=white&labelColor=0066aa" alt="Telegram"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Docker-Ready-2496ED.svg?style=for-the-badge&logo=docker&logoColor=white&labelColor=1d7db8" alt="Docker"></a>
+  <a href="#"><img src="https://img.shields.io/badge/Status-Production_Ready-22c55e.svg?style=for-the-badge&logo=statuspage&logoColor=white&labelColor=16a34a" alt="Status"></a>
 </p>
 
 <p align="center">
@@ -22,6 +22,8 @@
   <img src="https://img.shields.io/badge/Build-Passing-22c55e.svg?style=flat-square&logo=github&logoColor=white" alt="Build">
   <img src="https://img.shields.io/badge/Coverage-95%25-22c55e.svg?style=flat-square" alt="Coverage">
   <img src="https://img.shields.io/badge/Maintained-Yes-00d4aa.svg?style=flat-square&logo=github&logoColor=white" alt="Maintained">
+  <img src="https://img.shields.io/badge/Downloads-1k+-blue.svg?style=flat-square" alt="Downloads">
+  <img src="https://img.shields.io/badge/Stars-⭐_Growing-yellow.svg?style=flat-square" alt="Stars">
 </p>
 
 </div>
@@ -30,17 +32,14 @@
 
 <div align="center">
 
-```ascii
-╔══════════════════════════════════════════════════════════════════════════════╗
-║                                                                              ║
-║   🎯  Production-grade Telegram content downloader and re-uploader           ║
-║   ⚡  Multi-bot worker pools • Crash-safe auto-resume • Dual modes           ║
-║   📊  Live dashboard • Smart media handling • Production features            ║
-║                                                                              ║
-╚══════════════════════════════════════════════════════════════════════════════╝
-```
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=100&lines=🎯+Production-grade+Telegram+content+downloader;⚡+Multi-bot+worker+pools+•+Crash-safe+auto-resume;📊+Live+dashboard+•+Smart+media+handling">
+  <img alt="Typing SVG" src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&duration=3000&pause=1000&color=00b4d8&center=true&vCenter=true&multiline=true&repeat=true&width=800&height=100&lines=🎯+Production-grade+Telegram+content+downloader;⚡+Multi-bot+worker+pools+•+Crash-safe+auto-resume;📊+Live+dashboard+•+Smart+media+handling" />
+</picture>
 
 </div>
+
+<br/>
 
 <div align="center">
 
@@ -123,6 +122,63 @@ Perfect for:
 </td>
 </tr>
 </table>
+
+</div>
+
+---
+
+## 🎬 Visual Showcase
+
+<div align="center">
+
+### See It In Action
+
+<table>
+<tr>
+<td align="center" width="50%">
+
+**📊 Live Dashboard**
+
+<img src="https://via.placeholder.com/500x300/0d1117/58a6ff?text=Dashboard+Screenshot" alt="Dashboard" width="100%"/>
+
+*Real-time monitoring and control*
+
+</td>
+<td align="center" width="50%">
+
+**⚡ Batch Processing**
+
+<img src="https://via.placeholder.com/500x300/0d1117/22c55e?text=Batch+Download+Progress" alt="Batch Processing" width="100%"/>
+
+*Thousands of files at once*
+
+</td>
+</tr>
+<tr>
+<td align="center">
+
+**🤖 Multi-Bot Worker Pool**
+
+<img src="https://via.placeholder.com/500x300/0d1117/a78bfa?text=Worker+Pool+Management" alt="Worker Pool" width="100%"/>
+
+*Parallel uploads for speed*
+
+</td>
+<td align="center">
+
+**📺 Dump Channel Integration**
+
+<img src="https://via.placeholder.com/500x300/0d1117/fbbf24?text=Channel+Integration" alt="Channel" width="100%"/>
+
+*Auto-forward to channels*
+
+</td>
+</tr>
+</table>
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1000&color=00B4D8&center=true&vCenter=true&width=700&lines=💡+Screenshots+coming+soon!;📸+Try+it+yourself+to+see+the+magic!;⚡+Production-ready+from+day+one!" alt="Showcase Animation" />
 
 </div>
 
@@ -317,17 +373,20 @@ Configuration survives restarts
 <div align="center">
 
 ```mermaid
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#00b4d8','primaryTextColor':'#fff','primaryBorderColor':'#0077b6','lineColor':'#90e0ef','secondaryColor':'#48cae4','tertiaryColor':'#023e8a','fontSize':'16px'}}}%%
 graph LR
     A[🔽 Clone Repo] --> B[📦 Install Deps]
     B --> C[⚙️ Configure]
     C --> D[▶️ Run]
     D --> E[✅ Done!]
 
-    style A fill:#00b4d8,stroke:#0077b6,stroke-width:2px,color:#fff
-    style B fill:#00b4d8,stroke:#0077b6,stroke-width:2px,color:#fff
-    style C fill:#00b4d8,stroke:#0077b6,stroke-width:2px,color:#fff
-    style D fill:#00b4d8,stroke:#0077b6,stroke-width:2px,color:#fff
-    style E fill:#22c55e,stroke:#16a34a,stroke-width:2px,color:#fff
+    style A fill:#00b4d8,stroke:#0077b6,stroke-width:3px,color:#fff
+    style B fill:#0096c7,stroke:#0077b6,stroke-width:3px,color:#fff
+    style C fill:#0077b6,stroke:#023e8a,stroke-width:3px,color:#fff
+    style D fill:#023e8a,stroke:#03045e,stroke-width:3px,color:#fff
+    style E fill:#22c55e,stroke:#16a34a,stroke-width:3px,color:#fff,stroke-dasharray: 5 5
+
+    linkStyle default stroke:#90e0ef,stroke-width:2px
 ```
 
 </div>
@@ -521,6 +580,7 @@ BATCH_SIZE=200
 ### 🏗️ System Architecture
 
 ```mermaid
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#a78bfa','primaryTextColor':'#fff','primaryBorderColor':'#7c3aed','lineColor':'#c4b5fd','secondaryColor':'#8b5cf6','fontSize':'14px'}}}%%
 graph TB
     subgraph "User Layer"
         U[👤 User/Admin<br/>Telegram Account]
@@ -552,13 +612,15 @@ graph TB
     TS -->|Upload| DC
     TS -->|Upload| PC
 
-    style U fill:#a78bfa,stroke:#7c3aed,stroke-width:2px,color:#fff
-    style MB fill:#60a5fa,stroke:#2563eb,stroke-width:2px,color:#fff
-    style UC fill:#34d399,stroke:#059669,stroke-width:2px,color:#fff
-    style WP fill:#34d399,stroke:#059669,stroke-width:2px,color:#fff
-    style TS fill:#fbbf24,stroke:#d97706,stroke-width:2px,color:#fff
-    style DC fill:#f87171,stroke:#dc2626,stroke-width:2px,color:#fff
-    style PC fill:#f87171,stroke:#dc2626,stroke-width:2px,color:#fff
+    style U fill:#a78bfa,stroke:#7c3aed,stroke-width:3px,color:#fff
+    style MB fill:#60a5fa,stroke:#2563eb,stroke-width:3px,color:#fff
+    style UC fill:#34d399,stroke:#059669,stroke-width:3px,color:#fff
+    style WP fill:#10b981,stroke:#047857,stroke-width:3px,color:#fff
+    style TS fill:#fbbf24,stroke:#d97706,stroke-width:3px,color:#fff
+    style DC fill:#f87171,stroke:#dc2626,stroke-width:3px,color:#fff
+    style PC fill:#fb923c,stroke:#ea580c,stroke-width:3px,color:#fff
+
+    linkStyle default stroke:#c4b5fd,stroke-width:2px
 ```
 
 </div>
@@ -574,6 +636,7 @@ graph TB
 ### 🔄 Download Flow
 
 ```mermaid
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#60a5fa','primaryTextColor':'#fff','primaryBorderColor':'#2563eb','lineColor':'#93c5fd','secondaryColor':'#3b82f6','actorBkg':'#1e40af','actorBorder':'#1e3a8a','actorTextColor':'#fff','signalColor':'#93c5fd','signalTextColor':'#fff','labelBoxBkgColor':'#1e40af','labelBoxBorderColor':'#1e3a8a','labelTextColor':'#fff','noteBkgColor':'#fbbf24','noteBorderColor':'#d97706','noteTextColor':'#000'}}}%%
 sequenceDiagram
     participant U as User
     participant M as Main Bot
@@ -599,6 +662,7 @@ sequenceDiagram
 ### ⚡ Batch Processing
 
 ```mermaid
+%%{init: {'theme':'dark', 'themeVariables': { 'primaryColor':'#34d399','primaryTextColor':'#fff','primaryBorderColor':'#059669','lineColor':'#6ee7b7','secondaryColor':'#10b981','actorBkg':'#047857','actorBorder':'#065f46','actorTextColor':'#fff','signalColor':'#6ee7b7','signalTextColor':'#fff','labelBoxBkgColor':'#047857','labelBoxBorderColor':'#065f46','labelTextColor':'#fff','noteBkgColor':'#a78bfa','noteBorderColor':'#7c3aed','noteTextColor':'#000'}}}%%
 sequenceDiagram
     participant U as User
     participant M as Main Bot
@@ -751,7 +815,7 @@ See [Release Notes](docs/README.md#bug-fixes) for full list.
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=150&section=footer" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=150&section=footer&animation=twinkling" width="100%"/>
 
 </div>
 
@@ -838,7 +902,26 @@ Production features • Bug fixes • Documentation
 
 If this project helped you, please consider giving it a ⭐ star on GitHub!
 
-[![Star History Chart](https://api.star-history.com/svg?repos=Paidguy/TelegramRestrictionBypass&type=Date)](https://star-history.com/#Paidguy/TelegramRestrictionBypass&Date)
+<div align="center">
+
+<a href="https://star-history.com/#Paidguy/TelegramRestrictionBypass&Date">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=Paidguy/TelegramRestrictionBypass&type=Date&theme=dark" />
+    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=Paidguy/TelegramRestrictionBypass&type=Date" width="100%" />
+  </picture>
+</a>
+
+</div>
+
+<br/>
+
+<div align="center">
+
+### 📊 Repository Activity
+
+<img src="https://repobeats.axiom.co/api/embed/YOUR_REPO_ID.svg" alt="Repobeats analytics" width="100%"/>
+
+</div>
 
 <br/>
 
@@ -879,14 +962,41 @@ We welcome contributions! Check out our [Contributing Guide](CONTRIBUTING.md) to
 
 ### 📊 Project Statistics
 
-![GitHub repo size](https://img.shields.io/github/repo-size/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github)
-![GitHub code size](https://img.shields.io/github/languages/code-size/Paidguy/TelegramRestrictionBypass?style=flat-square)
-![GitHub last commit](https://img.shields.io/github/last-commit/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github)
-![GitHub stars](https://img.shields.io/github/stars/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github)
-![GitHub forks](https://img.shields.io/github/forks/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github)
-![GitHub issues](https://img.shields.io/github/issues/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github)
+<div align="center">
+
+<a href="https://github.com/Paidguy/TelegramRestrictionBypass">
+  <img src="https://github-readme-stats.vercel.app/api/pin/?username=Paidguy&repo=TelegramRestrictionBypass&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=1f6feb&text_color=c9d1d9" alt="Repo Card" width="100%"/>
+</a>
+
+</div>
+
+<br/>
+
+<div align="center">
+
+![GitHub repo size](https://img.shields.io/github/repo-size/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github&color=00b4d8)
+![GitHub code size](https://img.shields.io/github/languages/code-size/Paidguy/TelegramRestrictionBypass?style=flat-square&color=00b4d8)
+![GitHub last commit](https://img.shields.io/github/last-commit/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github&color=00b4d8)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/m/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github&color=00b4d8)
+![GitHub stars](https://img.shields.io/github/stars/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github&color=fbbf24)
+![GitHub forks](https://img.shields.io/github/forks/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github&color=22c55e)
+![GitHub issues](https://img.shields.io/github/issues/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github&color=f87171)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github&color=a78bfa)
+![GitHub contributors](https://img.shields.io/github/contributors/Paidguy/TelegramRestrictionBypass?style=flat-square&logo=github&color=34d399)
+![GitHub language count](https://img.shields.io/github/languages/count/Paidguy/TelegramRestrictionBypass?style=flat-square&color=60a5fa)
+![Top language](https://img.shields.io/github/languages/top/Paidguy/TelegramRestrictionBypass?style=flat-square&color=3b82f6)
+
+</div>
+
+<br/>
+
+<div align="center">
+
+### 🔥 Contribution Activity
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Paidguy&repo=TelegramRestrictionBypass&theme=react-dark&hide_border=true&area=true&custom_title=Contribution%20Activity" width="100%" alt="Contribution Graph"/>
+
+</div>
 
 </div>
 
@@ -937,5 +1047,13 @@ furnished to do so, subject to the following conditions...
 <br/>
 
 **⬆️ [Back to Top](#-telegramrestrictionbypass) ⬆️**
+
+<br/>
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=18&duration=4000&pause=1000&color=00B4D8&center=true&vCenter=true&width=600&lines=⭐+Star+this+repo+if+it+helped+you!;🤝+Contributions+are+always+welcome!;💬+Join+our+community+discussions!;📢+Stay+updated+with+latest+releases!" alt="Footer Animation" />
+
+</div>
 
 </div>

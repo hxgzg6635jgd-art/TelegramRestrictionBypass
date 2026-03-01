@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a0a0f,30:0d1117,60:161b22,100:1a1f2e&height=240&section=header&text=⚡%20TelegramRestrictionBypass&fontSize=42&fontColor=58a6ff&fontAlignY=42&animation=fadeIn&desc=Production-grade%20%7C%20Multi-Bot%20Worker%20Pool%20%7C%20Auto-Resume%20%7C%20Live%20Dashboard&descAlignY=62&descSize=14&descColor=8b949e" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a0a0f,30:0d1117,60:161b22,100:1a1f2e&height=240&section=header&text=⚡%20TelegramRestrictionBypass&fontSize=42&fontColor=58a6ff&fontAlignY=42&animation=twinkling&desc=Production-grade%20%7C%20Multi-Bot%20Worker%20Pool%20%7C%20Auto-Resume%20%7C%20Live%20Dashboard&descAlignY=62&descSize=14&descColor=8b949e" width="100%"/>
 
 </div>
 
@@ -1284,9 +1284,15 @@ This project is licensed under the **MIT License** — see [LICENSE](LICENSE) fo
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1f2e,50:161b22,100:0d1117&height=120&section=footer&text=Use%20Responsibly&fontSize=24&fontColor=58a6ff&fontAlignY=65" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:1a1f2e,50:161b22,100:0d1117&height=120&section=footer&text=Use%20Responsibly&fontSize=24&fontColor=58a6ff&fontAlignY=65&animation=twinkling" width="100%"/>
 
 **Built with [Pyrofork](https://github.com/KurimuzonAkuma/pyrogram) · Powered by Python 3.11 · Use Responsibly**
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=16&duration=3500&pause=1000&color=58A6FF&center=true&vCenter=true&width=500&lines=📚+Complete+Documentation;⚡+Production-Ready+Features;🔒+Secure+%26+Reliable;🚀+Fast+%26+Efficient" alt="Footer Animation" />
+
+<br/>
 
 *Last updated: February 2026*
 

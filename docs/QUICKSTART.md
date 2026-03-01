@@ -2,11 +2,19 @@
 
 <div align="center">
 
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=12,14,16&height=100&section=header&text=Quick%20Start%20Guide&fontSize=40&fontColor=fff&animation=twinkling&fontAlignY=50" width="100%"/>
+
+<br/>
+
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="100" />
 
-**Want to get started FAST?** Follow this checklist, then see [SETUP.md](SETUP.md) for details.
+<br/>
 
-⏱️ **Total Time: ~25 minutes**
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=3000&pause=1000&color=00B4D8&center=true&vCenter=true&width=500&lines=Want+to+get+started+FAST%3F;Follow+this+checklist!;⏱️+Total+Time:+~25+minutes" alt="Quick Start Animation" />
+
+<br/>
+
+**Follow this checklist, then see [SETUP.md](SETUP.md) for details.**
 
 </div>
 
@@ -221,11 +229,19 @@ python3 main.py
 
 <div align="center">
 
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=4&section=footer" width="100%"/>
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=20&duration=3000&pause=1000&color=22C55E&center=true&vCenter=true&width=600&lines=✅+Quick+Setup+Complete!;🎉+Happy+downloading!;⭐+Don't+forget+to+star+the+repo!" alt="Success Animation" />
+
+<br/>
+
 **Happy downloading! 📥**
 
 <br/>
 
-[![Back to Main Docs](https://img.shields.io/badge/📖_Back_to-Main_Documentation-0088cc?style=for-the-badge)](README.md)
-[![Full Setup Guide](https://img.shields.io/badge/📚_Read-Full_Setup_Guide-22c55e?style=for-the-badge)](SETUP.md)
+[![Back to Main Docs](https://img.shields.io/badge/📖_Back_to-Main_Documentation-0088cc?style=for-the-badge&logo=readthedocs&logoColor=white)](README.md)
+[![Full Setup Guide](https://img.shields.io/badge/📚_Read-Full_Setup_Guide-22c55e?style=for-the-badge&logo=bookstack&logoColor=white)](SETUP.md)
 
 </div>
