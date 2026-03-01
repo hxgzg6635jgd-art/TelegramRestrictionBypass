@@ -43,7 +43,7 @@
 
 <div align="center">
 
-**[✨ Features](#-features) • [🚀 Quick Start](#-quick-start) • [📦 Installation](#-installation) • [📚 Documentation](#-documentation) • [💬 Support](#-support)**
+**[✨ Features](#-features) • [🎬 Visual Showcase](#-visual-showcase) • [🚀 Quick Start](#-quick-start) • [📦 Installation](#-installation) • [📚 Documentation](#-documentation) • [💬 Support](#-support)**
 
 </div>
 
@@ -52,6 +52,48 @@
 ---
 
 ## 📖 Overview
+
+<div align="center">
+
+### 💎 Why Choose TelegramRestrictionBypass?
+
+<table>
+<tr>
+<td align="center" width="20%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Fire.png" width="70" />
+<br/><b>Production Ready</b>
+<br/><sub>Battle-tested<br/>& reliable</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" width="70" />
+<br/><b>Lightning Fast</b>
+<br/><sub>TgCrypto<br/>acceleration</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Shield.png" width="70" />
+<br/><b>Crash Safe</b>
+<br/><sub>Auto-resume<br/>built-in</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" width="70" />
+<br/><b>Highly Scalable</b>
+<br/><sub>Multi-bot<br/>worker pools</sub>
+</td>
+<td align="center" width="20%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Star-Struck.png" width="70" />
+<br/><b>Easy to Use</b>
+<br/><sub>5-minute<br/>setup</sub>
+</td>
+</tr>
+</table>
+
+<br/>
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1000&color=00B4D8&center=true&vCenter=true&width=800&lines=✅+Zero+data+loss+guarantee;⚡+10x+faster+with+TgCrypto;🔄+Automatic+crash+recovery;📊+Real-time+monitoring+dashboard" alt="Features Animation" />
+
+</div>
+
+<br/>
 
 <div align="center">
 
@@ -470,6 +512,14 @@ python main.py
 
 ## 🐳 Docker Deployment
 
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=2496ED&center=true&vCenter=true&width=600&lines=🐳+Containerized+Deployment;✅+Zero+dependency+conflicts;⚡+Production-ready+in+minutes!" alt="Docker Animation" />
+
+</div>
+
+<br/>
+
 ### Quick Docker Start
 
 ```bash
@@ -514,6 +564,35 @@ For Docker details, see [🐳 Docker Guide](docs/DOCKER.md)
 
 ## 🎯 Usage
 
+<div align="center">
+
+### 🚀 Power Features at Your Fingertips
+
+<table>
+<tr>
+<td align="center" width="33%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Electric%20Plug.png" width="60" />
+<br/><b>Single Download</b>
+<br/><code>/dl &lt;link&gt;</code>
+<br/><sub>⚡ Instant media fetch</sub>
+</td>
+<td align="center" width="33%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Package.png" width="60" />
+<br/><b>Batch Download</b>
+<br/><code>/bdl &lt;start&gt; &lt;end&gt;</code>
+<br/><sub>📦 Thousands at once</sub>
+</td>
+<td align="center" width="33%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Control%20Knobs.png" width="60" />
+<br/><b>Live Dashboard</b>
+<br/><code>/start</code>
+<br/><sub>📊 Real-time control</sub>
+</td>
+</tr>
+</table>
+
+</div>
+
 ### Basic Commands
 
 | Command | Description | Example |
@@ -540,6 +619,14 @@ The interactive dashboard provides:
 ---
 
 ## 🛠️ Configuration
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1000&color=A78BFA&center=true&vCenter=true&width=700&lines=⚙️+Easy+Configuration;📝+One+file+to+rule+them+all;🔐+Secure+%26+Simple!" alt="Config Animation" />
+
+</div>
+
+<br/>
 
 ### Environment Variables
 
@@ -725,6 +812,45 @@ sequenceDiagram
 ---
 
 ## 🔧 Advanced Features
+
+<div align="center">
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=F59E0B&center=true&vCenter=true&width=700&lines=🚀+Power+User+Features;⚡+Unlock+Maximum+Performance;🎯+Production-Grade+Capabilities!" alt="Advanced Features Animation" />
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" width="70" />
+<br/><b>Multi-Bot Pool</b>
+<br/><sub>Unlimited workers</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Counterclockwise%20Arrows%20Button.png" width="70" />
+<br/><b>Auto-Resume</b>
+<br/><sub>Never lose progress</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png" width="70" />
+<br/><b>Dump Channel</b>
+<br/><sub>Forward to channels</sub>
+</td>
+<td align="center" width="25%">
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" width="70" />
+<br/><b>Blazing Fast</b>
+<br/><sub>Parallel processing</sub>
+</td>
+</tr>
+</table>
+
+</div>
+
+<br/>
 
 ### Multi-Bot Worker Pool
 
