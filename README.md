@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=300&section=header&text=TelegramRestrictionBypass&fontSize=90&fontColor=fff&animation=twinkling&fontAlignY=38&desc=Download%20•%20Archive%20•%20Automate%20Your%20Telegram%20Content&descAlignY=55&descSize=20" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=180&section=header&text=TelegramRestrictionBypass&fontSize=60&fontColor=fff&animation=twinkling&fontAlignY=35&desc=Download%20•%20Archive%20•%20Automate%20Your%20Telegram%20Content&descAlignY=55&descSize=18" width="100%"/>
 
 </div>
 
@@ -46,6 +46,14 @@
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=4000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&width=900&height=60&lines=📖+Navigate+to:+Features+•+Visual+Showcase+•+Quick+Start+•+Installation;Documentation+•+Configuration+•+Architecture+•+Advanced+Features" alt="Navigation Animation" />
 
 **[✨ Features](#-features) • [🎬 Visual Showcase](#-visual-showcase) • [🚀 Quick Start](#-quick-start) • [📦 Installation](#-installation) • [📚 Documentation](#-documentation) • [💬 Support](#-support)**
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
 
 </div>
 
@@ -169,6 +177,14 @@ Perfect for:
 
 </div>
 
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
+
 ---
 
 ## 🎬 Visual Showcase
@@ -183,7 +199,7 @@ Perfect for:
 
 **📊 Live Dashboard**
 
-<img src="https://via.placeholder.com/500x300/0d1117/58a6ff?text=Dashboard+Screenshot" alt="Dashboard" width="100%"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" alt="Dashboard" width="200"/>
 
 *Real-time monitoring and control*
 
@@ -192,7 +208,7 @@ Perfect for:
 
 **⚡ Batch Processing**
 
-<img src="https://via.placeholder.com/500x300/0d1117/22c55e?text=Batch+Download+Progress" alt="Batch Processing" width="100%"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Rocket.png" alt="Batch Processing" width="200"/>
 
 *Thousands of files at once*
 
@@ -203,7 +219,7 @@ Perfect for:
 
 **🤖 Multi-Bot Worker Pool**
 
-<img src="https://via.placeholder.com/500x300/0d1117/a78bfa?text=Worker+Pool+Management" alt="Worker Pool" width="100%"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Worker Pool" width="200"/>
 
 *Parallel uploads for speed*
 
@@ -212,7 +228,7 @@ Perfect for:
 
 **📺 Dump Channel Integration**
 
-<img src="https://via.placeholder.com/500x300/0d1117/fbbf24?text=Channel+Integration" alt="Channel" width="100%"/>
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png" alt="Channel" width="200"/>
 
 *Auto-forward to channels*
 
@@ -223,6 +239,14 @@ Perfect for:
 <br/>
 
 <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1000&color=00B4D8&center=true&vCenter=true&width=700&lines=💡+Screenshots+coming+soon!;📸+Try+it+yourself+to+see+the+magic!;⚡+Production-ready+from+day+one!" alt="Showcase Animation" />
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
 
 </div>
 
@@ -377,6 +401,14 @@ Configuration survives restarts
 
 </div>
 
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
+
 ---
 
 ## 🚀 Quick Start
@@ -490,31 +522,41 @@ python main.py
 
 ### 📖 Need More Help?
 
+<div align="center">
+
 <table>
 <tr>
 <td align="center" width="33%">
 <a href="docs/QUICKSTART.md">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="Quick" width="40" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="Quick" width="60" />
 <br/><b>Quick Start Guide</b>
 </a>
 <br/><sub>5-minute condensed</sub>
 </td>
 <td align="center" width="33%">
 <a href="docs/INSTALLATION.md">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Books.png" alt="Install" width="40" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Books.png" alt="Install" width="60" />
 <br/><b>Installation Guide</b>
 </a>
 <br/><sub>Complete setup</sub>
 </td>
 <td align="center" width="33%">
 <a href="docs/SETUP.md">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Wrench.png" alt="Setup" width="40" />
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Wrench.png" alt="Setup" width="60" />
 <br/><b>Configuration</b>
 </a>
 <br/><sub>Detailed reference</sub>
 </td>
 </tr>
 </table>
+
+</div>
+
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
 
 </div>
 
@@ -554,6 +596,14 @@ docker compose logs -f
 
 For Docker details, see [🐳 Docker Guide](docs/DOCKER.md)
 
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
+
 ---
 
 ## 📚 Documentation
@@ -569,6 +619,14 @@ For Docker details, see [🐳 Docker Guide](docs/DOCKER.md)
 - **[🐳 Docker Guide](docs/DOCKER.md)** - Container deployment
 - **[🔧 Troubleshooting](docs/README.md#troubleshooting)** - Common issues and solutions
 - **[🤝 Contributing](CONTRIBUTING.md)** - Development guidelines
+
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
 
 ---
 
@@ -626,6 +684,14 @@ The interactive dashboard provides:
 - **📜 Logs** - Download log file
 - **🛑 STOP ALL** - Kill all running downloads
 
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
+
 ---
 
 ## 🛠️ Configuration
@@ -667,6 +733,14 @@ BATCH_SIZE=200
 1. **API_ID & API_HASH**: Visit [my.telegram.org](https://my.telegram.org) → API Development Tools
 2. **BOT_TOKEN**: Message [@BotFather](https://t.me/BotFather) → `/newbot`
 3. **SESSION_STRING**: See [Setup Guide](docs/SETUP.md#generating-session-string)
+
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
 
 ---
 
@@ -819,6 +893,14 @@ sequenceDiagram
 
 </div>
 
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
+
 ---
 
 ## 🔧 Advanced Features
@@ -897,6 +979,14 @@ Forward all downloads to a Telegram channel:
 
 **Switch back:** Remove bot from channel or use settings
 
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
+
 ---
 
 ## 🎓 Use Cases
@@ -907,6 +997,14 @@ Forward all downloads to a Telegram channel:
 - **🔄 Cross-Channel Reposting** - Re-upload content to your channel
 - **💾 Personal Backups** - Save important messages locally
 - **📖 Research** - Archive educational content for offline access
+
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
 
 ---
 
@@ -923,6 +1021,14 @@ This tool is provided for **educational and research purposes only**.
 - Follow Telegram's Terms of Service
 - Use responsibly and ethically
 - The developers are not responsible for misuse
+
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
 
 ---
 
@@ -951,13 +1057,13 @@ See [Release Notes](docs/README.md#bug-fixes) for full list.
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=150&section=footer&animation=twinkling" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=6,11,20&height=120&section=footer&animation=twinkling" width="100%"/>
 
 </div>
 
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=4&section=divider" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
 
 <br/>
 
@@ -1061,15 +1167,6 @@ If this project helped you, please consider giving it a ⭐ star on GitHub!
 
 <br/>
 
-<div align="center">
-
-### 📊 Repository Activity
-
-<img src="https://repobeats.axiom.co/api/embed/YOUR_REPO_ID.svg" alt="Repobeats analytics" width="100%"/>
-
-</div>
-
-<br/>
 
 ### 🤝 Contributing
 
@@ -1140,7 +1237,7 @@ We welcome contributions! Check out our [Contributing Guide](CONTRIBUTING.md) to
 
 ### 🔥 Contribution Activity
 
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Paidguy&repo=TelegramRestrictionBypass&theme=react-dark&hide_border=true&area=true&custom_title=Contribution%20Activity" width="100%" alt="Contribution Graph"/>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Paidguy&theme=react-dark&hide_border=true&area=true&custom_title=Contribution%20Activity" width="100%" alt="Contribution Graph"/>
 
 </div>
 
