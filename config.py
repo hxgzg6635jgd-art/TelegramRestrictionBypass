@@ -1,16 +1,36 @@
-# Copyright (C) @TheSmartBisnu
-# Channel: https://t.me/itsSmartDev
+"""
+Configuration Module
+
+Loads and validates environment variables for bot configuration.
+Handles API credentials, bot tokens, and performance settings.
+
+Classes:
+    PyroConf: Configuration container with validation
+
+Copyright (C) @TheSmartBisnu
+Channel: https://t.me/itsSmartDev
+"""
 
 from os import getenv
 from time import time
+
 from dotenv import load_dotenv
 
+# Load environment variables from config.env
 try:
     load_dotenv("config.env")
-except:
+except Exception:
     pass
 
-class PyroConf(object):
+
+class PyroConf:
+    """
+    Bot configuration with environment variable validation.
+
+    Validates required credentials and provides sensible defaults for
+    optional performance tuning parameters.
+    """
+
     # Validate API_ID
     _api_id = getenv("API_ID", "6")
     try:

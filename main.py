@@ -1,23 +1,55 @@
-import os
+"""
+TelegramRestrictionBypass - Main Bot Module
+
+Production-grade Telegram content downloader and re-uploader with:
+- Multi-bot worker pool for parallel uploads
+- Crash-safe auto-resume for batch downloads
+- Dual BOT/USER download modes
+- Live admin dashboard with real-time statistics
+
+Copyright (C) 2025 Paidguy
+License: MIT
+"""
+
 import asyncio
-import shutil
-import psutil
 import itertools
+import os
+import shutil
 from time import time
 
+import psutil
 from pyleaves import Leaves
-from pyrogram.enums import ParseMode, ChatMemberStatus
 from pyrogram import Client, filters
-from pyrogram.errors import FloodWait, RPCError, AuthKeyUnregistered, UserDeactivated, AccessTokenInvalid
-from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, ChatMemberUpdated, CallbackQuery
+from pyrogram.enums import ChatMemberStatus, ParseMode
+from pyrogram.errors import (
+    AccessTokenInvalid,
+    AuthKeyUnregistered,
+    FloodWait,
+    RPCError,
+    UserDeactivated,
+)
+from pyrogram.types import (
+    CallbackQuery,
+    ChatMemberUpdated,
+    InlineKeyboardButton,
+    InlineKeyboardMarkup,
+    Message,
+)
 
-from helpers.utils import processMediaGroup, progressArgs, send_media
-from helpers.files import get_download_path, fileSizeLimit, get_readable_file_size, get_readable_time, cleanup_download
+from config import PyroConf
+from helpers.files import (
+    cleanup_download,
+    fileSizeLimit,
+    get_download_path,
+    get_readable_file_size,
+    get_readable_time,
+)
 from helpers.msg import getChatMsgID, get_file_name, get_parsed_msg
 from helpers.settings import Config
 from helpers.state import UserState
-from config import PyroConf
+from helpers.utils import processMediaGroup, progressArgs, send_media
 from logger import LOGGER
+from __version__ import __version__, __author__
 
 # -------------------------------------------------------------------------------------------
 # INITIALIZATION
@@ -78,7 +110,8 @@ def get_next_worker():
 async def start_new_worker(token, is_temp=False):
     try:
         bot_id = token.split(":")[0]
-    except: return None
+    except (ValueError, IndexError):
+        return None
 
     try:
         # CRITICAL FIX: max_concurrent_transmissions=1
@@ -134,7 +167,8 @@ async def stop_worker(bot_id):
         try:
             Config.remove_extra_bot(target.bot_token)
             await target.stop()
-        except: pass
+        except Exception as e:
+            LOGGER(__name__).warning(f"Error stopping worker: {e}")
         return True
     return False
 
@@ -251,7 +285,8 @@ async def callback_handler(client, query: CallbackQuery):
         try:
             await query.message.edit_text(get_dashboard_text(), reply_markup=get_dashboard_markup())
             await query.answer("✅ Refreshed")
-        except: await query.answer()
+        except Exception:
+            await query.answer()
 
     elif data == "manage_bots":
         await query.answer()
@@ -382,8 +417,10 @@ async def safe_download(bot, message, chat_message, retry_count=0, silent=False)
         prog = None
 
         if not silent:
-            try: prog = await message.reply(f"**📥 Fetching ID {chat_message.id}...**")
-            except: pass
+            try:
+                prog = await message.reply(f"**📥 Fetching ID {chat_message.id}...**")
+            except Exception:
+                pass
 
         fname = get_file_name(chat_message.id, chat_message)
         dpath = get_download_path(message.id if message else 0, fname)
@@ -431,11 +468,11 @@ async def safe_download(bot, message, chat_message, retry_count=0, silent=False)
         # BUG FIX: Ensure we verify upload success
         try:
             await send_media(
-                upload_worker, message, media_path, mtype, caption, 
-                progress_message=prog if not silent else None, 
+                upload_worker, message, media_path, mtype, caption,
+                progress_message=prog if not silent else None,
                 start_time=start_time if not silent else None,
                 target_chat_id=Config.get_dump_chat(),
-                is_premium=is_prem if 'is_prem' in dir() else False
+                is_premium=is_prem
             )
             # Only clean up if no exception occurred
             cleanup_download(media_path)
@@ -467,13 +504,18 @@ async def process_wrapper(bot, message, msg, silent=False):
 
 @bot.on_message(filters.command("bdl") & filters.private)
 async def batch_dl_command(bot, message):
-    if not Config.is_authorized(message.chat.id): return
+    """Handle batch download command with link validation."""
+    if not Config.is_authorized(message.chat.id):
+        return
+
     args = message.text.split()
     if len(args) == 3:
         try:
             schat, sid = getChatMsgID(args[1])
             echat, eid = getChatMsgID(args[2])
-        except: return await message.reply("Invalid Link")
+        except ValueError as e:
+            LOGGER(__name__).error(f"Invalid batch link: {e}")
+            return await message.reply("❌ Invalid Link. Please provide valid Telegram message URLs.")
         track_task(run_batch_logic(bot, message, schat, sid, eid, message.chat.id))
         return
 
@@ -485,21 +527,43 @@ async def batch_dl_command(bot, message):
             [InlineKeyboardButton("✖️ Cancel", callback_data="cancel_batch")]
         ])
         await message.reply(f"⚠️ **Found Batch!**\nRange: `{batch['start']} - {batch['end']}`", reply_markup=buttons)
-    else: await message.reply("Usage: /bdl <start> <end>")
+    else:
+        await message.reply("Usage: /bdl <start> <end>")
+
+async def send_batch_status_message(bot, user_id, mode, sid, eid, is_resuming=False):
+    """
+    Send initial batch status message to user.
+
+    Args:
+        bot: Bot client for sending messages
+        user_id: Target user ID
+        mode: Download mode (BOT/USER)
+        sid: Start message ID
+        eid: End message ID
+        is_resuming: Whether this is a resume operation
+
+    Returns:
+        Status message object or None if failed
+    """
+    message_text = f"🔄 **Auto-Resuming Batch ({mode})**\n🆔 {sid} - {eid}" if is_resuming else f"🚀 **Batch Started ({mode})**\n🆔 {sid} - {eid}"
+
+    try:
+        return await bot.send_message(user_id, message_text)
+    except Exception as e:
+        LOGGER(__name__).error(f"Failed to send batch status message: {e}")
+        return None
 
 async def run_batch_logic(bot, message, schat, sid, eid, user_id, is_resuming=False):
     fetcher = user if Config.get("download_mode") == "USER" else get_next_worker()
-    
+
     if not is_resuming:
         UserState.set_batch(user_id, schat, sid, eid)
-    
+
     mode = Config.get("download_mode")
-    
-    if message:
-        status = await bot.send_message(user_id, f"🚀 **Batch Started ({mode})**\n🆔 {sid} - {eid}")
-    else:
-        try: status = await bot.send_message(user_id, f"🔄 **Auto-Resuming Batch ({mode})**\n🆔 {sid} - {eid}")
-        except: return
+
+    status = await send_batch_status_message(bot, user_id, mode, sid, eid, is_resuming=(message is None))
+    if status is None:
+        return
 
     processed_groups = set()
     count = 0
@@ -526,7 +590,8 @@ async def run_batch_logic(bot, message, schat, sid, eid, user_id, is_resuming=Fa
                     try:
                         await processMediaGroup(m, get_next_worker(), message, Config.get_dump_chat())
                         count += 1
-                    except: pass
+                    except Exception as e:
+                        LOGGER(__name__).error(f"Media group processing error: {e}")
                     continue
 
                 if not m.media: continue
@@ -575,13 +640,35 @@ async def auth_user(client, message):
         uid = int(message.command[1])
         Config.add_user(uid)
         await message.reply(f"✅ Authorized: `{uid}`")
-    except: await message.reply("Usage: /auth <uid>")
+    except (ValueError, IndexError):
+        await message.reply("Usage: /auth <uid>")
 
 @bot.on_message(filters.command("clean") & filters.private)
 async def clean_dl(bot, message):
-    if not Config.is_authorized(message.chat.id): return
-    os.system("rm -rf downloads/*")
-    await message.reply("✅ Cleaned.")
+    """Clean downloaded files (authorized users only)."""
+    if not Config.is_authorized(message.chat.id):
+        return
+
+    # Safe cleanup using shutil instead of os.system
+    downloads_dir = "downloads"
+    try:
+        if os.path.exists(downloads_dir):
+            for item in os.listdir(downloads_dir):
+                item_path = os.path.join(downloads_dir, item)
+                # Skip state files that should be preserved
+                if item.endswith(('.txt', '.json')):
+                    continue
+                try:
+                    if os.path.isfile(item_path):
+                        os.remove(item_path)
+                    elif os.path.isdir(item_path):
+                        shutil.rmtree(item_path, ignore_errors=True)
+                except Exception as e:
+                    LOGGER(__name__).warning(f"Could not remove {item}: {e}")
+        await message.reply("✅ Cleaned.")
+    except Exception as e:
+        LOGGER(__name__).error(f"Clean command failed: {e}")
+        await message.reply("❌ Clean failed. Check logs.")
 
 @bot.on_message(filters.command("dl") & filters.private)
 async def single_dl(bot, message):
@@ -625,8 +712,10 @@ async def initialize():
     for root, dirs, files in os.walk("downloads"):
         for f in files:
             if not f.endswith((".txt", ".json")):
-                try: os.remove(os.path.join(root, f))
-                except: pass
+                try:
+                    os.remove(os.path.join(root, f))
+                except Exception as e:
+                    LOGGER(__name__).warning(f"Could not remove temp file {f}: {e}")
 
     # AUTO-RESUME
     LOGGER(__name__).info("Checking for interrupted batches...")
