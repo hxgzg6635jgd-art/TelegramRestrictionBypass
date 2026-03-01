@@ -43,9 +43,9 @@
 
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=4000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&width=900&height=60&lines=📖+Navigate+to:+Features+•+Visual+Showcase+•+Quick+Start+•+Installation;Documentation+•+Configuration+•+Architecture+•+Advanced+Features" alt="Navigation Animation" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=16&duration=4000&pause=1000&color=58A6FF&center=true&vCenter=true&multiline=true&width=900&height=60&lines=📖+Navigate+to:+Features+•+Key+Capabilities+•+Quick+Start+•+Installation;Documentation+•+Configuration+•+Architecture+•+Advanced+Features" alt="Navigation Animation" />
 
-**[✨ Features](#-features) • [🎬 Visual Showcase](#-visual-showcase) • [🚀 Quick Start](#-quick-start) • [📦 Installation](#-installation) • [📚 Documentation](#-documentation) • [💬 Support](#-support)**
+**[✨ Features](#-features) • [🎬 Key Capabilities](#-key-capabilities) • [🚀 Quick Start](#-quick-start) • [📦 Installation](#-installation) • [📚 Documentation](#-documentation) • [💬 Support](#-support)**
 
 </div>
 
@@ -187,58 +187,34 @@ Perfect for:
 
 ---
 
-## 🎬 Visual Showcase
+## 🎬 Key Capabilities
 
 <div align="center">
 
-### See It In Action
+### Production-Grade Features
 
 <table>
 <tr>
-<td align="center" width="50%">
+<td width="50%" valign="top">
 
-**📊 Live Dashboard**
+#### 📊 Live Dashboard
+Real-time system monitoring with interactive controls. View active downloads, worker bot status, uptime statistics, storage usage, and RAM consumption—all updated live.
 
-📈
-
-*Real-time monitoring and control*
-
-</td>
-<td align="center" width="50%">
-
-**⚡ Batch Processing**
-
-🚀
-
-*Thousands of files at once*
+#### ⚡ Batch Processing
+Download thousands of messages in a single command with intelligent chunking, progress tracking, and automatic resume capabilities.
 
 </td>
-</tr>
-<tr>
-<td align="center">
+<td width="50%" valign="top">
 
-**🤖 Multi-Bot Worker Pool**
+#### 🤖 Multi-Bot Worker Pool
+Scale your download operations with unlimited worker bots. Round-robin distribution ensures optimal load balancing and maximum throughput.
 
-🤖
-
-*Parallel uploads for speed*
-
-</td>
-<td align="center">
-
-**📺 Dump Channel Integration**
-
-📺
-
-*Auto-forward to channels*
+#### 📺 Dump Channel Integration
+Automatically forward all downloaded content to a designated Telegram channel for centralized content management.
 
 </td>
 </tr>
 </table>
-
-<br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=500&size=18&duration=3000&pause=1000&color=00B4D8&center=true&vCenter=true&width=700&lines=💡+Screenshots+coming+soon!;📸+Try+it+yourself+to+see+the+magic!;⚡+Production-ready+from+day+one!" alt="Showcase Animation" />
 
 </div>
 
@@ -528,22 +504,19 @@ python main.py
 <tr>
 <td align="center" width="33%">
 <a href="docs/QUICKSTART.md">
-📃
-<br/><b>Quick Start Guide</b>
+<b>Quick Start Guide</b>
 </a>
 <br/><sub>5-minute condensed</sub>
 </td>
 <td align="center" width="33%">
 <a href="docs/INSTALLATION.md">
-📚
-<br/><b>Installation Guide</b>
+<b>Installation Guide</b>
 </a>
 <br/><sub>Complete setup</sub>
 </td>
 <td align="center" width="33%">
 <a href="docs/SETUP.md">
-🔧
-<br/><b>Configuration</b>
+<b>Configuration</b>
 </a>
 <br/><sub>Detailed reference</sub>
 </td>
@@ -1081,10 +1054,6 @@ See [Release Notes](docs/README.md#-bug-fixes-in-this-release) for full list.
 
 ### 👨‍💻 Primary Developer
 
-<a href="https://github.com/Paidguy">
-👨‍💻
-</a>
-
 **[@Paidguy](https://github.com/Paidguy)**
 
 Production features • Bug fixes • Documentation
@@ -1096,10 +1065,6 @@ Production features • Bug fixes • Documentation
 <td align="center" width="50%">
 
 ### 🌟 Original Author
-
-<a href="https://github.com/bisnuray">
-💡
-</a>
 
 **[@bisnuray](https://github.com/bisnuray)**
 
@@ -1118,26 +1083,22 @@ Production features • Bug fixes • Documentation
 <table>
 <tr>
 <td align="center" width="25%">
-🔍
-<br/><b>Pyrofork</b>
+<b>Pyrofork</b>
 <br/><sub>MTProto client library</sub>
 <br/><a href="https://github.com/KurimuzonAkuma/pyrogram">GitHub</a>
 </td>
 <td align="center" width="25%">
-🔐
-<br/><b>TgCrypto</b>
+<b>TgCrypto</b>
 <br/><sub>Encryption acceleration</sub>
 <br/><a href="https://github.com/pyrogram/tgcrypto">GitHub</a>
 </td>
 <td align="center" width="25%">
-🎞️
-<br/><b>FFmpeg</b>
+<b>FFmpeg</b>
 <br/><sub>Media processing</sub>
 <br/><a href="https://ffmpeg.org/">Website</a>
 </td>
 <td align="center" width="25%">
-📊
-<br/><b>Pyleaves</b>
+<b>Pyleaves</b>
 <br/><sub>Progress bars</sub>
 <br/><a href="https://github.com/1Danish-00/pyleaves">GitHub</a>
 </td>
