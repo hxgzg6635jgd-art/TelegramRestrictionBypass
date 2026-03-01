@@ -70,27 +70,27 @@
 <table>
 <tr>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Fire.png" width="70" />
+🔥
 <br/><b>Production Ready</b>
 <br/><sub>Battle-tested<br/>& reliable</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" width="70" />
+⚡
 <br/><b>Lightning Fast</b>
 <br/><sub>TgCrypto<br/>acceleration</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Shield.png" width="70" />
+🛡️
 <br/><b>Crash Safe</b>
 <br/><sub>Auto-resume<br/>built-in</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" width="70" />
+⚙️
 <br/><b>Highly Scalable</b>
 <br/><sub>Multi-bot<br/>worker pools</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Star-Struck.png" width="70" />
+🤩
 <br/><b>Easy to Use</b>
 <br/><sub>5-minute<br/>setup</sub>
 </td>
@@ -153,22 +153,22 @@ Perfect for:
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Robot.png" alt="Robot" width="60" />
+🤖
 <br/><b>Multi-Bot Pools</b>
 <br/><sub>Round-robin distribution<br/>for parallel uploads</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Floppy%20Disk.png" alt="Disk" width="60" />
+💾
 <br/><b>Auto-Resume</b>
 <br/><sub>Crash-safe state<br/>recovery system</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" alt="Chart" width="60" />
+📈
 <br/><b>Live Dashboard</b>
 <br/><sub>Real-time stats<br/>& monitoring</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/High%20Voltage.png" alt="Lightning" width="60" />
+⚡
 <br/><b>High Performance</b>
 <br/><sub>Concurrent downloads<br/>TgCrypto boost</sub>
 </td>
@@ -199,7 +199,7 @@ Perfect for:
 
 **📊 Live Dashboard**
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Chart%20Increasing.png" alt="Dashboard" width="200"/>
+📈
 
 *Real-time monitoring and control*
 
@@ -208,7 +208,7 @@ Perfect for:
 
 **⚡ Batch Processing**
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Rocket.png" alt="Batch Processing" width="200"/>
+🚀
 
 *Thousands of files at once*
 
@@ -219,7 +219,7 @@ Perfect for:
 
 **🤖 Multi-Bot Worker Pool**
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Worker Pool" width="200"/>
+🤖
 
 *Parallel uploads for speed*
 
@@ -228,7 +228,7 @@ Perfect for:
 
 **📺 Dump Channel Integration**
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png" alt="Channel" width="200"/>
+📺
 
 *Auto-forward to channels*
 
@@ -372,27 +372,27 @@ Configuration survives restarts
 <table>
 <tr>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Locked%20with%20Key.png" alt="Security" width="50" />
+🔐
 <br/><b>TgCrypto</b>
 <br/><sub>Fast C-level encryption<br/>~10× faster</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Globe%20with%20Meridians.png" alt="Network" width="50" />
+🌐
 <br/><b>Asyncio</b>
 <br/><sub>Semaphore-controlled<br/>parallel downloads</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Film%20Frames.png" alt="Video" width="50" />
+🎞️
 <br/><b>FFmpeg</b>
 <br/><sub>Video metadata<br/>& thumbnails</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" alt="Failover" width="50" />
+⚙️
 <br/><b>Failover</b>
 <br/><sub>Bad tokens<br/>auto-removed</sub>
 </td>
 <td align="center" width="20%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" alt="Progress" width="50" />
+📊
 <br/><b>Progress Bars</b>
 <br/><sub>Beautiful indicators<br/>with Pyleaves</sub>
 </td>
@@ -428,22 +428,22 @@ Configuration survives restarts
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" alt="Laptop" width="50" />
+💻
 <br/><b>Python 3.11+</b>
 <br/><sub>Required</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Mobile%20Phone.png" alt="Phone" width="50" />
+📱
 <br/><b>Telegram Account</b>
 <br/><sub>Required</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Key.png" alt="Key" width="50" />
+🔑
 <br/><b>API Credentials</b>
 <br/><sub>From my.telegram.org</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Bot" width="50" />
+🤖
 <br/><b>Bot Token</b>
 <br/><sub>From @BotFather</sub>
 </td>
@@ -528,21 +528,21 @@ python main.py
 <tr>
 <td align="center" width="33%">
 <a href="docs/QUICKSTART.md">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Page%20with%20Curl.png" alt="Quick" width="60" />
+📃
 <br/><b>Quick Start Guide</b>
 </a>
 <br/><sub>5-minute condensed</sub>
 </td>
 <td align="center" width="33%">
 <a href="docs/INSTALLATION.md">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Books.png" alt="Install" width="60" />
+📚
 <br/><b>Installation Guide</b>
 </a>
 <br/><sub>Complete setup</sub>
 </td>
 <td align="center" width="33%">
 <a href="docs/SETUP.md">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Wrench.png" alt="Setup" width="60" />
+🔧
 <br/><b>Configuration</b>
 </a>
 <br/><sub>Detailed reference</sub>
@@ -639,19 +639,19 @@ For Docker details, see [🐳 Docker Guide](docs/DOCKER.md)
 <table>
 <tr>
 <td align="center" width="33%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Electric%20Plug.png" width="60" />
+🔌
 <br/><b>Single Download</b>
 <br/><code>/dl &lt;link&gt;</code>
 <br/><sub>⚡ Instant media fetch</sub>
 </td>
 <td align="center" width="33%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Package.png" width="60" />
+📦
 <br/><b>Batch Download</b>
 <br/><code>/bdl &lt;start&gt; &lt;end&gt;</code>
 <br/><sub>📦 Thousands at once</sub>
 </td>
 <td align="center" width="33%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Control%20Knobs.png" width="60" />
+🎛️
 <br/><b>Live Dashboard</b>
 <br/><code>/start</code>
 <br/><sub>📊 Real-time control</sub>
@@ -732,7 +732,7 @@ BATCH_SIZE=200
 
 1. **API_ID & API_HASH**: Visit [my.telegram.org](https://my.telegram.org) → API Development Tools
 2. **BOT_TOKEN**: Message [@BotFather](https://t.me/BotFather) → `/newbot`
-3. **SESSION_STRING**: See [Setup Guide](docs/SETUP.md#generating-session-string)
+3. **SESSION_STRING**: See [Setup Guide](docs/SETUP.md#step-3-get-session_string-optional---for-user-mode)
 
 <br/>
 
@@ -869,22 +869,22 @@ sequenceDiagram
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" alt="Control" width="60" />
+🤖
 <br/><b>Main Bot</b>
 <br/><sub>• Receives commands<br/>• Dashboard & settings<br/>• User authorization<br/>• Worker coordination</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Person%20Running.png" alt="Worker" width="60" />
+🏃
 <br/><b>Worker Pool</b>
 <br/><sub>• Round-robin selection<br/>• Parallel uploads<br/>• Auto failover<br/>• Load distribution</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Floppy%20Disk.png" alt="Storage" width="60" />
+💾
 <br/><b>State Manager</b>
 <br/><sub>• Batch progress<br/>• Settings persistence<br/>• Crash recovery<br/>• Auto-resume</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Shield.png" alt="Security" width="60" />
+🛡️
 <br/><b>Security Layer</b>
 <br/><sub>• User authorization<br/>• Owner verification<br/>• Token validation<br/>• Safe file handling</sub>
 </td>
@@ -918,22 +918,22 @@ sequenceDiagram
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" width="70" />
+🤖
 <br/><b>Multi-Bot Pool</b>
 <br/><sub>Unlimited workers</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Counterclockwise%20Arrows%20Button.png" width="70" />
+🔄
 <br/><b>Auto-Resume</b>
 <br/><sub>Never lose progress</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png" width="70" />
+📺
 <br/><b>Dump Channel</b>
 <br/><sub>Forward to channels</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" width="70" />
+🚀
 <br/><b>Blazing Fast</b>
 <br/><sub>Parallel processing</sub>
 </td>
@@ -1051,7 +1051,7 @@ This version includes fixes for:
 - ✅ Premium user file size checks
 - ✅ Client initialization errors
 
-See [Release Notes](docs/README.md#bug-fixes) for full list.
+See [Release Notes](docs/README.md#-bug-fixes-in-this-release) for full list.
 
 ---
 
@@ -1082,7 +1082,7 @@ See [Release Notes](docs/README.md#bug-fixes) for full list.
 ### 👨‍💻 Primary Developer
 
 <a href="https://github.com/Paidguy">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/People/Technologist.png" width="100" />
+👨‍💻
 </a>
 
 **[@Paidguy](https://github.com/Paidguy)**
@@ -1098,7 +1098,7 @@ Production features • Bug fixes • Documentation
 ### 🌟 Original Author
 
 <a href="https://github.com/bisnuray">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Light%20Bulb.png" width="100" />
+💡
 </a>
 
 **[@bisnuray](https://github.com/bisnuray)**
@@ -1118,25 +1118,25 @@ Production features • Bug fixes • Documentation
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Magnifying%20Glass%20Tilted%20Left.png" width="60" />
+🔍
 <br/><b>Pyrofork</b>
 <br/><sub>MTProto client library</sub>
 <br/><a href="https://github.com/KurimuzonAkuma/pyrogram">GitHub</a>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Locked%20with%20Key.png" width="60" />
+🔐
 <br/><b>TgCrypto</b>
 <br/><sub>Encryption acceleration</sub>
 <br/><a href="https://github.com/pyrogram/tgcrypto">GitHub</a>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Film%20Frames.png" width="60" />
+🎞️
 <br/><b>FFmpeg</b>
 <br/><sub>Media processing</sub>
 <br/><a href="https://ffmpeg.org/">Website</a>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" width="60" />
+📊
 <br/><b>Pyleaves</b>
 <br/><sub>Progress bars</sub>
 <br/><a href="https://github.com/1Danish-00/pyleaves">GitHub</a>
@@ -1195,28 +1195,28 @@ We welcome contributions! Check out our [Contributing Guide](CONTRIBUTING.md) to
 <tr>
 <td align="center" width="25%">
 <a href="https://github.com/Paidguy/TelegramRestrictionBypass/issues">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bug.png" width="70" />
+🐛
 <br/><b>Found a Bug?</b>
 </a>
 <br/><sub>Report Issue</sub>
 </td>
 <td align="center" width="25%">
 <a href="https://github.com/Paidguy/TelegramRestrictionBypass/issues">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Light%20Bulb.png" width="70" />
+💡
 <br/><b>Feature Request?</b>
 </a>
 <br/><sub>Suggest Feature</sub>
 </td>
 <td align="center" width="25%">
 <a href="https://github.com/Paidguy/TelegramRestrictionBypass/discussions">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Speech%20Balloon.png" width="70" />
+💬
 <br/><b>Need Help?</b>
 </a>
 <br/><sub>Discussions</sub>
 </td>
 <td align="center" width="25%">
 <a href="CONTRIBUTING.md">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Hand%20gestures/Clapping%20Hands.png" width="70" />
+👏
 <br/><b>Want to Contribute?</b>
 </a>
 <br/><sub>Contributing Guide</sub>

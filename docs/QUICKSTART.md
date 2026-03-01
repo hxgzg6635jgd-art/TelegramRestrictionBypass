@@ -6,7 +6,7 @@
 
 <br/>
 
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="100" />
+🚀
 
 <br/>
 
@@ -27,32 +27,32 @@
 <table>
 <tr>
 <td align="center" width="16.66%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Laptop.png" width="40" />
+💻
 <br/><b>Prerequisites</b>
 <br/><sub>5 min</sub>
 </td>
 <td align="center" width="16.66%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Key.png" width="40" />
+🔑
 <br/><b>Credentials</b>
 <br/><sub>10 min</sub>
 </td>
 <td align="center" width="16.66%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Package.png" width="40" />
+📦
 <br/><b>Install</b>
 <br/><sub>5 min</sub>
 </td>
 <td align="center" width="16.66%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" width="40" />
+⚙️
 <br/><b>Configure</b>
 <br/><sub>2 min</sub>
 </td>
 <td align="center" width="16.66%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" width="40" />
+🚀
 <br/><b>Run</b>
 <br/><sub>1 min</sub>
 </td>
 <td align="center" width="16.66%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Party%20Popper.png" width="40" />
+🎉
 <br/><b>Test</b>
 <br/><sub>2 min</sub>
 </td>
@@ -197,25 +197,25 @@ python3 main.py
 <table>
 <tr>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Smilies/Robot.png" width="50" />
+🤖
 <br/><b>Add More Bots</b>
 <br/><code>/connect &lt;token&gt;</code>
 <br/><sub>Faster parallel uploads</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Television.png" width="50" />
+📺
 <br/><b>Dump Channel</b>
 <br/>Add bot as admin
 <br/><sub>Auto-forward to channel</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/File%20Folder.png" width="50" />
+📁
 <br/><b>Batch Download</b>
 <br/><code>/bdl &lt;start&gt; &lt;end&gt;</code>
 <br/><sub>Download thousands</sub>
 </td>
 <td align="center" width="25%">
-<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Gear.png" width="50" />
+⚙️
 <br/><b>Settings</b>
 <br/>Click ⚙️ in dashboard
 <br/><sub>Tune performance</sub>
