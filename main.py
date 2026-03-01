@@ -530,22 +530,40 @@ async def batch_dl_command(bot, message):
     else:
         await message.reply("Usage: /bdl <start> <end>")
 
+async def send_batch_status_message(bot, user_id, mode, sid, eid, is_resuming=False):
+    """
+    Send initial batch status message to user.
+
+    Args:
+        bot: Bot client for sending messages
+        user_id: Target user ID
+        mode: Download mode (BOT/USER)
+        sid: Start message ID
+        eid: End message ID
+        is_resuming: Whether this is a resume operation
+
+    Returns:
+        Status message object or None if failed
+    """
+    message_text = f"🔄 **Auto-Resuming Batch ({mode})**\n🆔 {sid} - {eid}" if is_resuming else f"🚀 **Batch Started ({mode})**\n🆔 {sid} - {eid}"
+
+    try:
+        return await bot.send_message(user_id, message_text)
+    except Exception as e:
+        LOGGER(__name__).error(f"Failed to send batch status message: {e}")
+        return None
+
 async def run_batch_logic(bot, message, schat, sid, eid, user_id, is_resuming=False):
     fetcher = user if Config.get("download_mode") == "USER" else get_next_worker()
-    
+
     if not is_resuming:
         UserState.set_batch(user_id, schat, sid, eid)
-    
+
     mode = Config.get("download_mode")
-    
-    if message:
-        status = await bot.send_message(user_id, f"🚀 **Batch Started ({mode})**\n🆔 {sid} - {eid}")
-    else:
-        try:
-            status = await bot.send_message(user_id, f"🔄 **Auto-Resuming Batch ({mode})**\n🆔 {sid} - {eid}")
-        except Exception as e:
-            LOGGER(__name__).error(f"Failed to send auto-resume message: {e}")
-            return
+
+    status = await send_batch_status_message(bot, user_id, mode, sid, eid, is_resuming=(message is None))
+    if status is None:
+        return
 
     processed_groups = set()
     count = 0
