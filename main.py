@@ -437,8 +437,27 @@ async def safe_download(bot, message, chat_message, retry_count=0, silent=False)
             msg_to_download = await fetcher.get_messages(chat_message.chat.id, chat_message.id)
             if not msg_to_download.media:
                 if prog: await prog.delete()
-                return 
-            
+                return
+
+            # --- INSTANT FORWARDING LOGIC ---
+            dest_chat = Config.get_dump_chat() or message.chat.id
+
+            if not msg_to_download.has_protected_content:
+                try:
+                    if not silent and prog:
+                        await prog.edit("**🚀 Forwarding directly (No restrictions)...**")
+
+                    # .copy() sends without the "Forwarded from" header
+                    await msg_to_download.copy(dest_chat)
+
+                    if prog: await prog.delete()
+                    LOGGER(__name__).info(f"Forwarded ID {chat_message.id} directly")
+                    return  # Success! Skip the download/upload process
+
+                except Exception as e:
+                    LOGGER(__name__).warning(f"Direct forward failed: {e}. Falling back to download.")
+            # --------------------------------
+
             start_time = time()
             media_path = await msg_to_download.download(**dl_kwargs)
             
@@ -529,6 +548,48 @@ async def batch_dl_command(bot, message):
         await message.reply(f"⚠️ **Found Batch!**\nRange: `{batch['start']} - {batch['end']}`", reply_markup=buttons)
     else:
         await message.reply("Usage: /bdl <start> <end>")
+
+@bot.on_message(filters.command("clone") & filters.private)
+async def clone_command(client, message):
+    """Clone an entire channel/group automatically."""
+    if not Config.is_authorized(message.chat.id):
+        return
+
+    if len(message.command) < 2:
+        return await message.reply(
+            "**Usage:** `/clone <any_message_link>`\n\n"
+            "Provide **any** message link from the channel you want to clone, "
+            "and the bot will automatically copy everything from start to finish."
+        )
+
+    try:
+        url = message.command[1].split("?")[0]
+        # Discard the specific message ID, we only need the Chat ID
+        schat, _ = getChatMsgID(url)
+    except ValueError:
+        return await message.reply("❌ Invalid Link. Please provide a valid Telegram message URL from the channel.")
+
+    statusmsg = await message.reply("🔍 **Scanning channel to find the latest message...**")
+
+    try:
+        fetcher = user if Config.get("download_mode") == "USER" else get_next_worker()
+
+        # Fetch the very last message in the chat to get the maximum message ID
+        end_id = None
+        async for last_msg in fetcher.get_chat_history(schat, limit=1):
+            end_id = last_msg.id
+            break
+
+        if not end_id:
+            return await statusmsg.edit("❌ Could not retrieve chat history. Make sure the bot/user has access to the channel.")
+
+    except Exception as e:
+        return await statusmsg.edit(f"❌ Error accessing channel: {e}")
+
+    await statusmsg.delete()
+
+    # Start the batch download from message ID 1 to the end_id
+    track_task(run_batch_logic(client, message, schat, 1, end_id, message.chat.id))
 
 async def send_batch_status_message(bot, user_id, mode, sid, eid, is_resuming=False):
     """
