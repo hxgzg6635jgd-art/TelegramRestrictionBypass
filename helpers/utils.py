@@ -204,9 +204,27 @@ async def processMediaGroup(chat_message, bot, message, target_chat_id: Optional
     media_group = await chat_message.get_media_group()
     valid_media = []
     files_to_clean = []
-    
+
     LOGGER(__name__).info(f"Processing Album ID {chat_message.media_group_id} ({len(media_group)} items)")
-    
+    dest = target_chat_id if target_chat_id else message.chat.id
+
+    # --- INSTANT FORWARDING LOGIC ---
+    if not chat_message.has_protected_content:
+        try:
+            message_ids = [msg.id for msg in media_group]
+
+            # Forward the entire album instantly
+            await chat_message._client.forward_messages(
+                chat_id=dest,
+                from_chat_id=chat_message.chat.id,
+                message_ids=message_ids
+            )
+            LOGGER(__name__).info(f"Album {chat_message.media_group_id} forwarded directly!")
+            return True
+        except Exception as e:
+            LOGGER(__name__).warning(f"Album forward failed: {e}. Falling back to download.")
+    # --------------------------------
+
     try:
         for msg in media_group:
             if msg.media:
