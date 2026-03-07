@@ -168,15 +168,19 @@ async def start_new_worker(token, is_temp=False):
             api_id=PyroConf.API_ID,
             api_hash=PyroConf.API_HASH,
             bot_token=token,
-            workers=5, 
-            sleep_threshold=180, 
-            max_concurrent_transmissions=1, 
+            workers=5,
+            sleep_threshold=180,
+            max_concurrent_transmissions=1,
             ipv6=False,
             no_updates=True,
             workdir="downloads"
         )
         await new_worker.start()
-        
+
+        # --- NEW: Inject the saved peers into this specific worker ---
+        await resolve_saved_peers(new_worker)
+        # -------------------------------------------------------------
+
         me = new_worker.me
         if not me: 
             await new_worker.stop()
