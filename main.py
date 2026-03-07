@@ -262,16 +262,19 @@ def get_dashboard_text():
     currentTime = get_readable_time(time() - PyroConf.BOT_START_TIME)
     total, used, free = shutil.disk_usage(".")
     mem = psutil.virtual_memory().percent
-    
+
     active_slots = 0
     if download_semaphore:
         active_slots = Config.get("max_concurrent") - download_semaphore._value
-    
+
     target = Config.get_dump_chat()
     t_text = f"Channel `{target}`" if target else "Private Chat"
     mode = Config.get("download_mode")
     bots_count = len(WORKER_POOL)
-    
+
+    # --- NEW: Check order status ---
+    order_status = "✅ Strict (Perfect Order)" if Config.get("strict_order") else "⚡ Concurrent (Fast/Messy)"
+
     return (
         f"🤖 **Restricted Content Downloader**\n"
         f"━━━━━━━━━━━━━━━━━━━━━\n"
@@ -282,17 +285,23 @@ def get_dashboard_text():
         f"🧠 **RAM Load:** `{mem}%`\n"
         f"━━━━━━━━━━━━━━━━━━━━━\n"
         f"📂 **Destination:** {t_text}\n"
-        f"🛠 **Current Mode:** `{mode}`"
+        f"🛠 **Current Mode:** `{mode}`\n"
+        f"📦 **Task Ordering:** `{order_status}`"
     )
 
 def get_dashboard_markup():
     mode = Config.get("download_mode")
     mode_btn = "👤 User Mode" if mode == "BOT" else "🤖 Bot Mode"
+
+    # --- NEW: Toggle Button ---
+    order_btn = "🚀 Switch to Fast Mode" if Config.get("strict_order") else "🛡️ Switch to Strict Mode"
+
     return InlineKeyboardMarkup([
         [InlineKeyboardButton("🔄 Refresh", callback_data="refresh_dash"),
          InlineKeyboardButton("⚙️ Settings", callback_data="open_settings")],
         [InlineKeyboardButton("🤖 Manage Bots", callback_data="manage_bots"),
          InlineKeyboardButton(mode_btn, callback_data="toggle_mode")],
+        [InlineKeyboardButton(order_btn, callback_data="toggle_order")],  # <-- NEW BUTTON
         [InlineKeyboardButton("📂 Destination", callback_data="manage_destination"),
          InlineKeyboardButton("📥 Sources", callback_data="manage_sources")],
         [InlineKeyboardButton("📜 Logs", callback_data="send_logs"),
@@ -398,6 +407,14 @@ async def callback_handler(client, query: CallbackQuery):
         Config.set("download_mode", new_mode)
         await apply_smart_limits(new_mode)
         await query.answer(f"Switched to {new_mode} Mode")
+        await query.message.edit_text(get_dashboard_text(), reply_markup=get_dashboard_markup())
+
+    elif data == "toggle_order":
+        current_strict = Config.get("strict_order")
+        Config.set("strict_order", not current_strict)
+
+        status = "Strict Sequence Mode" if not current_strict else "Concurrent Mode"
+        await query.answer(f"Switched to {status}!")
         await query.message.edit_text(get_dashboard_text(), reply_markup=get_dashboard_markup())
 
     elif data == "stop_all":
@@ -823,6 +840,7 @@ async def run_batch_logic(bot, message, schat, sid, eid, user_id, is_resuming=Fa
                     if m.media_group_id in processed_groups: continue
                     processed_groups.add(m.media_group_id)
                     try:
+                        # Albums are already processed sequentially internally by utils.py!
                         await processMediaGroup(m, get_next_worker(), message, Config.get_dump_chat())
                         count += 1
                     except Exception as e:
@@ -830,10 +848,20 @@ async def run_batch_logic(bot, message, schat, sid, eid, user_id, is_resuming=Fa
                     continue
 
                 if not m.media: continue
-                tasks.append(process_wrapper(bot, message, m, silent=True))
+
+                # --- NEW: STRICT ORDERING LOGIC ---
+                if Config.get("strict_order"):
+                    # Halts the loop until this specific file is 100% downloaded AND uploaded
+                    await process_wrapper(bot, message, m, silent=True)
+                else:
+                    # Queues for concurrent (fast but messy) processing
+                    tasks.append(process_wrapper(bot, message, m, silent=True))
+
                 count += 1
 
-            if tasks: await asyncio.gather(*tasks)
+            # Only run gather if we are in fast/messy mode
+            if tasks and not Config.get("strict_order"):
+                await asyncio.gather(*tasks)
             await status.edit(f"📥 **Progress:** {count} items.\n📍 Current: {end}")
             await asyncio.sleep(Config.get("flood_delay"))
 
@@ -955,6 +983,11 @@ async def initialize():
     if PyroConf.BATCH_SIZE:
         Config.set("batch_size", PyroConf.BATCH_SIZE)
     if Config.get("max_concurrent") < 1: Config.set("max_concurrent", 3)
+
+    # Set strict_order default (True = Safe mode, ensures perfect file ordering)
+    if Config.get("strict_order") is None:
+        Config.set("strict_order", True)
+
     await apply_smart_limits("BOT")
     
     LOGGER(__name__).info("Initializing Bots...")
