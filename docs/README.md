@@ -760,6 +760,7 @@ All commands are **private chat only**. Only the owner and authorized users can 
 |---|---|---|
 | `/dl` | `/dl https://t.me/channel/123` | Download a single Telegram message |
 | `/bdl` | `/bdl https://t.me/channel/100 https://t.me/channel/500` | Batch download messages 100 → 500 |
+| `/clone` | `/clone https://t.me/channel/123` | Clone an entire channel from start to finish (auto-detects last message) |
 
 **Supported link formats:**
 
@@ -793,6 +794,9 @@ https://t.me/c/1234567890/45/123
 
 # Batch download 200 files from a private channel
 /bdl https://t.me/c/1234567890/1 https://t.me/c/1234567890/200
+
+# Clone entire channel (automatically downloads from message 1 to latest)
+/clone https://t.me/techcommunity/4521
 
 # Add a second worker bot
 /connect 9876543210:XYZ-abc123def456...
