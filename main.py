@@ -178,11 +178,12 @@ async def stop_worker(bot_id):
 
 async def apply_smart_limits(mode):
     if mode == "BOT":
-        Config.set("max_concurrent", 5) 
-        Config.set("flood_delay", 0)
+        # FIX: Pull from config.env instead of hardcoding 5 and 0
+        Config.set("max_concurrent", PyroConf.MAX_CONCURRENT_DOWNLOADS)
+        Config.set("flood_delay", PyroConf.FLOOD_WAIT_DELAY)
     else:
-        Config.set("max_concurrent", 2) 
-        Config.set("flood_delay", 10)   
+        Config.set("max_concurrent", 2)
+        Config.set("flood_delay", 10)
     await update_semaphore()
 
 async def update_semaphore():

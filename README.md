@@ -191,14 +191,31 @@ Perfect for:
 <tr>
 <td width="50%" valign="top">
 
+#### 🔄 Smart Clone System (NEW!)
+**One-click channel cloning** — just paste any message link and the bot automatically discovers and downloads the entire channel from start to finish. Perfect for archiving entire communities, backing up media collections, or migrating content.
+
+**Usage:** `/clone https://t.me/channel/123`
+
+Features:
+- ✅ Auto-detects channel boundaries
+- ✅ Clones from message 1 to latest
+- ✅ Works with public & private channels
+- ✅ Crash-safe auto-resume
+- ✅ Tracks source history
+
 #### 📊 Live Dashboard
 Real-time system monitoring with interactive controls. View active downloads, worker bot status, uptime statistics, storage usage, and RAM consumption—all updated live.
 
-#### ⚡ Batch Processing
-Download thousands of messages in a single command with intelligent chunking, progress tracking, and automatic resume capabilities.
-
 </td>
 <td width="50%" valign="top">
+
+#### ⚡ Batch Processing
+Download thousands of messages in a single command with intelligent chunking, progress tracking, and automatic resume capabilities. Choose specific ranges or clone entire channels.
+
+**Three powerful ways to download:**
+- `/dl <link>` — Single message
+- `/bdl <start> <end>` — Custom range
+- `/clone <link>` — Entire channel
 
 #### 🤖 Multi-Bot Worker Pool
 Scale your download operations with unlimited worker bots. Round-robin distribution ensures optimal load balancing and maximum throughput.
@@ -233,6 +250,13 @@ Automatically forward all downloaded content to a designated Telegram channel fo
 ### 🎯 Core Functionality
 
 <table>
+<tr>
+<td align="center" width="10%">🔄</td>
+<td width="90%">
+<b>Smart Clone</b><br/>
+<code>/clone &lt;link&gt;</code> - Clone entire channel automatically (NEW!)
+</td>
+</tr>
 <tr>
 <td align="center" width="10%">🔗</td>
 <td width="90%">
@@ -605,19 +629,25 @@ For Docker details, see [🐳 Docker Guide](docs/DOCKER.md)
 
 <table>
 <tr>
-<td align="center" width="33%">
+<td align="center" width="25%">
+🔄
+<br/><b>Clone Channel</b>
+<br/><code>/clone &lt;link&gt;</code>
+<br/><sub>🎯 Entire channel auto</sub>
+</td>
+<td align="center" width="25%">
 🔌
 <br/><b>Single Download</b>
 <br/><code>/dl &lt;link&gt;</code>
 <br/><sub>⚡ Instant media fetch</sub>
 </td>
-<td align="center" width="33%">
+<td align="center" width="25%">
 📦
 <br/><b>Batch Download</b>
 <br/><code>/bdl &lt;start&gt; &lt;end&gt;</code>
 <br/><sub>📦 Thousands at once</sub>
 </td>
-<td align="center" width="33%">
+<td align="center" width="25%">
 🎛️
 <br/><b>Live Dashboard</b>
 <br/><code>/start</code>
@@ -633,6 +663,7 @@ For Docker details, see [🐳 Docker Guide](docs/DOCKER.md)
 | Command | Description | Example |
 |---------|-------------|---------|
 | `/start` | Open dashboard | `/start` |
+| `/clone <link>` | **Clone entire channel** | `/clone https://t.me/channel/12345` |
 | `/dl <link>` | Download single message | `/dl https://t.me/channel/12345` |
 | `/bdl <start> <end>` | Batch download range | `/bdl https://t.me/c/123/100 https://t.me/c/123/500` |
 | `/connect <token>` | Add worker bot | `/connect 123456:ABC-DEF...` |
@@ -648,8 +679,387 @@ The interactive dashboard provides:
 - **⚙️ Settings** - Adjust speed and delays
 - **🤖 Manage Bots** - Add/remove worker bots
 - **👤/🤖 Toggle Mode** - Switch between BOT and USER modes
+- **📂 Destination** - Set dump channel for output
+- **📥 Sources** - View recently cloned source channels
 - **📜 Logs** - Download log file
 - **🛑 STOP ALL** - Kill all running downloads
+
+<br/>
+
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=gradient&customColorList=6,11,20&height=2&section=divider" width="100%"/>
+
+</div>
+
+---
+
+## 🔄 Smart Clone System
+
+<div align="center">
+
+### 🎯 One Command to Clone Them All
+
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=22C55E&center=true&vCenter=true&width=700&lines=🔄+Clone+Entire+Channels+Instantly;⚡+Automatic+Boundary+Detection;📦+Thousands+of+Files+Effortlessly;🛡️+Crash-Safe+Auto-Resume!" alt="Clone System Animation" />
+
+</div>
+
+<br/>
+
+The **Smart Clone System** is a powerful feature that allows you to clone entire Telegram channels with a single command. Just paste any message link from the channel, and the bot handles everything else automatically.
+
+### Why Use Clone?
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+#### 🎯 Simplicity
+- **One command** — no need to find start/end message IDs
+- **Auto-discovery** — bot finds the channel boundaries for you
+- **Zero configuration** — works out of the box
+
+#### 🚀 Speed
+- **Parallel downloads** — multiple files at once
+- **Smart chunking** — processes 200 messages per batch
+- **Direct forwarding** — instant for unprotected content
+
+</td>
+<td width="50%" valign="top">
+
+#### 🛡️ Reliability
+- **Crash-safe** — auto-resumes from last position
+- **FloodWait handling** — automatic retry with backoff
+- **Source tracking** — remembers all cloned channels
+- **Progress monitoring** — live updates in dashboard
+
+#### 📊 Intelligence
+- **Media group detection** — keeps albums together
+- **Empty message skip** — ignores deleted content
+- **File size validation** — checks before download
+
+</td>
+</tr>
+</table>
+
+### How to Use Clone
+
+#### Basic Usage
+
+```bash
+# Clone an entire public channel
+/clone https://t.me/techcommunity/100
+
+# Clone a private channel (requires USER mode)
+/clone https://t.me/c/1234567890/500
+
+# Clone works with ANY message ID - bot finds the full range automatically
+/clone https://t.me/mychannel/5432
+```
+
+**What happens:**
+1. 🔍 Bot scans to find the latest message in the channel
+2. 📊 Determines the full range (1 → latest)
+3. 🚀 Starts batch download automatically
+4. 📥 Downloads all messages with media
+5. ✅ Completion notification
+
+### Clone vs Batch Download vs Single Download
+
+| Feature | `/clone` | `/bdl` | `/dl` |
+|---------|----------|--------|-------|
+| **Target** | Entire channel | Specific range | Single message |
+| **Setup** | Paste any link | Need start + end links | One link |
+| **Auto-detect range** | ✅ Yes | ❌ Manual | N/A |
+| **Best for** | Full archives | Specific sections | Individual files |
+| **Resume support** | ✅ Yes | ✅ Yes | ❌ No |
+| **Source tracking** | ✅ Yes | ✅ Yes | ✅ Yes |
+
+### Real-World Use Cases
+
+<div align="center">
+
+<table>
+<tr>
+<td align="center" width="20%">
+📚
+<br/><b>Archive Channel</b>
+<br/><sub>Backup educational<br/>content libraries</sub>
+</td>
+<td align="center" width="20%">
+🎬
+<br/><b>Media Collection</b>
+<br/><sub>Clone movie/music<br/>channels</sub>
+</td>
+<td align="center" width="20%">
+📰
+<br/><b>News Aggregation</b>
+<br/><sub>Archive news<br/>channels for research</sub>
+</td>
+<td align="center" width="20%">
+💾
+<br/><b>Backup Private</b>
+<br/><sub>Save restricted<br/>group content</sub>
+</td>
+<td align="center" width="20%">
+🔄
+<br/><b>Channel Migration</b>
+<br/><sub>Move content to<br/>new channel</sub>
+</td>
+</tr>
+</table>
+
+</div>
+
+### Advanced Clone Scenarios
+
+#### Scenario 1: Clone Multiple Channels
+
+```bash
+# Clone channel 1
+/clone https://t.me/tech_news/100
+
+# Wait for completion, then clone channel 2
+/clone https://t.me/science_updates/200
+
+# Bot tracks all sources in the dashboard
+```
+
+#### Scenario 2: Clone to Dump Channel
+
+```bash
+# 1. Set up dump channel first
+#    - Create a channel
+#    - Add bot as admin
+#    - Bot auto-detects destination
+
+# 2. Clone multiple channels
+/clone https://t.me/source1/1
+/clone https://t.me/source2/1
+
+# All content goes to your dump channel automatically
+```
+
+#### Scenario 3: Clone with Worker Pool
+
+```bash
+# 1. Add worker bots for faster uploads
+/connect 111111:AAA...
+/connect 222222:BBB...
+/connect 333333:CCC...
+
+# 2. Clone large channel with parallel uploads
+/clone https://t.me/large_channel/1
+
+# Workers distribute upload load = faster completion
+```
+
+#### Scenario 4: Clone Restricted Content
+
+```bash
+# 1. Switch to USER mode (requires SESSION_STRING)
+#    Dashboard → "👤 User Mode"
+
+# 2. Join the private channel if needed
+/join https://t.me/+PrivateInviteLink
+
+# 3. Clone the restricted channel
+/clone https://t.me/c/1234567890/100
+
+# Your user account downloads content bots can't access
+```
+
+#### Scenario 5: Resume Interrupted Clone
+
+```bash
+# Bot crashed during clone at message 1,234 of 5,000
+
+# Simply restart the bot:
+python main.py
+
+# Bot automatically detects incomplete batch and resumes from 1,234
+# No need to restart from beginning!
+```
+
+### Clone System Features in Detail
+
+#### 🔍 Automatic Boundary Detection
+
+The bot intelligently discovers channel boundaries:
+
+```
+User: /clone https://t.me/channel/500
+Bot:  🔍 Scanning channel to find latest message...
+      ✓ Found: Message 5,432 (latest)
+      📊 Range determined: 1 → 5,432
+      🚀 Batch Started (BOT): 1 - 5432
+```
+
+#### 📊 Progress Tracking
+
+Real-time updates as clone progresses:
+
+```
+📥 Progress: 200 items. 📍 Current: 200
+📥 Progress: 400 items. 📍 Current: 400
+📥 Progress: 600 items. 📍 Current: 600
+...
+✅ Batch Complete! Total: 5,432 files
+```
+
+#### 📥 Source History
+
+All cloned channels are automatically tracked:
+
+```
+Dashboard → "📥 Sources" button
+
+Recent Sources:
+1. TechNews (1234567890)
+2. ScienceDaily (9876543210)
+3. MovieArchive (5555555555)
+
+Tap any source to see details and quick actions
+```
+
+#### 🛡️ Crash Recovery
+
+State saved after every message:
+
+```json
+downloads/user_state.json:
+{
+  "123456789": {
+    "source": -1001234567890,
+    "start": 1,
+    "end": 5432,
+    "current": 1234,
+    "status": "active"
+  }
+}
+```
+
+If bot crashes, it resumes from `current: 1234` automatically.
+
+### Performance Tips for Cloning
+
+| Tip | Benefit | How to Apply |
+|-----|---------|--------------|
+| **Add Worker Bots** | 3-5× faster uploads | `/connect <token>` for each bot |
+| **Use Dump Channel** | Faster than private chat | Add bot as channel admin |
+| **Adjust Concurrency** | Balance speed vs rate limits | `MAX_CONCURRENT_DOWNLOADS=3` or `5` |
+| **Set Flood Delay** | Avoid Telegram penalties | `FLOOD_WAIT_DELAY=2` (recommended) |
+| **BOT Mode for Public** | Faster than USER mode | Use BOT mode for public channels |
+| **USER Mode for Private** | Access restricted content | Switch to USER mode when needed |
+
+### Clone Command Reference
+
+```bash
+# Basic syntax
+/clone <message_link>
+
+# Supported link formats
+/clone https://t.me/channel/123           # Public channel
+/clone https://t.me/c/1234567890/456      # Private channel
+/clone https://t.me/channel/123/456/789   # Forum topic
+
+# Works with any message ID in the channel
+/clone https://t.me/channel/1             # First message
+/clone https://t.me/channel/9999          # Middle message
+/clone https://t.me/channel/50000         # Last message
+
+# Bot always clones from message 1 to latest, regardless of the link
+```
+
+### Monitoring Clone Progress
+
+#### Via Dashboard
+```
+🤖 Restricted Content Downloader
+━━━━━━━━━━━━━━━━━━━━━
+⚡ Active DLs: 3 | Tasks: 5
+📊 Shows current downloads in real-time
+```
+
+#### Via Progress Messages
+```
+Bot sends updates every 200 messages:
+📥 Progress: 200 items. 📍 Current: 200
+📥 Progress: 400 items. 📍 Current: 400
+...
+✅ Batch Complete!
+```
+
+#### Via Logs
+```bash
+# Check logs for detailed progress
+/logs
+
+# Or view directly:
+tail -f logs.txt
+```
+
+### Troubleshooting Clone Operations
+
+<details>
+<summary><b>Clone stopped midway</b></summary>
+
+**Solution:**
+- Restart bot: `python main.py`
+- Bot auto-resumes from last saved position
+- Or manually resume: `/bdl` shows resume options
+
+</details>
+
+<details>
+<summary><b>Clone is too slow</b></summary>
+
+**Solutions:**
+1. Add worker bots: `/connect <token>`
+2. Increase concurrency: `MAX_CONCURRENT_DOWNLOADS=5`
+3. Use dump channel instead of private chat
+4. Switch to BOT mode for public channels
+
+</details>
+
+<details>
+<summary><b>FloodWait errors during clone</b></summary>
+
+**Solutions:**
+1. Increase delay: `FLOOD_WAIT_DELAY=5` or `10`
+2. Reduce concurrency: `MAX_CONCURRENT_DOWNLOADS=2`
+3. Add more worker bots to distribute load
+4. Wait for rate limit to reset (automatic)
+
+</details>
+
+<details>
+<summary><b>Can't access private channel</b></summary>
+
+**Solutions:**
+1. Switch to USER mode: Dashboard → "👤 User Mode"
+2. Join channel first: `/join https://t.me/+InviteLink`
+3. Ensure valid SESSION_STRING in config.env
+4. Verify your account has access to the channel
+
+</details>
+
+<br/>
+
+<div align="center">
+
+### 🎯 Start Cloning Today!
+
+```bash
+# Just three steps:
+1. Start your bot: python main.py
+2. Send /clone command: /clone https://t.me/channel/123
+3. Watch it clone automatically! ✨
+```
+
+**Clone any channel, anywhere, anytime — with just one command!**
+
+</div>
 
 <br/>
 
