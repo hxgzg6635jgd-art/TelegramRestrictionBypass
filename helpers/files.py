@@ -119,7 +119,7 @@ async def fileSizeLimit(file_size: int, message, action_type: str = "download",
 
     Args:
         file_size: Size of file in bytes
-        message: Telegram message object for reply
+        message: Telegram message object for reply (can be None)
         action_type: Type of action ("download" or "upload")
         is_premium: Whether user has Telegram Premium
 
@@ -128,6 +128,7 @@ async def fileSizeLimit(file_size: int, message, action_type: str = "download",
     """
     max_size = TELEGRAM_PREMIUM_FILE_LIMIT if is_premium else TELEGRAM_FILE_LIMIT
     if file_size > max_size:
-        await message.reply("File too large for Telegram limits.")
+        if message:
+            await message.reply("File too large for Telegram limits.")
         return False
     return True

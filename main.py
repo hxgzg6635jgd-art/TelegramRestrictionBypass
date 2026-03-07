@@ -16,6 +16,7 @@ import itertools
 import json
 import os
 import shutil
+import threading
 from time import time
 
 import psutil
@@ -88,6 +89,7 @@ download_semaphore = None
 RUNNING_TASKS = set()
 HISTORY_FILE = "downloads/history.txt"
 PEER_FILE = "downloads/channel_peers.json"
+peer_lock = threading.Lock()  # Lock for peer file operations
 
 # -------------------------------------------------------------------------------------------
 # PEER PERSISTENCE
@@ -96,16 +98,17 @@ PEER_FILE = "downloads/channel_peers.json"
 def save_peer(channel_id: int, access_hash: int):
     """Save the channel ID and access hash persistently."""
     os.makedirs("downloads", exist_ok=True)
-    try:
-        with open(PEER_FILE, "r") as f:
-            peers = json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
-        peers = {}
+    with peer_lock:
+        try:
+            with open(PEER_FILE, "r") as f:
+                peers = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError):
+            peers = {}
 
-    peers[str(channel_id)] = access_hash
+        peers[str(channel_id)] = access_hash
 
-    with open(PEER_FILE, "w") as f:
-        json.dump(peers, f, indent=4)
+        with open(PEER_FILE, "w") as f:
+            json.dump(peers, f, indent=4)
 
 async def resolve_saved_peers(client):
     """Load saved peers and force the library to cache them."""
@@ -615,6 +618,10 @@ async def safe_download(bot, message, chat_message, retry_count=0, silent=False)
         except Exception as e:
             LOGGER(__name__).error(f"Fetch Error {chat_message.id}: {e}")
             if prog: await prog.edit("**❌ Fetch Failed.**")
+
+            # --- NEW FIX: Remove task if the message is completely unfetchable ---
+            user_id = message.chat.id if message else Config.owner_id
+            UserState.remove_single_task(user_id, chat_message.chat.id, chat_message.id)
             return
 
         if not media_path:

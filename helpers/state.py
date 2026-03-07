@@ -13,6 +13,7 @@ Module Variables:
 
 import json
 import os
+import threading
 
 from logger import LOGGER
 
@@ -32,6 +33,7 @@ class StateManager:
     def __init__(self):
         """Initialize state manager and load saved state."""
         self.data = {}
+        self.lock = threading.Lock()
         self.load()
 
     def load(self):
@@ -45,11 +47,12 @@ class StateManager:
                 self.data = {}
 
     def save(self):
-        """Save current state to JSON file."""
+        """Save current state safely using a thread lock."""
         try:
             os.makedirs("downloads", exist_ok=True)
-            with open(STATE_FILE, "w") as f:
-                json.dump(self.data, f, indent=4)
+            with self.lock:
+                with open(STATE_FILE, "w") as f:
+                    json.dump(self.data, f, indent=4)
         except Exception as e:
             LOGGER(__name__).error(f"State Save Error: {e}")
 
