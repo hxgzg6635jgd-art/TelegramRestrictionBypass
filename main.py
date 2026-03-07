@@ -239,6 +239,8 @@ def get_dashboard_markup():
          InlineKeyboardButton("⚙️ Settings", callback_data="open_settings")],
         [InlineKeyboardButton("🤖 Manage Bots", callback_data="manage_bots"),
          InlineKeyboardButton(mode_btn, callback_data="toggle_mode")],
+        [InlineKeyboardButton("📂 Destination", callback_data="manage_destination"),
+         InlineKeyboardButton("📥 Sources", callback_data="manage_sources")],
         [InlineKeyboardButton("📜 Logs", callback_data="send_logs"),
          InlineKeyboardButton("🛑 STOP ALL", callback_data="stop_all")]
     ])
@@ -397,6 +399,97 @@ async def callback_handler(client, query: CallbackQuery):
         await query.message.delete()
         await query.answer("Batch Cancelled.")
 
+    elif data == "manage_destination":
+        await query.answer()
+        target = Config.get_dump_chat()
+        if target:
+            try:
+                # Try to get channel info
+                chat_info = await bot.get_chat(target)
+                title = chat_info.title or f"Channel {target}"
+                txt = f"📂 **Destination Channel Manager**\n\n**Current:** `{title}`\n**ID:** `{target}`"
+            except Exception:
+                txt = f"📂 **Destination Channel Manager**\n\n**Current:** Channel `{target}`"
+        else:
+            txt = "📂 **Destination Channel Manager**\n\n**Current:** Private Chat (Not Set)"
+
+        buttons = []
+        if target:
+            buttons.append([InlineKeyboardButton("🗑 Clear Destination", callback_data="clear_destination")])
+        buttons.append([InlineKeyboardButton("ℹ️ How to Set", callback_data="dest_help")])
+        buttons.append([InlineKeyboardButton("🔙 Back", callback_data="refresh_dash")])
+
+        await query.message.edit_text(txt, reply_markup=InlineKeyboardMarkup(buttons))
+
+    elif data == "clear_destination":
+        Config.clear_dump_chat()
+        await query.answer("✅ Destination cleared! Using private chat.")
+        txt = "📂 **Destination Channel Manager**\n\n**Current:** Private Chat (Not Set)"
+        buttons = [
+            [InlineKeyboardButton("ℹ️ How to Set", callback_data="dest_help")],
+            [InlineKeyboardButton("🔙 Back", callback_data="refresh_dash")]
+        ]
+        await query.message.edit_text(txt, reply_markup=InlineKeyboardMarkup(buttons))
+
+    elif data == "dest_help":
+        await query.answer()
+        help_text = (
+            "📂 **How to Set Destination Channel**\n\n"
+            "1️⃣ Add this bot to your target channel\n"
+            "2️⃣ Make the bot an **Administrator**\n"
+            "3️⃣ The bot will automatically detect and set it as destination\n\n"
+            "**Note:** Files will be uploaded to the destination channel. "
+            "If not set, files go to your private chat."
+        )
+        await query.message.edit_text(help_text, reply_markup=InlineKeyboardMarkup([
+            [InlineKeyboardButton("🔙 Back", callback_data="manage_destination")]
+        ]))
+
+    elif data == "manage_sources":
+        await query.answer()
+        history = Config.get_source_history()
+
+        if history:
+            txt = "📥 **Source Channel Manager**\n\n**Recent Sources:**"
+            buttons = []
+            for idx, entry in enumerate(history[:5], 1):
+                chat_id = entry.get("chat_id", "Unknown")
+                title = entry.get("title", f"Channel {chat_id}")
+                # Truncate long titles
+                if len(title) > 25:
+                    title = title[:22] + "..."
+                buttons.append([InlineKeyboardButton(f"{idx}. {title}", callback_data=f"source_info_{idx-1}")])
+        else:
+            txt = "📥 **Source Channel Manager**\n\n**No recent sources found.**\n\nSource channels are automatically tracked when you use `/dl`, `/bdl`, or `/clone` commands."
+            buttons = []
+
+        buttons.append([InlineKeyboardButton("🔙 Back", callback_data="refresh_dash")])
+        await query.message.edit_text(txt, reply_markup=InlineKeyboardMarkup(buttons))
+
+    elif data.startswith("source_info_"):
+        idx = int(data.split("_")[2])
+        history = Config.get_source_history()
+        if idx < len(history):
+            entry = history[idx]
+            chat_id = entry.get("chat_id", "Unknown")
+            title = entry.get("title", f"Channel {chat_id}")
+
+            info_text = (
+                f"📥 **Source Channel Info**\n\n"
+                f"**Title:** `{title}`\n"
+                f"**Chat ID:** `{chat_id}`\n\n"
+                f"Use this channel with:\n"
+                f"`/dl t.me/c/{chat_id}/MESSAGE_ID`\n"
+                f"`/bdl START_LINK END_LINK`\n"
+                f"`/clone ANY_MESSAGE_LINK`"
+            )
+            await query.answer()
+            await query.message.edit_text(info_text, reply_markup=InlineKeyboardMarkup([
+                [InlineKeyboardButton("🔙 Back", callback_data="manage_sources")]
+            ]))
+        else:
+            await query.answer("⚠️ Source not found.", show_alert=True)
+
 # -------------------------------------------------------------------------------------------
 # CORE LOGIC
 # -------------------------------------------------------------------------------------------
@@ -532,6 +625,16 @@ async def batch_dl_command(bot, message):
         try:
             schat, sid = getChatMsgID(args[1])
             echat, eid = getChatMsgID(args[2])
+
+            # Track source channel
+            try:
+                fetcher = user if Config.get("download_mode") == "USER" else get_next_worker()
+                chat_info = await fetcher.get_chat(schat)
+                title = chat_info.title if hasattr(chat_info, 'title') else None
+                Config.add_source_to_history(schat, title)
+            except Exception:
+                Config.add_source_to_history(schat)
+
         except ValueError as e:
             LOGGER(__name__).error(f"Invalid batch link: {e}")
             return await message.reply("❌ Invalid Link. Please provide valid Telegram message URLs.")
@@ -582,6 +685,14 @@ async def clone_command(client, message):
 
         if not end_id:
             return await statusmsg.edit("❌ Could not retrieve chat history. Make sure the bot/user has access to the channel.")
+
+        # Track source channel
+        try:
+            chat_info = await fetcher.get_chat(schat)
+            title = chat_info.title if hasattr(chat_info, 'title') else None
+            Config.add_source_to_history(schat, title)
+        except Exception:
+            Config.add_source_to_history(schat)
 
     except Exception as e:
         return await statusmsg.edit(f"❌ Error accessing channel: {e}")
@@ -737,6 +848,16 @@ async def single_dl(bot, message):
     try:
         url = message.command[1].split("?")[0]
         cid, mid = getChatMsgID(url)
+
+        # Track source channel
+        try:
+            fetcher = user if Config.get("download_mode") == "USER" else get_next_worker()
+            chat_info = await fetcher.get_chat(cid)
+            title = chat_info.title if hasattr(chat_info, 'title') else None
+            Config.add_source_to_history(cid, title)
+        except Exception:
+            Config.add_source_to_history(cid)
+
         fetcher = user if Config.get("download_mode") == "USER" else get_next_worker()
         msg = await fetcher.get_messages(cid, mid)
         if msg: track_task(safe_download(bot, message, msg, silent=False))
