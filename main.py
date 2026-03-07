@@ -13,13 +13,14 @@ License: MIT
 
 import asyncio
 import itertools
+import json
 import os
 import shutil
 from time import time
 
 import psutil
 from pyleaves import Leaves
-from pyrogram import Client, filters
+from pyrogram import Client, filters, idle, raw
 from pyrogram.enums import ChatMemberStatus, ParseMode
 from pyrogram.errors import (
     AccessTokenInvalid,
@@ -82,10 +83,55 @@ user = Client(
 )
 
 WORKER_POOL = [bot]
-WORKER_ITERATOR = None 
+WORKER_ITERATOR = None
 download_semaphore = None
 RUNNING_TASKS = set()
 HISTORY_FILE = "downloads/history.txt"
+PEER_FILE = "downloads/channel_peers.json"
+
+# -------------------------------------------------------------------------------------------
+# PEER PERSISTENCE
+# -------------------------------------------------------------------------------------------
+
+def save_peer(channel_id: int, access_hash: int):
+    """Save the channel ID and access hash persistently."""
+    os.makedirs("downloads", exist_ok=True)
+    try:
+        with open(PEER_FILE, "r") as f:
+            peers = json.load(f)
+    except (FileNotFoundError, json.JSONDecodeError):
+        peers = {}
+
+    peers[str(channel_id)] = access_hash
+
+    with open(PEER_FILE, "w") as f:
+        json.dump(peers, f, indent=4)
+
+async def resolve_saved_peers(client):
+    """Load saved peers and force the library to cache them."""
+    if not os.path.exists(PEER_FILE):
+        return
+    try:
+        with open(PEER_FILE, "r") as f:
+            peers = json.load(f)
+    except Exception as e:
+        LOGGER(__name__).error(f"Failed to load peers: {e}")
+        return
+
+    LOGGER(__name__).info("=== Synchronizing Channel Peers ===")
+    for channel_id_str, access_hash in peers.items():
+        channel_id = int(channel_id_str)
+        real_id = int(str(channel_id).replace("-100", "")) # Remove -100 prefix
+
+        try:
+            input_peer = raw.types.InputPeerChannel(
+                channel_id=real_id,
+                access_hash=int(access_hash)
+            )
+            await client.invoke(raw.functions.channels.GetChannels(id=[input_peer]))
+            LOGGER(__name__).info(f"Successfully injected peer for {channel_id}")
+        except Exception as e:
+            LOGGER(__name__).warning(f"Could not inject peer {channel_id}: {e}")
 
 # -------------------------------------------------------------------------------------------
 # DYNAMIC WORKER MANAGEMENT
@@ -577,7 +623,7 @@ async def safe_download(bot, message, chat_message, retry_count=0, silent=False)
         elif chat_message.audio: mtype = "audio"
 
         upload_worker = get_next_worker()
-        
+
         # BUG FIX: Ensure we verify upload success
         try:
             await send_media(
@@ -591,6 +637,11 @@ async def safe_download(bot, message, chat_message, retry_count=0, silent=False)
             cleanup_download(media_path)
             if prog: await prog.delete()
             LOGGER(__name__).info(f"Completed ID {chat_message.id}")
+
+            # --- NEW: Remove from memory upon success ---
+            user_id = message.chat.id if message else Config.owner_id
+            UserState.remove_single_task(user_id, chat_message.chat.id, chat_message.id)
+
         except Exception as e:
             LOGGER(__name__).error(f"Upload verification failed for {chat_message.id}: {e}")
             # Do NOT delete file, so it can be retried or inspected
@@ -800,6 +851,14 @@ async def on_channel_add(client, event: ChatMemberUpdated):
             Config.set_dump_chat(event.chat.id)
             LOGGER(__name__).info(f"Bot added to Channel: {event.chat.title}")
 
+            # --- NEW: Save the access hash immediately ---
+            try:
+                peer = await client.resolve_peer(event.chat.id)
+                if hasattr(peer, "access_hash"):
+                    save_peer(event.chat.id, peer.access_hash)
+            except Exception as e:
+                LOGGER(__name__).warning(f"Failed to save peer for {event.chat.id}: {e}")
+
 @bot.on_message(filters.command("logs") & filters.private)
 async def logs_handler(client, message):
     if not Config.is_authorized(message.chat.id): return
@@ -849,6 +908,9 @@ async def single_dl(bot, message):
     try:
         url = message.command[1].split("?")[0]
         cid, mid = getChatMsgID(url)
+
+        # --- NEW: Save state before starting ---
+        UserState.add_single_task(message.chat.id, cid, mid)
 
         # Track source channel
         try:
@@ -900,6 +962,11 @@ async def initialize():
                 except Exception as e:
                     LOGGER(__name__).warning(f"Could not remove temp file {f}: {e}")
 
+    # --- NEW: Start main bot and inject memory before auto-resuming tasks ---
+    LOGGER(__name__).info("Starting Main Bot...")
+    await bot.start()
+    await resolve_saved_peers(bot)
+
     # AUTO-RESUME
     LOGGER(__name__).info("Checking for interrupted batches...")
     for user_id, batch in UserState.data.items():
@@ -910,9 +977,34 @@ async def initialize():
             LOGGER(__name__).info(f"Auto-Resuming Batch for {user_id}: {start_id}-{end_id}")
             track_task(run_batch_logic(bot, None, batch["source"], start_id, end_id, int(user_id), is_resuming=True))
 
+    # AUTO-RESUME SINGLE TASKS
+    if "single_tasks" in UserState.data:
+        for user_id, tasks in list(UserState.data["single_tasks"].items()):
+            for task in list(tasks):
+                LOGGER(__name__).info(f"Auto-Resuming Single DL for {user_id}: Msg {task['msg_id']}")
+
+                async def resume_single(uid, cid, mid):
+                    fetcher = user if Config.get("download_mode") == "USER" else get_next_worker()
+                    try:
+                        msg = await fetcher.get_messages(cid, mid)
+                        if msg:
+                            # Pass None for message since this is in the background
+                            await safe_download(bot, None, msg, silent=True)
+                    except Exception as e:
+                        LOGGER(__name__).error(f"Failed to resume single dl {mid}: {e}")
+
+                track_task(resume_single(int(user_id), task["source"], task["msg_id"]))
+
 if __name__ == "__main__":
     try:
         LOGGER(__name__).info("System Starting...")
-        asyncio.get_event_loop().run_until_complete(initialize())
-        bot.run()
-    except Exception as e: LOGGER(__name__).error(e)
+        loop = asyncio.get_event_loop()
+        loop.run_until_complete(initialize())
+
+        # --- CHANGED: Keep bot alive with idle() ---
+        loop.run_until_complete(idle())
+
+        # Graceful shutdown
+        loop.run_until_complete(bot.stop())
+    except Exception as e:
+        LOGGER(__name__).error(e)

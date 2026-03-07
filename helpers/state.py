@@ -109,6 +109,28 @@ class StateManager:
             del self.data[uid]
             self.save()
 
+    def add_single_task(self, user_id: int, source_chat_id, msg_id: int):
+        """Add a single download to the persistent queue."""
+        uid = str(user_id)
+        if "single_tasks" not in self.data:
+            self.data["single_tasks"] = {}
+        if uid not in self.data["single_tasks"]:
+            self.data["single_tasks"][uid] = []
+
+        task = {"source": source_chat_id, "msg_id": msg_id}
+        if task not in self.data["single_tasks"][uid]:
+            self.data["single_tasks"][uid].append(task)
+            self.save()
+
+    def remove_single_task(self, user_id: int, source_chat_id, msg_id: int):
+        """Remove a single download from the queue once finished."""
+        uid = str(user_id)
+        if "single_tasks" in self.data and uid in self.data["single_tasks"]:
+            task = {"source": source_chat_id, "msg_id": msg_id}
+            if task in self.data["single_tasks"][uid]:
+                self.data["single_tasks"][uid].remove(task)
+                self.save()
+
 
 # Singleton instance for global access
 UserState = StateManager()
