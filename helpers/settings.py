@@ -19,6 +19,7 @@ SETTINGS_FILE = "downloads/settings.json"
 OWNER_FILE = "downloads/owner_id.txt"
 DUMP_FILE = "downloads/dump_target.txt"
 BOTS_FILE = "downloads/extra_bots.txt"
+SOURCE_HISTORY_FILE = "downloads/source_history.json"
 
 # Default configuration values
 DEFAULT_SETTINGS = {
@@ -138,5 +139,48 @@ class ConfigManager:
                     f.write("\n".join(bots) + "\n")
                 else:
                     f.write("")
+
+    def clear_dump_chat(self):
+        """Clear the destination channel setting."""
+        if os.path.exists(DUMP_FILE):
+            try:
+                os.remove(DUMP_FILE)
+            except OSError:
+                pass
+
+    # --- SOURCE CHANNEL HISTORY ---
+    def get_source_history(self):
+        """Get list of recently used source channels."""
+        if not os.path.exists(SOURCE_HISTORY_FILE):
+            return []
+        try:
+            with open(SOURCE_HISTORY_FILE, "r") as f:
+                data = json.load(f)
+                return data.get("history", [])
+        except (OSError, json.JSONDecodeError):
+            return []
+
+    def add_source_to_history(self, chat_id, chat_title=None):
+        """Add a source channel to history (most recent first, max 10)."""
+        history = self.get_source_history()
+
+        # Create entry with chat_id and optional title
+        entry = {"chat_id": str(chat_id)}
+        if chat_title:
+            entry["title"] = chat_title
+
+        # Remove if already exists
+        history = [h for h in history if h.get("chat_id") != str(chat_id)]
+
+        # Add to front
+        history.insert(0, entry)
+
+        # Keep only last 10
+        history = history[:10]
+
+        # Save
+        self.ensure_dir()
+        with open(SOURCE_HISTORY_FILE, "w") as f:
+            json.dump({"history": history}, f, indent=4)
 
 Config = ConfigManager()
