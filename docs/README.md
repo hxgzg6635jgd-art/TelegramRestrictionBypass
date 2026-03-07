@@ -114,6 +114,7 @@ A step-by-step walkthrough covering:
 ### ⚡ Core Engine
 | Feature | Details |
 |---|---|
+| **Clone Channel** | `/clone <link>` — entire channel with one command (NEW!) |
 | **Single Download** | `/dl <link>` — any one Telegram message |
 | **Batch Download** | `/bdl <start> <end>` — thousands at once |
 | **Media Groups** | Albums re-uploaded together, intact |
@@ -131,6 +132,7 @@ A step-by-step walkthrough covering:
 | **Multi-Bot Pool** | Unlimited worker bots, round-robin distribution |
 | **Live Dashboard** | RAM, storage, uptime, active downloads — live |
 | **Dump Channel** | Forward all output to a target Telegram channel |
+| **Source History** | Track all cloned channels automatically |
 | **User Auth** | Restrict to specific Telegram user IDs |
 | **TgCrypto** | C-level crypto for maximum transfer speed |
 | **Auto Cleanup** | Temp files removed on startup and after each upload |
@@ -758,9 +760,9 @@ All commands are **private chat only**. Only the owner and authorized users can 
 
 | Command | Syntax | Description |
 |---|---|---|
+| `/clone` | `/clone https://t.me/channel/123` | **Clone entire channel automatically** — discovers boundaries and downloads from start to finish |
 | `/dl` | `/dl https://t.me/channel/123` | Download a single Telegram message |
 | `/bdl` | `/bdl https://t.me/channel/100 https://t.me/channel/500` | Batch download messages 100 → 500 |
-| `/clone` | `/clone https://t.me/channel/123` | Clone an entire channel from start to finish (auto-detects last message) |
 
 **Supported link formats:**
 
@@ -789,14 +791,14 @@ https://t.me/c/1234567890/45/123
 ### Example Usage
 
 ```bash
+# Clone an entire channel (automatic boundary detection)
+/clone https://t.me/techcommunity/100
+
 # Download one video
 /dl https://t.me/techcommunity/4521
 
 # Batch download 200 files from a private channel
 /bdl https://t.me/c/1234567890/1 https://t.me/c/1234567890/200
-
-# Clone entire channel (automatically downloads from message 1 to latest)
-/clone https://t.me/techcommunity/4521
 
 # Add a second worker bot
 /connect 9876543210:XYZ-abc123def456...
@@ -881,6 +883,554 @@ Range: 100 - 5000
 - **Tap any bot name** to view its ID, username, role, and connection status
 - **Tap 🗑** to remove a worker bot (main bot is protected and cannot be removed)
 - Removed bots are also purged from `downloads/extra_bots.txt`
+
+---
+
+## 🔄 Smart Clone System
+
+### Overview
+
+The **Smart Clone System** is one of the most powerful features of TelegramRestrictionBypass. It allows you to clone entire Telegram channels with a single command — no need to manually find message IDs or configure ranges. Just paste any message link from the channel, and the bot automatically discovers the channel boundaries and downloads everything from start to finish.
+
+### Key Features
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+#### 🎯 Automatic Discovery
+- **Auto-detects** channel boundaries
+- **Scans** to find the latest message
+- **Determines** full range (1 → latest)
+- **No manual setup** required
+
+#### 🚀 Performance
+- **Parallel downloads** with worker pools
+- **Batch processing** in 200-message chunks
+- **Direct forwarding** for unprotected content
+- **Concurrent uploads** via multiple bots
+
+</td>
+<td width="50%" valign="top">
+
+#### 🛡️ Reliability
+- **Crash-safe** state persistence
+- **Auto-resume** from interruption point
+- **FloodWait handling** with backoff
+- **Error recovery** and retry logic
+
+#### 📊 Tracking
+- **Source history** of cloned channels
+- **Real-time progress** updates
+- **Dashboard monitoring** of active clones
+- **Completion notifications**
+
+</td>
+</tr>
+</table>
+
+### How Clone Works
+
+#### Step-by-Step Process
+
+1. **User sends command** — `/clone https://t.me/channel/123`
+2. **Link parsing** — Bot extracts chat ID from the link
+3. **Boundary scanning** — Bot fetches channel history to find latest message
+4. **Range determination** — Sets start=1, end=latest_message_id
+5. **State persistence** — Saves batch to `downloads/user_state.json`
+6. **Batch processing** — Downloads in 200-message chunks
+7. **Progress updates** — Reports every 200 messages
+8. **Auto-resume** — Recovers from crashes automatically
+9. **Completion** — Notifies when all messages downloaded
+
+#### Technical Flow
+
+```
+/clone https://t.me/channel/500
+          │
+          ▼
+Parse chat ID from link
+          │
+          ▼
+Fetch chat_history(limit=1) → Get latest message ID (e.g., 5432)
+          │
+          ▼
+Determine range: start=1, end=5432
+          │
+          ▼
+Save state to downloads/user_state.json
+          │
+          ▼
+run_batch_logic(1, 5432)
+          │
+          ├─► Chunk 1: Messages 1-200
+          ├─► Chunk 2: Messages 201-400
+          ├─► Chunk 3: Messages 401-600
+          │   ...
+          └─► Chunk 28: Messages 5401-5432
+          │
+          ▼
+✅ Batch Complete! Total: 5,432 messages
+```
+
+### Usage Examples
+
+#### Basic Clone
+
+```bash
+# Clone a public channel
+/clone https://t.me/techcommunity/100
+
+# What the bot does:
+# 🔍 Scanning channel to find latest message...
+# ✓ Found: Message 5,432 (latest)
+# 📊 Range determined: 1 → 5,432
+# 🚀 Batch Started (BOT): 1 - 5432
+```
+
+#### Clone Private Channel
+
+```bash
+# 1. Switch to USER mode
+Dashboard → "👤 User Mode"
+
+# 2. Join the channel (if not already a member)
+/join https://t.me/+PrivateInviteLink
+
+# 3. Clone the channel
+/clone https://t.me/c/1234567890/100
+
+# Bot uses your user account to access restricted content
+```
+
+#### Clone with Worker Pool
+
+```bash
+# 1. Add multiple worker bots
+/connect 111111:AAA...
+/connect 222222:BBB...
+/connect 333333:CCC...
+
+# 2. Clone large channel
+/clone https://t.me/largechannel/1
+
+# Workers distribute upload load = 3-5× faster!
+```
+
+#### Clone to Dump Channel
+
+```bash
+# 1. Create a Telegram channel
+# 2. Add your bot as admin (with "Post Messages" permission)
+# 3. Bot auto-detects and saves the channel
+
+# 4. Clone sources — all go to dump channel
+/clone https://t.me/source1/1
+/clone https://t.me/source2/1
+/clone https://t.me/source3/1
+
+# All content appears in your dump channel automatically
+```
+
+### Clone vs Batch vs Single
+
+| Feature | `/clone` | `/bdl` | `/dl` |
+|---------|----------|--------|-------|
+| **Target** | Entire channel (auto) | Custom range (manual) | Single message |
+| **Input** | Any message link | Start + end links | One link |
+| **Boundary Detection** | ✅ Automatic | ❌ Manual | N/A |
+| **Best For** | Full channel archives | Specific sections | Individual files |
+| **Setup Complexity** | Minimal (1 link) | Medium (2 links) | Minimal (1 link) |
+| **Resume Support** | ✅ Yes | ✅ Yes | ❌ No |
+| **Source Tracking** | ✅ Yes | ✅ Yes | ✅ Yes |
+| **Media Groups** | ✅ Preserved | ✅ Preserved | ✅ Preserved |
+
+**When to use each:**
+- **`/clone`** — Archive entire channels, migrate content, full backups
+- **`/bdl`** — Download specific date ranges, selected portions
+- **`/dl`** — Single videos, documents, or messages
+
+### Real-World Use Cases
+
+#### 1. Educational Content Archive
+
+```bash
+# Archive an educational channel for offline access
+/clone https://t.me/programming_tutorials/1
+
+# Use case: Students can access lectures offline
+# Result: Complete course archive with all videos and PDFs
+```
+
+#### 2. News Channel Backup
+
+```bash
+# Backup a news channel for research purposes
+/clone https://t.me/tech_news_daily/1
+
+# Use case: Researcher analyzing news trends
+# Result: Complete historical archive of all articles
+```
+
+#### 3. Media Collection Migration
+
+```bash
+# Move content from old channel to new channel
+
+# 1. Set new channel as dump target
+# 2. Clone old channel
+/clone https://t.me/old_movie_channel/1
+
+# Use case: Channel owner migrating to new account
+# Result: All movies transferred to new channel
+```
+
+#### 4. Private Group Backup
+
+```bash
+# Backup restricted group content before it gets deleted
+
+# 1. Switch to USER mode
+# 2. Clone the group
+/clone https://t.me/c/1234567890/1
+
+# Use case: Preserving important group discussions
+# Result: Complete backup of all messages and files
+```
+
+#### 5. Multiple Channel Aggregation
+
+```bash
+# Clone multiple related channels into one dump channel
+
+# 1. Set up dump channel
+# 2. Clone all sources
+/clone https://t.me/science_news/1
+/clone https://t.me/tech_updates/1
+/clone https://t.me/research_papers/1
+
+# Use case: Content curator aggregating sources
+# Result: All content unified in single channel
+```
+
+### Source History Tracking
+
+Every cloned channel is automatically tracked in source history:
+
+#### Viewing Source History
+
+```bash
+# Via dashboard
+/start → "📥 Sources" button
+
+# Shows recent sources:
+📥 Source Channel Manager
+
+Recent Sources:
+1. TechCommunity (1234567890)
+2. ScienceNews (9876543210)
+3. MovieArchive (5555555555)
+4. ResearchPapers (1111111111)
+...
+```
+
+#### Source History Storage
+
+```
+downloads/source_history.json:
+[
+  {
+    "chat_id": -1001234567890,
+    "title": "TechCommunity"
+  },
+  {
+    "chat_id": -1009876543210,
+    "title": "ScienceNews"
+  },
+  ...
+]
+```
+
+**Benefits:**
+- **Quick reference** to previously cloned channels
+- **Audit trail** of content sources
+- **Easy re-cloning** if needed
+- **Dashboard integration** for management
+
+### Progress Monitoring
+
+#### Real-Time Updates
+
+```
+Clone in progress:
+📥 Progress: 200 items. 📍 Current: 200
+📥 Progress: 400 items. 📍 Current: 400
+📥 Progress: 600 items. 📍 Current: 600
+📥 Progress: 800 items. 📍 Current: 800
+...
+✅ Batch Complete! Total: 5,432 files
+```
+
+#### Dashboard Monitoring
+
+```
+🤖 Restricted Content Downloader
+━━━━━━━━━━━━━━━━━━━━━
+⚡ Active DLs: 3 | Tasks: 8
+🤖 Worker Bots: 4 active
+⏱ Uptime: 2h 15m 43s
+💾 Storage: 12.4 GB free
+🧠 RAM Load: 58%
+━━━━━━━━━━━━━━━━━━━━━
+📂 Destination: Channel -10012345
+🛠 Current Mode: BOT
+```
+
+#### Log File Monitoring
+
+```bash
+# Download logs via bot
+/logs
+
+# Or view directly
+tail -f logs.txt
+
+# Log entries show:
+# [DD-Mon-YY HH:MM:SS] - INFO - Processing message 1234
+# [DD-Mon-YY HH:MM:SS] - INFO - Downloaded: video.mp4 (15.2 MB)
+# [DD-Mon-YY HH:MM:SS] - INFO - Progress: 1234/5432 (22.7%)
+```
+
+### Crash Recovery
+
+The clone system is **crash-safe** — if the bot crashes or server restarts, cloning automatically resumes.
+
+#### How It Works
+
+1. **State saved** after every message to `downloads/user_state.json`
+2. **On restart**, bot detects incomplete batch
+3. **Auto-resumes** from last processed message
+4. **No data loss** — progress preserved
+
+#### State File Example
+
+```json
+{
+  "123456789": {
+    "source": -1001234567890,
+    "start": 1,
+    "end": 5432,
+    "current": 2847,
+    "status": "active"
+  }
+}
+```
+
+**If bot crashes at message 2847:**
+- Restart: `python main.py`
+- Bot automatically resumes from 2848
+- Remaining: 2,585 messages to download
+
+#### Manual Resume Control
+
+```bash
+# Send /bdl without arguments to see resume options
+/bdl
+
+# Bot shows:
+⚠️ Found Batch!
+Source: TechCommunity
+Range: 1 - 5432
+Current: 2847
+
+[ ▶️ Resume (2848) ]   ← Continue from 2848
+[ 🔄 Start Over   ]    ← Restart from 1
+[ ✖️ Cancel       ]    ← Clear saved state
+```
+
+### Performance Optimization
+
+#### Speed Tips
+
+| Strategy | Speed Gain | Implementation |
+|----------|------------|----------------|
+| **Add Worker Bots** | 3-5× faster | `/connect <token>` for each bot |
+| **Use Dump Channel** | 20-30% faster | Add bot as channel admin |
+| **Increase Concurrency** | 30-50% faster | `MAX_CONCURRENT_DOWNLOADS=5` |
+| **BOT Mode** | 2× faster | Use for public channels |
+| **Direct Forwarding** | 10× faster | Automatic for unprotected content |
+
+#### Configuration Tuning
+
+```env
+# config.env optimizations
+
+# Fast setup (may hit rate limits)
+MAX_CONCURRENT_DOWNLOADS=5
+FLOOD_WAIT_DELAY=0
+BATCH_SIZE=200
+
+# Balanced (recommended)
+MAX_CONCURRENT_DOWNLOADS=3
+FLOOD_WAIT_DELAY=2
+BATCH_SIZE=200
+
+# Conservative (slow but safe)
+MAX_CONCURRENT_DOWNLOADS=1
+FLOOD_WAIT_DELAY=5
+BATCH_SIZE=100
+```
+
+### Troubleshooting
+
+#### Clone Stopped Midway
+
+**Symptoms:** Clone stops, no progress updates
+
+**Solutions:**
+1. Check bot status: `docker compose ps` or `systemctl status tgbypass`
+2. Restart bot: `python main.py`
+3. Bot auto-resumes from last position
+4. Or manually: `/bdl` → "▶️ Resume"
+
+#### Clone Too Slow
+
+**Symptoms:** 1-2 files per minute
+
+**Solutions:**
+1. **Add worker bots:** `/connect <token>` (3-5 recommended)
+2. **Use dump channel** instead of private chat
+3. **Increase concurrency:** `MAX_CONCURRENT_DOWNLOADS=5`
+4. **Switch to BOT mode** for public channels
+5. **Check internet speed** — minimum 10 Mbps recommended
+
+#### FloodWait Errors
+
+**Symptoms:** "Please wait X seconds" errors
+
+**Solutions:**
+1. **Increase delay:** `FLOOD_WAIT_DELAY=5` or `10`
+2. **Reduce concurrency:** `MAX_CONCURRENT_DOWNLOADS=2`
+3. **Add more workers** to distribute load
+4. **Wait it out** — bot retries automatically
+5. **Use USER mode** — different rate limits
+
+#### Can't Access Private Channel
+
+**Symptoms:** "Chat not found" or "Access denied"
+
+**Solutions:**
+1. **Switch to USER mode:** Dashboard → "👤 User Mode"
+2. **Join channel:** `/join https://t.me/+InviteLink`
+3. **Verify SESSION_STRING** in config.env
+4. **Check membership** — ensure your account has access
+5. **Invite link valid?** — test in official Telegram app
+
+#### Disk Full During Clone
+
+**Symptoms:** Clone stops, "No space left" error
+
+**Solutions:**
+1. **Clean temp files:** `/clean`
+2. **Check disk:** `df -h` shows free space
+3. **Use dump channel** — reduces local storage need
+4. **Increase disk space** — 20GB minimum for large clones
+5. **Clone in batches** — use `/bdl` for smaller ranges
+
+### Best Practices
+
+#### Before Cloning
+
+✅ **DO:**
+- Check available disk space (20GB+ for large channels)
+- Add worker bots for large channels (1000+ messages)
+- Set up dump channel for organized output
+- Switch to USER mode for private content
+- Verify bot has necessary permissions
+
+❌ **DON'T:**
+- Clone without checking disk space
+- Use aggressive settings (may trigger bans)
+- Clone copyrighted content illegally
+- Exceed Telegram's rate limits repeatedly
+- Share your SESSION_STRING
+
+#### During Cloning
+
+✅ **DO:**
+- Monitor dashboard for progress
+- Check logs for errors: `/logs`
+- Let bot handle FloodWait automatically
+- Keep bot running until completion
+
+❌ **DON'T:**
+- Stop/restart unnecessarily
+- Change settings mid-clone
+- Delete state files manually
+- Interrupt deliberately
+
+#### After Cloning
+
+✅ **DO:**
+- Verify completion notification
+- Clean temp files: `/clean`
+- Review cloned content
+- Update source history if needed
+
+❌ **DON'T:**
+- Delete dump channel immediately
+- Lose track of source attribution
+- Forget to backup important content
+- Violate content creator rights
+
+### Advanced Techniques
+
+#### Parallel Channel Cloning
+
+```bash
+# Method 1: Sequential (one after another)
+/clone https://t.me/channel1/1  # Wait for completion
+/clone https://t.me/channel2/1  # Then start next
+
+# Method 2: Multiple bot instances (advanced)
+# Run separate bot instances with different configs
+# Each clones a different channel simultaneously
+```
+
+#### Selective Cloning
+
+```bash
+# Clone only recent messages
+/bdl https://t.me/channel/9000 https://t.me/channel/10000
+
+# Clone specific sections
+/bdl https://t.me/channel/1 https://t.me/channel/1000    # Part 1
+/bdl https://t.me/channel/1001 https://t.me/channel/2000 # Part 2
+```
+
+#### Scheduled Cloning
+
+```bash
+# Use cron (Linux) for automated daily clones
+crontab -e
+
+# Add:
+0 2 * * * cd /path/to/bot && ./venv/bin/python main.py --clone-url https://t.me/news/1
+
+# Or use systemd timers for more control
+```
+
+### Summary
+
+The Smart Clone System is designed for **effortless channel archiving**:
+
+- **One command** — no complex setup
+- **Automatic** — discovers boundaries for you
+- **Reliable** — crash-safe with auto-resume
+- **Fast** — parallel processing with workers
+- **Tracked** — source history for all clones
+
+**Start cloning channels today with just:** `/clone <link>`
 
 ---
 
